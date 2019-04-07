@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System.IO;
 using System.Reflection;
 
-namespace TestProjec.Course1
+namespace TestProject.Course1
 {
     class HomPageTests
     {
