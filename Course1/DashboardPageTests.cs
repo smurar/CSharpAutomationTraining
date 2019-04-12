@@ -68,7 +68,7 @@ namespace Course1
             driver.FindElement(By.XPath("//input[@value='female']")).Click();
             driver.FindElement(By.XPath("//input[@value='Bike']")).Click();
             driver.FindElement(By.XPath("//input[@type='date']")).SendKeys("09251990");
-            driver.FindElement(By.XPath("//input[@type='file']")).SendKeys("C:\\Users\\rparlaghi\\Desktop\\SamplePNGImage_100kbmb.png");
+            //driver.FindElement(By.XPath("//input[@type='file']")).SendKeys(setup.photo);
             driver.FindElement(By.XPath("//button[@id='SaveDetails']")).Click();
             Assert.True(driver.FindElement(By.XPath("//p[@id='detailsSavedMessage']")).Displayed);
             Assert.True(driver.FindElement(By.XPath("//p[@id='detailsSavedMessage']")).Text.Equals("Details saved"));

@@ -16,6 +16,7 @@ namespace Course1
 
         public IWebDriver driver;
         public string homePage = "file:///D:/Workspace/csharp_automation/CSharpAutomationTraining/Pages/homepage.html";
+        //public string photo = "file:///D:/Workspace/csharp_automation/CSharpAutomationTraining/Course1/FilesToUpload/SamplePNGImage_100kbmb.png";
 
         public IWebDriver Initialize()
         {
