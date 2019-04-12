@@ -22,6 +22,7 @@ namespace TestProject.Course1
             driver.FindElement(By.Id("email")).SendKeys("admin@domain.org");
             driver.FindElement(By.Id("password")).SendKeys("111111");
             driver.FindElement(By.Id("Login")).Click();
+            WaitForSpinnerToFinish();
         }
 
         [TearDown]
@@ -30,7 +31,7 @@ namespace TestProject.Course1
             driver.Quit();
         }
 
-        public void WaitForLoaderToFinish()
+        public void WaitForSpinnerToFinish()
         {
             while (driver.FindElement(By.Id("loader")).Displayed)
             {
@@ -60,25 +61,22 @@ namespace TestProject.Course1
 
         [Test]
         public void EditPersonalInformationSuccesful()
-        {
-            WaitForLoaderToFinish();
+        {           
             driver.FindElement(By.Id("firstname")).Clear();
             driver.FindElement(By.Id("firstname")).SendKeys("Iulian");
             driver.FindElement(By.XPath("//input[@value='David']")).Clear();
             driver.FindElement(By.XPath("//input[@value='David']")).SendKeys("Tancau");
             driver.FindElement(By.Name("vehicle2")).Click();
-            driver.FindElement(By.Name("bday")).SendKeys("07/01/1995");
-
-            driver.FindElement(By.Name("picture")).SendKeys(@"C:\Training\CSharpAutomationTraining\TestProject\Photo\car.jpeg");
-            driver.FindElement(By.Id("SaveDetails")).Click();            
-
+            driver.FindElement(By.Name("bday")).SendKeys("07/01/1995");              
+            driver.FindElement(By.Name("picture")).SendKeys(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Photos\car.jpeg");           
+            driver.FindElement(By.Id("SaveDetails")).Click();
             StringAssert.AreEqualIgnoringCase("Details saved", driver.FindElement(By.Id("detailsSavedMessage")).Text);
         }
 
         [Test]
         public void SuccessfulLogOut()
         {
-            WaitForLoaderToFinish();
+            WaitForSpinnerToFinish();
             driver.FindElement(By.Id("Logout")).Click();
             StringAssert.AreEqualIgnoringCase("Home Page", driver.Title, "Page title is not correct");
         }
