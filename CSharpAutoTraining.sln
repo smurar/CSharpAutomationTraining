@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpAutoTraining", "CSharpAutoTraining\CSharpAutoTraining.csproj", "{E83F1479-7C6A-41EA-B56F-05D559E1F475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Course1", "Course1\Course1.csproj", "{FB05772E-FC68-4765-A42D-6C28E90BC9CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{E83F1479-7C6A-41EA-B56F-05D559E1F475}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E83F1479-7C6A-41EA-B56F-05D559E1F475}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E83F1479-7C6A-41EA-B56F-05D559E1F475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB05772E-FC68-4765-A42D-6C28E90BC9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB05772E-FC68-4765-A42D-6C28E90BC9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB05772E-FC68-4765-A42D-6C28E90BC9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB05772E-FC68-4765-A42D-6C28E90BC9CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D89445AB-4D94-48E4-B7BD-999ECE785C9A}
 	EndGlobalSection
 EndGlobal
