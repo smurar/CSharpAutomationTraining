@@ -27,8 +27,9 @@ namespace Course1
             driver.Url = "file:///D:/workspace/Pages/homepage.html";
             Assert.True(driver.Title.Equals("Home page"));
             driver.FindElement(By.Id("email")).SendKeys("admin@domain.org");
-            driver.FindElement(By.Id("Login")).Click();
             driver.FindElement(By.Id("password")).SendKeys("111111");
+            driver.FindElement(By.Id("Login")).Click();
+            
             driver.Quit();
 
         }
