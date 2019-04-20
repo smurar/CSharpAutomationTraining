@@ -28,6 +28,7 @@ namespace Course1
             Assert.True(driver.Title.Equals("Home page"));
             driver.FindElement(By.Id("email")).SendKeys("admin@domain.org");
             driver.FindElement(By.Id("Login")).Click();
+            driver.FindElement(By.Id("password")).SendKeys("111111");
             driver.Quit();
 
         }
