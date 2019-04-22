@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CSharpAutoTraining;
+using System;
+
 
 namespace Curs1
 {
@@ -8,6 +10,16 @@ namespace Curs1
         {
             // simple Hello World program in C#
             Console.WriteLine("Hello world");
+
+
+            //HomepageClass hpc = new HomepageClass();
+
+            //hpc.InitializeDriver();
+
+            //hpc.HomepageTitle();
+
+            //hpc.CloseDriver();
+
             Console.ReadKey();
         }
     }
