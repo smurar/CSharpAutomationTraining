@@ -134,6 +134,13 @@ namespace CSharpAutoTraining
         }
 
         [Test, Order(12)]
+        public void DetailsSavedMessage()
+        {
+            var DetailsSavedMessage = driver.FindElement(By.Id("detailsSavedMessage"));
+            Assert.AreEqual(DetailsSavedMessage.Text, "Details saved");
+        }
+
+        [Test, Order(13)]
         public void FooterLinks()
         {
          
@@ -145,7 +152,7 @@ namespace CSharpAutoTraining
             }
         }
 
-        [Test, Order(13)]
+        [Test, Order(14)]
         public void Logout()
         {
             IWebElement logoutButton;
