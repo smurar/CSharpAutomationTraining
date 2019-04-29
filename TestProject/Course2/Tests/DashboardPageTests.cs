@@ -8,32 +8,28 @@ namespace TestProject.Course2.Tests.DashboardPage
         [Test]
         public void HeaderItemsDisplayed()
         {
-            GoToHomePage()
-                .GoToDashboarPage()
+           GoToDashboardPage()
                 .CheckPageHeaderElements();
         }
 
         [Test]
         public void PageTitleOk()
         {
-            GoToHomePage()
-                .GoToDashboarPage()
+            GoToDashboardPage()
                 .CheckPageTitle();
         }
 
         [Test]
         public void PageHeadlingTitleOk()
         {
-            GoToHomePage()
-                .GoToDashboarPage()
+            GoToDashboardPage()
                 .CheckHeadlingTitle();
         }
 
         [Test]
         public void EditPersonalInformationSuccesful()
         {
-            GoToHomePage()
-                .GoToDashboarPage()
+            GoToDashboardPage()
                 .CompleteAllFields()
                 .ClickSaveButton()
                 .CheckMessageAfterSave();
@@ -42,8 +38,7 @@ namespace TestProject.Course2.Tests.DashboardPage
         [Test]
         public void SuccessfulLogOut()
         {
-            GoToHomePage()
-                .GoToDashboarPage()
+            GoToDashboardPage()
                 .GoToHomePage()
                 .CheckPageTitle();
         }
@@ -51,8 +46,7 @@ namespace TestProject.Course2.Tests.DashboardPage
         [Test]
         public void FooterLinksAreDisplayed()
         {
-            GoToHomePage()
-                .GoToDashboarPage()
+            GoToDashboardPage()
                 .CheckFooterElements();
         }
     }

@@ -2,7 +2,8 @@
 using OpenQA.Selenium;
 using System.Threading;
 using TestProject.Course2.Base;
-using TestProject.Course2.Resources;
+using TestProject.Course2.Resources.Resx;
+using TestProject.Course2.Resources.Class;
 
 namespace TestProject.Course2.POM
 {
@@ -53,7 +54,7 @@ namespace TestProject.Course2.POM
         #region Validation Methods
         public DashboardPagePOM CheckPageTitle()
         {
-            StringAssert.AreEqualIgnoringCase(DashboardPageResources.PageTitle, driver.Title, AssertMessages.WrongPageTitle);
+            StringAssert.AreEqualIgnoringCase(DashboardPageResx.PageTitle, driver.Title, AssertMessages.WrongPageTitle);
 
             return this;
         }       
@@ -78,14 +79,14 @@ namespace TestProject.Course2.POM
 
         public DashboardPagePOM CheckHeadlingTitle()
         {
-            StringAssert.AreEqualIgnoringCase(DashboardPageResources.HeadlingTitle, HeadlingTitle.Text, AssertMessages.WrongHeadlingTitle);
+            StringAssert.AreEqualIgnoringCase(DashboardPageResx.HeadlingTitle, HeadlingTitle.Text, AssertMessages.WrongHeadlingTitle);
 
             return this;
         }
 
         public DashboardPagePOM CheckMessageAfterSave()
         {
-            StringAssert.AreEqualIgnoringCase(DashboardPageResources.DetailsSaved, DetailsSavedMessage.Text);
+            StringAssert.AreEqualIgnoringCase(DashboardPageResx.DetailsSaved, DetailsSavedMessage.Text);
 
             return this;
         }
@@ -111,11 +112,11 @@ namespace TestProject.Course2.POM
         public DashboardPagePOM CompleteAllFields()
         {
             WaitForSpinnerToLoad();
-            EnterFirsname(DashboardPageResources.FirstName);
-            EnterLastname(DashboardPageResources.LastName);            
+            EnterFirsname(DashboardPageResx.FirstName);
+            EnterLastname(DashboardPageResx.LastName);            
             VehicleOneCheckBox.Click();
-            BirthdayField.SendKeys(DashboardPageResources.BirthDay);
-            UploadPictureButton.SendKeys(Constants.PhotoPath);                     
+            BirthdayField.SendKeys(DashboardPageResx.BirthDay);
+            UploadPictureButton.SendKeys(Paths.CarPhoto);                     
 
             return this;
         }

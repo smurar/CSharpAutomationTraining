@@ -45,7 +45,7 @@ namespace TestProject.Course2.Tests.HomePage
         {
             GoToHomePage()
                 .ClickLogInButton()
-                .CheckEmptyLogInError();
+                .ChecLogInWithEmptyCredentialsError();
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace TestProject.Course2.Tests.HomePage
         public void SuccessfulLogIn()
         {      
             GoToHomePage()
-                .GoToDashboarPage()
+                .LogInSuccesful()
                 .CheckPageTitle();
         }
 

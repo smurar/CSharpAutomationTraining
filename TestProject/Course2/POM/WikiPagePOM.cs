@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using TestProject.Course2.Resources.Resx;
 
 namespace TestProject.Course2.POM
 {
@@ -14,7 +15,7 @@ namespace TestProject.Course2.POM
 
         public WikiPagePOM CheckPageTitle()
         {
-            StringAssert.AreEqualIgnoringCase("Wiki page", driver.Title, "Page title is not correct");
+            StringAssert.AreEqualIgnoringCase(WikiPageResx.PageTitle, driver.Title, AssertMessages.WrongPageTitle);
 
             return this;
         }

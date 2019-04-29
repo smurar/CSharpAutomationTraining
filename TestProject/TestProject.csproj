@@ -58,21 +58,26 @@
     <Compile Include="Course2\Base\BasePage.cs" />
     <Compile Include="Course2\POM\DashboardPagePOM.cs" />
     <Compile Include="Course2\POM\WikiPagePOM.cs" />
-    <Compile Include="Course2\Resources\AssertMessages.Designer.cs">
+    <Compile Include="Course2\Resources\Resx\AssertMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AssertMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Course2\Resources\Constants.cs" />
-    <Compile Include="Course2\Resources\DashboardPageResources1.Designer.cs">
+    <Compile Include="Course2\Resources\Class\Paths.cs" />
+    <Compile Include="Course2\Resources\Resx\DashboardPageResx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DashboardPageResources.resx</DependentUpon>
+      <DependentUpon>DashboardPageResx.resx</DependentUpon>
     </Compile>
-    <Compile Include="Course2\Resources\HomePageResources.Designer.cs">
+    <Compile Include="Course2\Resources\Resx\HomePageResx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HomePageResources.resx</DependentUpon>
+      <DependentUpon>HomePageResx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\Resources\Resx\WikiPageResx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WikiPageResx.resx</DependentUpon>
     </Compile>
     <Compile Include="Course2\Tests\DashboardPageTests.cs" />
     <Compile Include="Course2\POM\HomePagePOM.cs" />
@@ -84,18 +89,39 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Course2\Resources\AssertMessages.resx">
+    <EmbeddedResource Include="Course2\Resources\Resx\AssertMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AssertMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\DashboardPageResources.resx">
+    <EmbeddedResource Include="Course2\Resources\Resx\DashboardPageResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DashboardPageResources1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DashboardPageResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\HomePageResources.resx">
+    <EmbeddedResource Include="Course2\Resources\Resx\HomePageResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomePageResources.Designer.cs</LastGenOutput>
+      <LastGenOutput>HomePageResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Course2\Resources\Resx\WikiPageResx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WikiPageResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Course2\Resources\Driver\chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Course2\Resources\Pages\dashboardpage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Course2\Resources\Pages\homepage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Course2\Resources\Pages\wikipage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Course2\Resources\Photo\car.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

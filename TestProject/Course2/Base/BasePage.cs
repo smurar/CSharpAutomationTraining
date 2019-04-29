@@ -1,10 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System.IO;
-using System.Reflection;
 using TestProject.Course2.POM;
-using TestProject.Course2.Resources;
+using TestProject.Course2.Resources.Class;
 
 namespace TestProject.Course2.Base
 {
@@ -15,7 +13,7 @@ namespace TestProject.Course2.Base
         [SetUp]
         public void BeforeEachTest()
         {
-            Driver = new ChromeDriver(Constants.DriverPath);
+            Driver = new ChromeDriver(Paths.Driver);
         }
 
         [TearDown]
@@ -26,9 +24,17 @@ namespace TestProject.Course2.Base
 
         public HomePagePOM GoToHomePage()
         {
-            Driver.Url = System.Configuration.ConfigurationManager.AppSettings["URL"];
+            Driver.Url = Paths.HomePageUrl;
 
             return new HomePagePOM(Driver);
         }        
+
+        public DashboardPagePOM GoToDashboardPage()
+        {
+            GoToHomePage()
+                .LogInSuccesful();
+               
+            return new DashboardPagePOM(Driver);
+        }
     }
 }

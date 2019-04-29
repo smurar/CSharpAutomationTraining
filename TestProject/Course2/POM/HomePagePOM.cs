@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using TestProject.Course2.Base;
-using TestProject.Course2.Resources;
+using TestProject.Course2.Resources.Resx;
 
 namespace TestProject.Course2.POM
 {
@@ -40,7 +40,7 @@ namespace TestProject.Course2.POM
         #region Validation Methods
         public HomePagePOM CheckPageTitle()
         {
-            StringAssert.AreEqualIgnoringCase(HomePageResources.PageTitle , driver.Title, AssertMessages.WrongPageTitle);
+            StringAssert.AreEqualIgnoringCase(HomePageResx.PageTitle , driver.Title, AssertMessages.WrongPageTitle);
 
             return this;
         }
@@ -56,15 +56,15 @@ namespace TestProject.Course2.POM
 
         public HomePagePOM CheckHeadlingTitle()
         {
-            StringAssert.AreEqualIgnoringCase(HomePageResources.HeadlingTitle, HeadlingTitle.Text, AssertMessages.WrongHeadlingTitle);
+            StringAssert.AreEqualIgnoringCase(HomePageResx.HeadlingTitle, HeadlingTitle.Text, AssertMessages.WrongHeadlingTitle);
 
             return this;
         }
 
         public HomePagePOM CheckDefaultLogInCredentials()
         {
-            StringAssert.Contains(HomePageResources.User, DefaultUser.Text, AssertMessages.InvalidValue);
-            StringAssert.Contains(HomePageResources.Password, DefaultPassword.Text, AssertMessages.InvalidValue);
+            StringAssert.Contains(HomePageResx.User, DefaultUser.Text, AssertMessages.InvalidValue);
+            StringAssert.Contains(HomePageResx.Password, DefaultPassword.Text, AssertMessages.InvalidValue);
 
             return this;
         }
@@ -92,7 +92,7 @@ namespace TestProject.Course2.POM
             return this;
         }
 
-        public HomePagePOM CheckEmptyLogInError()
+        public HomePagePOM ChecLogInWithEmptyCredentialsError()
         {
             CheckEmailFieldError("Email address can't be null");
             CheckPasswrodFieldError("Password can't be null");
@@ -140,10 +140,10 @@ namespace TestProject.Course2.POM
         }
         #endregion
         #region Navigation Methods
-        public DashboardPagePOM GoToDashboarPage()
+        public DashboardPagePOM LogInSuccesful()
         {
-            EnterLogInUser(HomePageResources.User)
-                .EnterLogInPassword(HomePageResources.Password)
+            EnterLogInUser(HomePageResx.User)
+                .EnterLogInPassword(HomePageResx.Password)
                 .ClickLogInButton();
 
             return new DashboardPagePOM(driver);
