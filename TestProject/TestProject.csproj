@@ -39,6 +39,7 @@
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -54,10 +55,47 @@
   <ItemGroup>
     <Compile Include="Course1\DashboardPageTests.cs" />
     <Compile Include="Course1\HomPageTests.cs" />
+    <Compile Include="Course2\Base\BasePage.cs" />
+    <Compile Include="Course2\POM\DashboardPagePOM.cs" />
+    <Compile Include="Course2\POM\WikiPagePOM.cs" />
+    <Compile Include="Course2\Resources\AssertMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssertMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\Resources\Constants.cs" />
+    <Compile Include="Course2\Resources\DashboardPageResources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DashboardPageResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\Resources\HomePageResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomePageResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\Tests\DashboardPageTests.cs" />
+    <Compile Include="Course2\POM\HomePagePOM.cs" />
+    <Compile Include="Course2\Tests\HomePageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Course2\App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Course2\Resources\AssertMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AssertMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Course2\Resources\DashboardPageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DashboardPageResources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Course2\Resources\HomePageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomePageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
