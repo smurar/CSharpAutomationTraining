@@ -4,6 +4,7 @@ using System.Threading;
 using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Resx;
 using TestProject.Course2.Resources.Class;
+using TestProject.Course2.Reports;
 
 namespace TestProject.Course2.POM
 {
@@ -55,6 +56,7 @@ namespace TestProject.Course2.POM
         public DashboardPagePOM CheckPageTitle()
         {
             StringAssert.AreEqualIgnoringCase(DashboardPageResx.PageTitle, driver.Title, AssertMessages.WrongPageTitle);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }       
@@ -64,6 +66,7 @@ namespace TestProject.Course2.POM
             Assert.IsTrue(HeaderPhoto.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(HeaderHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(HeaderWikiPageLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -73,6 +76,7 @@ namespace TestProject.Course2.POM
             Assert.IsTrue(FooterHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(FooterWikiLink.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(FooterContactLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -80,6 +84,7 @@ namespace TestProject.Course2.POM
         public DashboardPagePOM CheckHeadlingTitle()
         {
             StringAssert.AreEqualIgnoringCase(DashboardPageResx.HeadlingTitle, HeadlingTitle.Text, AssertMessages.WrongHeadlingTitle);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -87,6 +92,7 @@ namespace TestProject.Course2.POM
         public DashboardPagePOM CheckMessageAfterSave()
         {
             StringAssert.AreEqualIgnoringCase(DashboardPageResx.DetailsSaved, DetailsSavedMessage.Text);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }

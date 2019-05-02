@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using TestProject.Course2.Base;
+using TestProject.Course2.Resources.Resx;
 
 namespace TestProject.Course2.Tests.HomePage
 {
@@ -52,9 +53,9 @@ namespace TestProject.Course2.Tests.HomePage
         public void InvalidEmailFormatErrorMessage()
         {
             GoToHomePage()
-                .EnterLogInUser("testUser")
+                .EnterLogInUser(HomePageResx.InvalidUser)
                 .ClickLogInButton()
-                .CheckEmailFieldError("Email address format is not valid");
+                .CheckEmailFieldError(HomePageResx.EmailFormatError);
         }
 
         [Test]
@@ -63,7 +64,7 @@ namespace TestProject.Course2.Tests.HomePage
             GoToHomePage()
                 .EnterInvalidLogInCredentials()
                 .ClickLogInButton()
-                .CheckPasswrodFieldError("Invalid password/email");
+                .CheckPasswrodFieldError(HomePageResx.InvalidPasswordEmailError);
         }
 
         [Test]

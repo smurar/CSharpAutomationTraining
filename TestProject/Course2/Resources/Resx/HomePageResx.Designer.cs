@@ -61,11 +61,65 @@ namespace TestProject.Course2.Resources.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email address format is not valid.
+        /// </summary>
+        internal static string EmailFormatError {
+            get {
+                return ResourceManager.GetString("EmailFormatError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HTML.
         /// </summary>
         internal static string HeadlingTitle {
             get {
                 return ResourceManager.GetString("HeadlingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InvalidPassword.
+        /// </summary>
+        internal static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid password/email.
+        /// </summary>
+        internal static string InvalidPasswordEmailError {
+            get {
+                return ResourceManager.GetString("InvalidPasswordEmailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InvalidUser.
+        /// </summary>
+        internal static string InvalidUser {
+            get {
+                return ResourceManager.GetString("InvalidUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email address can&apos;t be null.
+        /// </summary>
+        internal static string NullEmailError {
+            get {
+                return ResourceManager.GetString("NullEmailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password can&apos;t be null.
+        /// </summary>
+        internal static string NullPasswordError {
+            get {
+                return ResourceManager.GetString("NullPasswordError", resourceCulture);
             }
         }
         

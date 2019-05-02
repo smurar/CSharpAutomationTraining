@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using TestProject.Course2.Base;
+using TestProject.Course2.Reports;
 using TestProject.Course2.Resources.Resx;
 
 namespace TestProject.Course2.POM
@@ -50,6 +51,7 @@ namespace TestProject.Course2.POM
             Assert.IsTrue(HeaderPhoto.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(HeaderHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(HeaderWikiPageLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));    
 
             return this;
         }       
@@ -57,6 +59,7 @@ namespace TestProject.Course2.POM
         public HomePagePOM CheckHeadlingTitle()
         {
             StringAssert.AreEqualIgnoringCase(HomePageResx.HeadlingTitle, HeadlingTitle.Text, AssertMessages.WrongHeadlingTitle);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -65,6 +68,7 @@ namespace TestProject.Course2.POM
         {
             StringAssert.Contains(HomePageResx.User, DefaultUser.Text, AssertMessages.InvalidValue);
             StringAssert.Contains(HomePageResx.Password, DefaultPassword.Text, AssertMessages.InvalidValue);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -74,13 +78,15 @@ namespace TestProject.Course2.POM
             Assert.IsTrue(EmailField.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(PasswordField.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(LogInButton.Displayed, AssertMessages.ElementNotDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }            
 
-        public HomePagePOM CheckEmailFieldError(string expectedErrorMessage)
+        public HomePagePOM CheckEmailFieldError(string expectedErrorMessage) 
         {
             StringAssert.AreEqualIgnoringCase(expectedErrorMessage, EmailErrorText.Text, AssertMessages.WrongErrorDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -88,14 +94,15 @@ namespace TestProject.Course2.POM
         public HomePagePOM CheckPasswrodFieldError(string expectedErrorMessage)
         {
             StringAssert.AreEqualIgnoringCase(expectedErrorMessage, PasswordErrorText.Text, AssertMessages.WrongErrorDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
 
         public HomePagePOM ChecLogInWithEmptyCredentialsError()
         {
-            CheckEmailFieldError("Email address can't be null");
-            CheckPasswrodFieldError("Password can't be null");
+            CheckEmailFieldError(HomePageResx.NullEmailError);
+            CheckPasswrodFieldError(HomePageResx.NullPasswordError);
 
             return this;
         }
@@ -105,6 +112,7 @@ namespace TestProject.Course2.POM
             Assert.IsTrue(FooterHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(FooterWikiLink.Displayed, AssertMessages.ElementNotDisplayed);
             Assert.IsTrue(FooterContactLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
@@ -133,8 +141,8 @@ namespace TestProject.Course2.POM
 
         public HomePagePOM EnterInvalidLogInCredentials()
         {
-            EnterLogInUser("testUser");
-            EnterLogInPassword("testPassword");
+            EnterLogInUser(HomePageResx.InvalidUser);
+            EnterLogInPassword(HomePageResx.InvalidPassword);
             
             return this;
         }
