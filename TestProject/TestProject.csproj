@@ -83,6 +83,7 @@
     <Compile Include="Course1\DashboardPageTests.cs" />
     <Compile Include="Course1\HomPageTests.cs" />
     <Compile Include="Course2\Base\BasePage.cs" />
+    <Compile Include="Course2\Base\Helpers.cs" />
     <Compile Include="Course2\POM\DashboardPagePOM.cs" />
     <Compile Include="Course2\POM\WikiPagePOM.cs" />
     <Compile Include="Course2\Reports\ImageHelper.cs" />

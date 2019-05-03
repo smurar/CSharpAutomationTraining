@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using TestProject.Course2.POM;
 using TestProject.Course2.Reports;
 using TestProject.Course2.Resources.Class;
@@ -20,9 +21,8 @@ namespace TestProject.Course2.Base
         [SetUp]
         public void BeforeEachTest()
         {
-            Driver = new ChromeDriver(Paths.Driver);
-            Driver.Manage().Window.Maximize();
-            Reporter.StartTest(TestContext.CurrentContext.Test.MethodName);
+            ConfigureDriver();
+            Reporter.StartTest(Helpers.GetCurrentTestName());
         }
 
         [OneTimeTearDown]
@@ -39,19 +39,31 @@ namespace TestProject.Course2.Base
             ImageHelper.ResetScreenShotNumber();
         }
 
+        public void ConfigureDriver()
+        {
+            switch (Helpers.GetValueFromAppConfig("DriverType"))
+            {
+                case "Chrome":
+                    Driver = new ChromeDriver(Paths.Driver);
+                    break;                
+            }
+            Driver.Manage().Window.Maximize();
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+        }
+
         public HomePagePOM GoToHomePage()
         {
             Driver.Url = Paths.HomePageUrl;
 
             return new HomePagePOM(Driver);
-        }        
+        }
 
         public DashboardPagePOM GoToDashboardPage()
         {
             GoToHomePage()
                 .LogInSuccesful();
-               
+
             return new DashboardPagePOM(Driver);
-        }        
+        }
     }
 }

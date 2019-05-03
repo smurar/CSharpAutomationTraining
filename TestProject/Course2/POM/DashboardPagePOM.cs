@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using System.Threading;
 using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Resx;
 using TestProject.Course2.Resources.Class;
@@ -40,16 +39,6 @@ namespace TestProject.Course2.POM
         private IWebElement FooterWikiLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'wikipage.html']")); } }
         private IWebElement FooterContactLink { get { return driver.FindElement(By.LinkText("Contact (NA)")); } }
         #endregion
-        #endregion
-
-        #region Wait Method
-        public void WaitForSpinnerToLoad()
-        {
-            while (Spinner.Displayed)
-            {
-                Thread.Sleep(50);
-            }
-        }
         #endregion
 
         #region Validation Methods
@@ -116,8 +105,7 @@ namespace TestProject.Course2.POM
         }
 
         public DashboardPagePOM CompleteAllFields()
-        {
-            WaitForSpinnerToLoad();
+        {           
             EnterFirsname(DashboardPageResx.FirstName);
             EnterLastname(DashboardPageResx.LastName);            
             VehicleOneCheckBox.Click();
@@ -137,8 +125,7 @@ namespace TestProject.Course2.POM
 
         #region Navigation Methods
         public HomePagePOM GoToHomePage()
-        {
-            WaitForSpinnerToLoad();
+        {            
             LogOutButton.Click();            
 
             return new HomePagePOM(driver);

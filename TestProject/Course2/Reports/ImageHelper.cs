@@ -1,7 +1,6 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using System;
+﻿using OpenQA.Selenium;
 using System.IO;
+using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Class;
 using TestProject.Course2.Resources.Resx;
 
@@ -29,8 +28,8 @@ namespace TestProject.Course2.Reports
 
         public static void SetImagePath()
         {
-            string imageName = TestContext.CurrentContext.Test.Name + "_" + Templates.fileName + "_" + screenshotNumber + FileTypeResx.JPEG;
-            imagePath = Path.Combine(Paths.Screenshots, imageName);            
+            string imageName = Helpers.GetCurrentTestName() + "_" + Templates.fileName + "_" + screenshotNumber + FileTypeResx.JPEG;
+            imagePath = Paths.ScreenshotsFolder + imageName;            
         }
 
         public static void ResetScreenShotNumber()

@@ -1,6 +1,5 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
-using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Class;
@@ -30,7 +29,7 @@ namespace TestProject.Course2.Reports
 
         public static void CreateHtmlReportFile()
         {
-            var htmlReporter = new ExtentHtmlReporter(Paths.ReportFiles + ReportFileName)
+            var htmlReporter = new ExtentHtmlReporter(Paths.ReportFilesFolder + ReportFileName)
             {
                 AppendExisting = true
             };
@@ -50,8 +49,8 @@ namespace TestProject.Course2.Reports
         public static void EndTest()
         {            
             Status logStatus;
-            var testStatus = TestContext.CurrentContext.Result.Outcome.Status;
-            var stackTrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace) ? "" : string.Format("{0}", TestContext.CurrentContext.Result.StackTrace);
+            var testStatus = Helpers.GetCurrentTestOutcom();
+            var stackTrace = string.IsNullOrEmpty(Helpers.GetCurrentTestStacktrace()) ? "" : string.Format("{0}", Helpers.GetCurrentTestStacktrace());
             
             switch (testStatus)
             {
