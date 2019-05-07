@@ -75,6 +75,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
@@ -83,7 +85,9 @@
     <Compile Include="Course1\DashboardPageTests.cs" />
     <Compile Include="Course1\HomPageTests.cs" />
     <Compile Include="Course2\Base\BasePage.cs" />
+    <Compile Include="Course2\Reports\EmailSender.cs" />
     <Compile Include="Course2\Base\Helpers.cs" />
+    <Compile Include="Course2\Base\WebElementExtensions.cs" />
     <Compile Include="Course2\POM\DashboardPagePOM.cs" />
     <Compile Include="Course2\POM\WikiPagePOM.cs" />
     <Compile Include="Course2\Reports\ImageHelper.cs" />
@@ -109,6 +113,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HomePageResx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\Resources\Resx\EmailResx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailResx.resx</DependentUpon>
     </Compile>
     <Compile Include="Course2\Resources\Resx\WikiPageResx.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -142,6 +151,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HomePageResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Course2\Resources\Resx\EmailResx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Course2\Resources\Resx\WikiPageResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>WikiPageResx.Designer.cs</LastGenOutput>
@@ -149,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Course2\Resources\Driver\chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Course2\Resources\Driver\geckodriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Course2\Resources\Pages\dashboardpage.html">

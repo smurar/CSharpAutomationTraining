@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using TestProject.Course2.POM;
 using TestProject.Course2.Reports;
@@ -34,25 +36,30 @@ namespace TestProject.Course2.Base
         [TearDown]
         public void AfterEachTest()
         {            
-            Driver.Quit();
+            Driver.Quit();        
             Reporter.EndTest();
             ImageHelper.ResetScreenShotNumber();
         }
 
         public void ConfigureDriver()
         {
-            switch (Helpers.GetValueFromAppConfig("DriverType"))
+            switch (Helpers.GetBrowserType("BrowserType"))
             {
                 case "Chrome":
                     Driver = new ChromeDriver(Paths.Driver);
-                    break;                
+                    break;
+
+                case "Firefox":
+                    Driver = new FirefoxDriver(Paths.Driver);                    
+                    break;               
             }
             Driver.Manage().Window.Maximize();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);      
         }
 
         public HomePagePOM GoToHomePage()
         {
+            Driver.Navigate().GoToUrl(Paths.HomePageUrl);
             Driver.Url = Paths.HomePageUrl;
 
             return new HomePagePOM(Driver);

@@ -11,7 +11,7 @@ namespace TestProject.Course2.Reports
     {
         private static ExtentReports extent;
         private static ExtentTest test;
-        private static readonly string ReportFileName = Templates.fileName + FileTypeResx.HTML;      
+        public static readonly string ReportFileName = Templates.fileName + FileTypeResx.HTML;        
 
         public static void StartReporting()
         {
@@ -34,28 +34,29 @@ namespace TestProject.Course2.Reports
                 AppendExisting = true
             };
             extent.AttachReporter(htmlReporter);
-        }       
+        }
 
         public static void EndReporting()
         {
             extent.Flush();
+            EmailSender.SendReportEmail(); //for the moment it works only for one namespace
         }
 
         public static void StartTest(string testName)
         {
-            test = extent.CreateTest("Test name: " + testName);            
-        }       
+            test = extent.CreateTest("Test name: " + testName);
+        }
 
         public static void EndTest()
-        {            
+        {
             Status logStatus;
-            var testStatus = Helpers.GetCurrentTestOutcom();
-            var stackTrace = string.IsNullOrEmpty(Helpers.GetCurrentTestStacktrace()) ? "" : string.Format("{0}", Helpers.GetCurrentTestStacktrace());
-            
+            var testStatus = Helpers.GetCurrentTestOutcome();
+            var stackTrace = Helpers.GetCurrentTestFinalStackTrace();
+
             switch (testStatus)
             {
                 case TestStatus.Failed:
-                    logStatus = Status.Fail;                    
+                    logStatus = Status.Fail;
                     break;
                 case TestStatus.Inconclusive:
                     logStatus = Status.Warning;
@@ -68,9 +69,9 @@ namespace TestProject.Course2.Reports
                     break;
             }
 
-            test.Log(logStatus, "Test ended with :" + logStatus + stackTrace);
-            extent.Flush();
-        }
+            test.Log(logStatus, "Test ended with :" + logStatus + stackTrace);                     
+            extent.Flush(); //for the moment it works only for one namespace           
+        }     
 
         public static void LogInfo(string info)
         {

@@ -42,16 +42,17 @@ namespace TestProject.Course2.POM
         public HomePagePOM CheckPageTitle()
         {
             StringAssert.AreEqualIgnoringCase(HomePageResx.PageTitle , driver.Title, AssertMessages.WrongPageTitle);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
 
         public HomePagePOM CheckPageHeaderElements()
-        {
-            Assert.IsTrue(HeaderPhoto.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(HeaderHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(HeaderWikiPageLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));    
+        {       
+            Assert.IsTrue(HeaderPhoto.IsDisplayed("Header photo"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(HeaderHomeLink.IsDisplayed("Header Home link"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(HeaderWikiPageLink.IsDisplayed("Header WikiPage link"), AssertMessages.ElementNotDisplayed);
+            Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }       
@@ -75,9 +76,9 @@ namespace TestProject.Course2.POM
 
         public HomePagePOM CheckLogInFields()
         {
-            Assert.IsTrue(EmailField.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(PasswordField.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(LogInButton.Displayed, AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(EmailField.IsDisplayed("Email field"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(PasswordField.IsDisplayed("Password field"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(LogInButton.IsDisplayed("Login button"), AssertMessages.ElementNotDisplayed);
             Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
@@ -109,40 +110,40 @@ namespace TestProject.Course2.POM
 
         public HomePagePOM CheckFooterElements()
         {
-            Assert.IsTrue(FooterHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(FooterWikiLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(FooterContactLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(FooterHomeLink.IsDisplayed("Footer Home link"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(FooterWikiLink.IsDisplayed("Footer WikiPage link"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(FooterContactLink.IsDisplayed("Footer Contact link"), AssertMessages.ElementNotDisplayed);
             Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
         }
         #endregion
         #region Action Methods
-        public HomePagePOM EnterLogInUser(string user)
+        public HomePagePOM EnterUser(string user)
         {
-            EmailField.SendKeys(user);
+            EmailField.SendText(user , "Email field");
 
             return this;
         }        
 
-        public HomePagePOM EnterLogInPassword(string password)
+        public HomePagePOM EnterPassword(string password)
         {
-            PasswordField.SendKeys(password);
+            PasswordField.SendText(password , "Password field");
 
             return this;
         }   
 
         public HomePagePOM ClickLogInButton()
-        {
-            LogInButton.Click();
+        {            
+            LogInButton.ClickElement("LogIn Button");
 
             return this;
         }
 
         public HomePagePOM EnterInvalidLogInCredentials()
         {
-            EnterLogInUser(HomePageResx.InvalidUser);
-            EnterLogInPassword(HomePageResx.InvalidPassword);
+            EnterUser(HomePageResx.InvalidUser);
+            EnterPassword(HomePageResx.InvalidPassword);
             
             return this;
         }
@@ -150,8 +151,8 @@ namespace TestProject.Course2.POM
         #region Navigation Methods
         public DashboardPagePOM LogInSuccesful()
         {
-            EnterLogInUser(HomePageResx.User)
-                .EnterLogInPassword(HomePageResx.Password)
+            EnterUser(HomePageResx.User)
+                .EnterPassword(HomePageResx.Password)
                 .ClickLogInButton();
 
             return new DashboardPagePOM(driver);
@@ -159,7 +160,7 @@ namespace TestProject.Course2.POM
 
         public WikiPagePOM GoToWikiPage()
         {
-            HeaderWikiPageLink.Click();
+            HeaderWikiPageLink.ClickElement("Header WikiPage link");
 
             return new WikiPagePOM(driver);
         }

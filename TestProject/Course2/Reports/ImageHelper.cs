@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System.IO;
 using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Class;
 using TestProject.Course2.Resources.Resx;
@@ -26,6 +25,13 @@ namespace TestProject.Course2.Reports
             screenshot.SaveAsFile(imagePath);
         }
 
+        public static string IncrementScreenshotNumber()
+        {
+            screenshotNumber += 1;
+
+            return screenshotNumber.ToString();
+        }
+
         public static void SetImagePath()
         {
             string imageName = Helpers.GetCurrentTestName() + "_" + Templates.fileName + "_" + screenshotNumber + FileTypeResx.JPEG;
@@ -35,13 +41,6 @@ namespace TestProject.Course2.Reports
         public static void ResetScreenShotNumber()
         {
             screenshotNumber = 0;
-        }
-
-        public static string IncrementScreenshotNumber()
-        {
-            screenshotNumber += 1;
-
-            return screenshotNumber.ToString();
-        }
+        }     
     }
 }

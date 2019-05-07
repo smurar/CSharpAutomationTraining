@@ -2,7 +2,7 @@
 using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Resx;
 
-namespace TestProject.Course2.Tests.HomePage
+namespace TestProject.Course2.HomePageTests
 {
     class HomePageTests : BasePage
     {
@@ -53,7 +53,7 @@ namespace TestProject.Course2.Tests.HomePage
         public void InvalidEmailFormatErrorMessage()
         {
             GoToHomePage()
-                .EnterLogInUser(HomePageResx.InvalidUser)
+                .EnterUser(HomePageResx.InvalidUser)
                 .ClickLogInButton()
                 .CheckEmailFieldError(HomePageResx.EmailFormatError);
         }

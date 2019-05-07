@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using TestProject.Course2.Base;
 
-namespace TestProject.Course2.Tests.DashboardPage
+namespace TestProject.Course2.DashboardPageTests
 {
     class DashboardPageTests : BasePage
     {           

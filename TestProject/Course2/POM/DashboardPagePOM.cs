@@ -4,6 +4,7 @@ using TestProject.Course2.Base;
 using TestProject.Course2.Resources.Resx;
 using TestProject.Course2.Resources.Class;
 using TestProject.Course2.Reports;
+using System.Threading;
 
 namespace TestProject.Course2.POM
 {
@@ -22,8 +23,8 @@ namespace TestProject.Course2.POM
         private IWebElement HeaderHomeLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'homepage.html']")); } }
         private IWebElement HeaderWikiPageLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'wikipage.html']")); } }
         #endregion
-        #region Body Elements
-        private IWebElement Spinner { get { return driver.FindElement(By.Id("loader")); } }
+        #region Body Elements      
+        private IWebElement Spinner { get { return driver.FindElement(By.Id("loader")); } } //testing scope
         private IWebElement HeadlingTitle { get { return driver.FindElement(By.XPath("//h1")); } }
         private IWebElement FirstnameField { get { return driver.FindElement(By.Id("firstname")); } }
         private IWebElement LastnameField { get { return driver.FindElement(By.XPath("//input[@value='David']")); } }
@@ -32,7 +33,7 @@ namespace TestProject.Course2.POM
         private IWebElement UploadPictureButton { get { return driver.FindElement(By.Name("picture")); } }
         private IWebElement SaveButton { get { return driver.FindElement(By.Id("SaveDetails")); } }
         private IWebElement DetailsSavedMessage { get { return driver.FindElement(By.Id("detailsSavedMessage")); } }
-        private IWebElement LogOutButton { get { return driver.FindElement(By.Id("Logout")); } }
+        private IWebElement LogOutButton { get { return driver.FindElement(By.Id("Logout") , 60); } } //testing scope
         #endregion
         #region Footer Elements
         private IWebElement FooterHomeLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'homepage.html']")); } }
@@ -52,9 +53,9 @@ namespace TestProject.Course2.POM
 
         public DashboardPagePOM CheckPageHeaderElements()
         {
-            Assert.IsTrue(HeaderPhoto.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(HeaderHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(HeaderWikiPageLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(HeaderPhoto.IsDisplayed("Header photo"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(HeaderHomeLink.IsDisplayed("Header Home link"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(HeaderWikiPageLink.IsDisplayed("Header WikiPage link"), AssertMessages.ElementNotDisplayed);
             Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
@@ -62,9 +63,9 @@ namespace TestProject.Course2.POM
 
         public DashboardPagePOM CheckFooterElements()
         {
-            Assert.IsTrue(FooterHomeLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(FooterWikiLink.Displayed, AssertMessages.ElementNotDisplayed);
-            Assert.IsTrue(FooterContactLink.Displayed, AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(FooterHomeLink.IsDisplayed("Footer Home link"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(FooterWikiLink.IsDisplayed("Footer WikiPage link"), AssertMessages.ElementNotDisplayed);
+            Assert.IsTrue(FooterContactLink.IsDisplayed("Footer Contact link"), AssertMessages.ElementNotDisplayed);
             Reporter.LogScreenshot(ImageHelper.GetScreenshotPath(driver));
 
             return this;
@@ -89,17 +90,15 @@ namespace TestProject.Course2.POM
 
         #region Action Methods
         public DashboardPagePOM EnterFirsname(string firstname)
-        {
-            FirstnameField.Clear();
-            FirstnameField.SendKeys(firstname);
+        {            
+            FirstnameField.SendText(firstname , "First Name field");
 
             return this;
         }
 
         public DashboardPagePOM EnterLastname(string lastname)
-        {
-            FirstnameField.Clear();
-            FirstnameField.SendKeys(lastname);
+        {            
+            FirstnameField.SendText(lastname , "Last Name field");
 
             return this;
         }
@@ -108,16 +107,16 @@ namespace TestProject.Course2.POM
         {           
             EnterFirsname(DashboardPageResx.FirstName);
             EnterLastname(DashboardPageResx.LastName);            
-            VehicleOneCheckBox.Click();
-            BirthdayField.SendKeys(DashboardPageResx.BirthDay);
-            UploadPictureButton.SendKeys(Paths.CarPhoto);                     
+            VehicleOneCheckBox.ClickElement("Vehicle one check box");
+            BirthdayField.SendText(DashboardPageResx.BirthDay , "Birthday field");
+            UploadPictureButton.SendText(Paths.CarPhoto , "Upload picture");                     
 
             return this;
         }
 
         public DashboardPagePOM ClickSaveButton()
         {
-            SaveButton.Click();
+            SaveButton.ClickElement("Save Button");
 
             return this;
         }
@@ -125,10 +124,19 @@ namespace TestProject.Course2.POM
 
         #region Navigation Methods
         public HomePagePOM GoToHomePage()
-        {            
-            LogOutButton.Click();            
+        {           
+            LogOutButton.ClickElement("LogOut button");            
 
             return new HomePagePOM(driver);
+        }
+
+        //testing scope
+        public void WaitForSpinnerToLoad()
+        {
+            while (Spinner.Displayed)
+            {
+                Thread.Sleep(50);
+            }
         }
         #endregion
     }

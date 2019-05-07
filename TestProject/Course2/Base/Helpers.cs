@@ -18,9 +18,14 @@ namespace TestProject.Course2.Base
             return Path.GetFullPath(GetExecutionDirectory() + GetValueFromAppConfig(key));
         }
 
+        public static string GetBrowserType(string key)
+        {
+            return GetValueFromAppConfig(key);
+        }
+
         public static string GetValueFromAppConfig(string key)
-        {         
-            return ConfigurationManager.AppSettings[key];           
+        {
+            return ConfigurationManager.AppSettings[key];
         }
 
         private static string GetExecutionDirectory()
@@ -31,6 +36,11 @@ namespace TestProject.Course2.Base
         public static string GetCurrentTestName()
         {
             return TestContext.CurrentContext.Test.Name;
+        }       
+
+        public static string GetCurrentTestFinalStackTrace()
+        {
+            return string.IsNullOrEmpty(GetCurrentTestStacktrace()) ? "" : string.Format("{0}", GetCurrentTestStacktrace());
         }
 
         public static string GetCurrentTestStacktrace()
@@ -38,10 +48,14 @@ namespace TestProject.Course2.Base
             return TestContext.CurrentContext.Result.StackTrace;
         }
 
-        public static TestStatus GetCurrentTestOutcom()
+        public static TestStatus GetCurrentTestOutcome()
         {
             return TestContext.CurrentContext.Result.Outcome.Status;
-        }
+        }        
     }
 }
+        
+       
+    
+
 
