@@ -9,22 +9,17 @@ using System.Reflection;
 using System.IO;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
+using Course01.Course02;
 
 namespace Course01
 {
-    public class Class1
+    public class TestsClass : TestBase
     {
         [Test]
         public void FirstTest()
         {
-            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
-            driver.Url = @"file:///D:/Pages%20Training%20Advanced%20Automation/Pages/homepage.html"; 
-            //file:///C:/Users/bhasiu/AppData/Local/Temp/Temp1_Pages.zip/Pages/dashboardpage.html -- DashboardPage
-            //file:///C:/Users/bhasiu/AppData/Local/Temp/Temp1_Pages.zip/Pages/wikipage.html -- WikiPAge
-            
-            driver.FindElement(By.Id("email")).SendKeys("admin@domain.org");
-            driver.FindElement(By.Id("Login")).Click();
-            driver.Quit(); //quits the drive 
+            GoToHomePage().CheckPageTitle("Home page").FillInEmail(Resource.Email).FillInPassword(Resource.Password);
+
         }
 
         [Test]
