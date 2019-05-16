@@ -79,12 +79,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course02\ImageHelper.cs" />
-    <Compile Include="Course02\Reporter.cs" />
-    <Compile Include="Course02\WebElementExtensions.cs" />
-    <Compile Include="TestsClass.cs" />
+    <Compile Include="Screens\DashBoardPage.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\Reporter.cs" />
+    <Compile Include="Helpers\Waiters.cs" />
+    <Compile Include="Helpers\WebElementExtensions.cs" />
+    <Compile Include="Course02\TestsClass.cs" />
     <Compile Include="ConstantsClasses\Pages.cs" />
-    <Compile Include="Course02\HomePage.cs" />
+    <Compile Include="Screens\HomePage.cs" />
     <Compile Include="Course02\TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -92,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Screens\WikiPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

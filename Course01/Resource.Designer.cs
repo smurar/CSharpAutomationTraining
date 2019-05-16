@@ -61,6 +61,15 @@ namespace Course01 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dashboard page.
+        /// </summary>
+        internal static string DashboardPageTitle {
+            get {
+                return ResourceManager.GetString("DashboardPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin@domain.org.
         /// </summary>
         internal static string Email {
@@ -84,6 +93,15 @@ namespace Course01 {
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wiki page.
+        /// </summary>
+        internal static string WikiPageTitle {
+            get {
+                return ResourceManager.GetString("WikiPageTitle", resourceCulture);
             }
         }
     }
