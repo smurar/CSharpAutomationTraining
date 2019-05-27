@@ -61,6 +61,51 @@ namespace Course2.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 18/12/1992.
+        /// </summary>
+        internal static string Birthday {
+            get {
+                return ResourceManager.GetString("Birthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Septimiu.
+        /// </summary>
+        internal static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard page.
+        /// </summary>
+        internal static string HeadingTitle {
+            get {
+                return ResourceManager.GetString("HeadingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Murar.
+        /// </summary>
+        internal static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details saved.
+        /// </summary>
+        internal static string SavedDetailsMessage {
+            get {
+                return ResourceManager.GetString("SavedDetailsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard page.
         /// </summary>
         internal static string Title {

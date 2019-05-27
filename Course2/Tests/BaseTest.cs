@@ -13,6 +13,7 @@ using AventStack.ExtentReports;
 using OpenQA.Selenium.Chrome;
 using System.Reflection;
 using System.IO;
+using Course2.Resources;
 
 namespace Course2.Tests
 {
@@ -31,7 +32,7 @@ namespace Course2.Tests
         [SetUp]
         public void BeforeTest()
         {
-            Reporter.StartTest(TestContext.CurrentContext.Test.MethodName);
+            Reporter.StartTest(TestContext.CurrentContext.Test.ClassName+": "+ TestContext.CurrentContext.Test.MethodName);
             Browser.InitBrowser(System.Configuration.ConfigurationManager.AppSettings["BrowserName"]);
             Browser.Maximize();
              
@@ -42,6 +43,13 @@ namespace Course2.Tests
             Browser.GoToUrl(HomePageURL);
          
             return new HomePage(Browser.GetDriver());
+        }
+
+        public DashboardPage GoToDashboardPage()
+        {
+            GoToHomePage()
+                .Login(DataHomePage.ValidEmail, DataHomePage.ValidPassword);
+            return new DashboardPage(Browser.GetDriver());
         }
 
         [TearDown]

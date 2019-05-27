@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Course2.PageObjects
 {
-    class HomePage
+    public class HomePage
     {
         private IWebDriver WebDriver;
         private IWebElement HeaderImage => WebDriver.FindElement(By.XPath("//div[@id='header']//img"));
@@ -31,6 +31,13 @@ namespace Course2.PageObjects
         public HomePage (IWebDriver WebDriver)
         {
             this.WebDriver = WebDriver;
+        }
+
+        public HomePage CheckPageTitle(string title)
+        {
+            Reporter.LogInfo("Check that the page title is: " + title);
+            Assert.AreEqual(title, WebDriver.Title, "You are not on Home Page");
+            return this;
         }
 
         public HomePage CheckHeaderImage()

@@ -115,6 +115,15 @@ namespace Course2.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home page.
+        /// </summary>
+        internal static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin@domain.org.
         /// </summary>
         internal static string ValidEmail {

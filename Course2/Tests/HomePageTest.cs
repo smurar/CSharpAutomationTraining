@@ -20,6 +20,13 @@ namespace Course2.Tests
         }
 
         [Test]
+        public void PageTitleTest()
+        {
+            GoToHomePage()
+                .CheckPageTitle(DataHomePage.Title);
+        }
+
+        [Test]
         public void HeaderLinksTest()
         {
            
