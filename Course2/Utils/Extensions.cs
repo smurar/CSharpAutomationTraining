@@ -40,7 +40,7 @@ namespace Course2.Utils
         public static void SelectCheckBox(IWebElement element,string elementName)
         {
             Reporter.LogInfo("Select " + elementName + " check box");
-            if (!element.Selected)
+            if (element.Selected)
             {
                 element.Click();
             }
