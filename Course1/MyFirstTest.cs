@@ -23,8 +23,10 @@ namespace Course1
         [Test]
         public void FirstSeleniumTest()
         {
-            IWebDriver driver=new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
-            driver.Url = "file:///D:/workspace/Pages/homepage.html";
+            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers")
+            {
+                Url = "file:///D:/workspace/Pages/homepage.html"
+            };
             Assert.True(driver.Title.Equals("Home page"));
             driver.FindElement(By.Id("email")).SendKeys("admin@domain.org");
             driver.FindElement(By.Id("password")).SendKeys("111111");
