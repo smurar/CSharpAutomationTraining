@@ -70,6 +70,15 @@ namespace ClassLibrary2.Course2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details saved.
+        /// </summary>
+        internal static string DetailsSavedMessage {
+            get {
+                return ResourceManager.GetString("DetailsSavedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin@domain.org.
         /// </summary>
         internal static string Email {
@@ -93,6 +102,15 @@ namespace ClassLibrary2.Course2 {
         internal static string EmptyEmailErrorMessage {
             get {
                 return ResourceManager.GetString("EmptyEmailErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dave124.
+        /// </summary>
+        internal static string FirstNameValue {
+            get {
+                return ResourceManager.GetString("FirstNameValue", resourceCulture);
             }
         }
         
@@ -129,6 +147,24 @@ namespace ClassLibrary2.Course2 {
         internal static string InvalidEmailOrPasswErrrorMsg {
             get {
                 return ResourceManager.GetString("InvalidEmailOrPasswErrrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 234.
+        /// </summary>
+        internal static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pop234.
+        /// </summary>
+        internal static string LastNameValue {
+            get {
+                return ResourceManager.GetString("LastNameValue", resourceCulture);
             }
         }
         

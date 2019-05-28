@@ -39,7 +39,7 @@ namespace ClassLibrary2.Course2.Tests
 		}
 
 		[Test]
-		public void EmailAddressErrorMessageTest()
+		public void EmptyEmailAddressErrorMessageTest()
 		{
 			GoToHomepage().ClickLoginButtonWithError()
 						  .CheckEmailErrorMesssage(MyResource.EmptyEmailErrorMessage);
@@ -59,10 +59,10 @@ namespace ClassLibrary2.Course2.Tests
 		[Test]
 		public void EmailAddressOrPasswordNotValidTest()
 		{
-			GoToHomepage().FillInEmail(MyResource.InvalidEmailAddress)
-						  .FillInPassword(MyResource.Password)
+			GoToHomepage().FillInEmail(MyResource.Email)
+						  .FillInPassword(MyResource.InvalidPassword)
 						  .ClickLoginButtonWithError()
-						  .CheckEmailErrorMesssage(MyResource.InvalidEmailOrPasswErrrorMsg);
+						  .CheckPasswordErrorMesssage(MyResource.InvalidEmailOrPasswErrrorMsg);
 			Reporter.LogScreenShot("screenshot test 'EmailAddressOrPasswordNotValid'", ImageHelper.CaptureScreen(WebDriver));
 		}
 
@@ -123,6 +123,16 @@ namespace ClassLibrary2.Course2.Tests
 						  .CheckWikipageLinkIsDisplayed()
 						  .CheckImageIsDisplayed();
 			Reporter.LogScreenShot("screenshot test 'DashboardFooterLinks'", ImageHelper.CaptureScreen(WebDriver));
+		}
+
+		[Test]
+		public void EditUserInfoTest()
+		{
+			GoToHomepage().LoginWithSuccess(MyResource.Email, MyResource.Password)
+						  .FillInFirstNameInput(MyResource.FirstNameValue)
+						  .FillInLastNameInput(MyResource.LastNameValue)
+						  .ClickSaveButton()
+						  .CheckDetailsSavedMessage(MyResource.DetailsSavedMessage);
 		}
 	}
 }

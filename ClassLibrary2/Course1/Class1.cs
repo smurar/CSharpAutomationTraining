@@ -26,7 +26,7 @@ namespace Course1
 			driver.Manage().Window.Maximize();
 		}
 
-		[Test]
+		//[Test]
 		public void FirstSeleniumTest()
 		{
 			Assert.True(driver.Title.Equals("Home page"));
@@ -37,7 +37,7 @@ namespace Course1
 			driver.Quit();
 		}
 
-		[Test]
+		//[Test]
 		public void HeaderLinksAndImageAreDisplayedTest()
 		{
 			//element paths
@@ -50,7 +50,7 @@ namespace Course1
 			Assert.AreEqual(true, image.Displayed);
 		}
 
-		[Test]
+		//[Test]
 		public void PageTitleIsCorrectTest()
 		{
 			var pageTitle = driver.FindElement(By.XPath("//h1"));
@@ -64,7 +64,7 @@ namespace Course1
 			Assert.AreEqual("HTML", pageHeadingTitle.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void DefaultEmailAndPasswordLabelChecksTest()
 		{
 			var emailLabelText = driver.FindElement(By.XPath("//*[@id='email']/.."));
@@ -76,7 +76,7 @@ namespace Course1
 			Assert.AreEqual(true, passwordLabelText.Text.Contains("Password"));
 		}
 
-		[Test]
+		//[Test]
 		public void LoginFieldsAreDisplayedTest()
 		{
 			var emailInputField = driver.FindElement(By.XPath("//*[@id='email']"));
@@ -85,7 +85,7 @@ namespace Course1
 			Assert.AreEqual(true, passwordInputField.Displayed);
 		}
 
-		[Test]
+		//[Test]
 		public void EmailAddressErrorMessageTest()
 		{
 			var emailInputField = driver.FindElement(By.XPath("//*[@id='email']"));
@@ -95,7 +95,7 @@ namespace Course1
 			Assert.AreEqual("Email address can't be null", emailErrorMessage.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void EmailAddressNotValidTest()
 		{
 			var emailInputField = driver.FindElement(By.XPath("//*[@id='email']"));
@@ -106,7 +106,7 @@ namespace Course1
 			Assert.AreEqual("Email address format is not valid", emailErrorMessage.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void EmailAddressOrPasswordNotValidTest()
 		{
 			var emailInputField = driver.FindElement(By.XPath("//*[@id='email']"));
@@ -119,7 +119,7 @@ namespace Course1
 			Assert.AreEqual("Invalid password/email", passwordErrorMessage.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void LoginSuccessfulTest()
 		{
 			var emailInputField = driver.FindElement(By.XPath("//*[@id='email']"));
@@ -134,7 +134,7 @@ namespace Course1
 			Assert.AreEqual("Dashboard page", dashboardPageTitle.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void NavigateToWikiPageTest()
 		{
 			LoginSuccessfulTest();
@@ -144,7 +144,7 @@ namespace Course1
 			Assert.AreEqual("WikiPage", landingPageTitle.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void FooterLinksAreDisplayedTest()
 		{
 			var homeLink = driver.FindElement(By.XPath("//footer//a[@href='homepage.html']"));
@@ -155,7 +155,7 @@ namespace Course1
 			Assert.AreEqual(true, contactLink.Displayed);
 		}
 
-		[Test]
+		//[Test]
 		public void DashboardHeaderLinksAndImageTest()
 		{
 			LoginSuccessfulTest();
@@ -167,7 +167,7 @@ namespace Course1
 			Assert.AreEqual(true, image.Displayed);
 		}
 
-		[Test]
+	//	[Test]
 		public void DashboardPageTitleIsCorrectTest()
 		{
 			LoginSuccessfulTest();
@@ -175,13 +175,13 @@ namespace Course1
 			Assert.AreEqual("Welcome to dashboard page", pageTitle.Text);
 		}
 
-		[Test]
+		//[Test]
 		public void DasboardPageHeadingTitleIsCorrectTest()
 		{
 			LoginSuccessfulTest();
 		}
 
-		[Test]
+	//	[Test]
 		public void LogoutTest()
 		{
 			LoginSuccessfulTest();
@@ -194,7 +194,7 @@ namespace Course1
 			Assert.AreEqual(true, loginButton.Displayed);
 		}
 
-		[Test]
+	//	[Test]
 		public void DashboardFooterLinksTest()
 		{
 			LoginSuccessfulTest();
@@ -206,7 +206,7 @@ namespace Course1
 			Assert.AreEqual(true, contactLink.Displayed);
 		}
 
-		[Test]
+		//[Test]
 		public void EditUserInfoTest()
 		{
 			LoginSuccessfulTest();

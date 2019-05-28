@@ -20,6 +20,7 @@ namespace ClassLibrary2.Course2
 		private IWebElement PasswordLabelText { get { return WebDriver.FindElement(By.XPath("//*[@id='password']/..")); } }
 		private IWebElement EmailInputField { get { return WebDriver.FindElement(By.XPath("//*[@id='email']")); } }
 		private IWebElement PasswordInputField { get { return WebDriver.FindElement(By.XPath("//*[@id='password']")); } }
+		private IWebElement PasswordErrorMessage { get { return WebDriver.FindElement(By.Id("passwordErrorText")); } }
 		private IWebElement EmailErrorMessage { get { return WebDriver.FindElement(By.Id("emailErrorText")); } }
 		//footer
 		private IWebElement FooterHomeLink { get { return WebDriver.FindElement(By.XPath("//footer//a[@href='homepage.html']")); } }
@@ -116,6 +117,12 @@ namespace ClassLibrary2.Course2
 			return this;
 		}
 
+		public HomePage CheckPasswordErrorMesssage(string expectedMessage)
+		{
+			AssertExtensions.AssertThatAreEqual("Check password error message is: '" + expectedMessage + "'", expectedMessage, PasswordErrorMessage.Text);
+			return this;
+		}
+
 		public HomePage CheckEmailErrorMesssage(string expectedMessage)
 		{
 			AssertExtensions.AssertThatAreEqual("Check email error message is: '" + expectedMessage + "'", expectedMessage, EmailErrorMessage.Text);
@@ -124,13 +131,13 @@ namespace ClassLibrary2.Course2
 
 		public DashboardPage ClickLoginButton()
 		{
-			WebElementExtensions.Click(LoginButton, "login button");
+			LoginButton.Click("login button");
 			return new DashboardPage(WebDriver);
 		}
 
 		public HomePage ClickLoginButtonWithError()
 		{
-			WebElementExtensions.Click(LoginButton, "login button");
+			LoginButton.Click("login button");
 			return this;
 		}
 

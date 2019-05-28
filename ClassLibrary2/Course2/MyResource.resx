@@ -120,6 +120,9 @@
   <data name="DashboardPageTitle" xml:space="preserve">
     <value>Dashboard page</value>
   </data>
+  <data name="DetailsSavedMessage" xml:space="preserve">
+    <value>Details saved</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>admin@domain.org</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="EmptyEmailErrorMessage" xml:space="preserve">
     <value>Email address can't be null</value>
+  </data>
+  <data name="FirstNameValue" xml:space="preserve">
+    <value>Dave124</value>
   </data>
   <data name="HomePageHeadingTitle" xml:space="preserve">
     <value>HTML</value>
@@ -140,6 +146,12 @@
   </data>
   <data name="InvalidEmailOrPasswErrrorMsg" xml:space="preserve">
     <value>Invalid password/email</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>234</value>
+  </data>
+  <data name="LastNameValue" xml:space="preserve">
+    <value>Pop234</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Home page</value>

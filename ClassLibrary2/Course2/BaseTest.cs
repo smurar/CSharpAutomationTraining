@@ -26,7 +26,7 @@ namespace ClassLibrary2.Course2
 
 		public HomePage GoToHomepage()
 		{
-			WebDriver.Url = "file:///C:/Users/lgrecu/Desktop/Pages/homepage.html";
+			WebDriver.Url = URL;
 			return new HomePage(WebDriver);
 		}
 

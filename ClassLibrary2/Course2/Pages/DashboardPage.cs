@@ -16,6 +16,16 @@ namespace ClassLibrary2.Course2.Pages
 		private IWebElement WikiPageLink { get { return WebDriver.FindElement(By.XPath("//header//a[@href='wikipage.html']")); } }
 		private IWebElement Image { get { return WebDriver.FindElement(By.XPath("//a/img[contains(@src,'upload.wikimedia')]")); } }
 		private IWebElement LogoutButton { get { return WebDriver.FindElement(By.Id("Logout")); } }
+		private IWebElement LastNameInput { get { return WebDriver.FindElement(By.XPath("//input[2]")); } }
+		private IWebElement MaleRadioBox { get { return WebDriver.FindElement(By.XPath("//input[@value='male']")); } }
+		private IWebElement FemaleRadioBox { get { return WebDriver.FindElement(By.XPath("//input[@value='female']")); } }
+		private IWebElement BirthdayInput { get { return WebDriver.FindElement(By.XPath("//input[@name='bday']")); } }
+		private IWebElement BikeCheckbox { get { return WebDriver.FindElement(By.XPath("//input[@value='Bike']")); } }
+		private IWebElement CarCheckbox { get { return WebDriver.FindElement(By.XPath("//input[@value='Car']")); } }
+		private IWebElement SaveButton { get { return WebDriver.FindElement(By.Id("SaveDetails")); } }
+		private IWebElement DetailsSavedMessage { get { return WebDriver.FindElement(By.Id("detailsSavedMessage")); } }
+
+
 		//footer links
 		private IWebElement FooterWikiPageLink { get { return WebDriver.FindElement(By.XPath("//footer//a[@href='wikipage.html']")); } }
 		private IWebElement FooterHomeLink { get { return WebDriver.FindElement(By.XPath("//footer//a[@href='homepage.html']")); } }
@@ -38,8 +48,7 @@ namespace ClassLibrary2.Course2.Pages
 
 		public WikiPage ClickWikiPageLink()
 		{
-
-			WebElementExtensions.Click(WikiPageLink, "wikipage link");
+			WikiPageLink.Click("wikipage link");
 			return new WikiPage(WebDriver);
 		}
 
@@ -63,7 +72,7 @@ namespace ClassLibrary2.Course2.Pages
 
 		public HomePage ClickLogoutButton()
 		{
-			WebElementExtensions.Click(LogoutButton, "logout button");
+			LogoutButton.Click("logout button");
 			return new HomePage(WebDriver);
 		}
 
@@ -82,6 +91,32 @@ namespace ClassLibrary2.Course2.Pages
 		public DashboardPage CheckFooterWikipageLinkIsDisplayed()
 		{
 			AssertExtensions.AssertThatAreEqual("Check that footer wikipage link is displayed", true, FooterWikiPageLink.Displayed);
+			return this;
+		}
+
+		public DashboardPage FillInFirstNameInput(string firstName)
+		{
+			FirstNameInput.Clear();
+			FirstNameInput.SendKeys(firstName, "First name textbox");
+			return this;
+		}
+
+		public DashboardPage FillInLastNameInput(string lastName)
+		{
+			LastNameInput.Clear();
+			LastNameInput.SendKeys(lastName, "Last name textbox");
+			return this;
+		}
+
+		public DashboardPage ClickSaveButton()
+		{
+			SaveButton.Click("Save button");
+			return this;
+		}
+
+		public DashboardPage CheckDetailsSavedMessage(string expectedMessage)
+		{
+			AssertExtensions.AssertThatAreEqual("Check details saved message is: '" + expectedMessage + "'", expectedMessage, DetailsSavedMessage.Text);
 			return this;
 		}
 
