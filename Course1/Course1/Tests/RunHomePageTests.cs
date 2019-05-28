@@ -43,7 +43,7 @@ namespace Course1.Tests
         }
 
         [Test]
-        public void PageTitleIsCorrectLinkTest()
+        public void PageTitleIsCorrectTest()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
