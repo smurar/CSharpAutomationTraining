@@ -42,7 +42,7 @@ namespace Course01.Course02
 
         public HomePage GoToHomePage()
         {
-            WebDriver.Url = "URL";
+            WebDriver.Url = URL;
             return new HomePage(WebDriver);
         }
     }
