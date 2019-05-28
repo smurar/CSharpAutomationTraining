@@ -11,6 +11,9 @@ namespace Course01.Course02
     public class Waiters
     {
         private IWebDriver WebDriver;
+        public Waiters(IWebDriver WebDriver)
+        { this.WebDriver = WebDriver; }
+
         public void WaitElementToBeDisplayed(IWebElement element, string elementName, int timeOutSeconds )
         {
             Reporter.LogInfo("Wait for element : [" + elementName + "] to be visible.");

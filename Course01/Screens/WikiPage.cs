@@ -13,10 +13,12 @@ namespace Course01.Screens
     {
         private IWebDriver WebDriver;
 
-        Waiters wait = new Waiters();
+        Waiters wait;
         public WikiPage(IWebDriver WebDriver)
-        { this.WebDriver = WebDriver; }
-
+        {
+            wait = new Waiters(WebDriver);
+            this.WebDriver = WebDriver;
+        }
         public WikiPage CheckPageTitle(string expectedTitle)
         {
             wait.WaitElementToBeDisplayed(WebDriver.FindElement(By.Id("htmlVersion")), "Wiki field", 10);

@@ -5,12 +5,17 @@ using OpenQA.Selenium;
 
 namespace Course01.Course02
 {
-    public class DashBoardPage : Waiters
+    public class DashBoardPage 
     {
         private IWebDriver WebDriver;
+        Waiters wait;
         public DashBoardPage(IWebDriver WebDriver)
-        { this.WebDriver = WebDriver; }
+        {
+            wait = new Waiters(WebDriver);
+            this.WebDriver = WebDriver;
+        }
 
+       
         private IWebElement H1Title { get { return WebDriver.FindElement(By.XPath("//h1[contains(text(),'Dashboard page')]")); } }
 
         private IWebElement FirstName { get { return WebDriver.FindElement(By.Id("firstname")); } }
@@ -24,7 +29,7 @@ namespace Course01.Course02
 
         public DashBoardPage CheckPageTitle(string expectedTitle)
         {
-            WaitElementToBeDisplayed(WebDriver.FindElement(By.XPath("//div/p[contains(text(),'Welcome to dashboard page')]")), "Welcome To Dashboard", 10);
+            wait.WaitElementToBeDisplayed(WebDriver.FindElement(By.XPath("//div/p[contains(text(),'Welcome to dashboard page')]")), "Welcome To Dashboard", 10);
             Assert.True(object.Equals(WebDriver.Title, expectedTitle));
             return this;
         }
@@ -33,7 +38,7 @@ namespace Course01.Course02
         {
             LogoutBUtton.Click();
             Reporter.LogInfo("Logout button clicked");
-            WaitElementToBeDisplayed(DefaultEmailText, "HomePage email field", 10);
+            wait.WaitElementToBeDisplayed(DefaultEmailText, "HomePage email field", 10);
             CheckElementIsDisplayed(WebDriver.FindElement(By.Id("nav")));
 
             return new HomePage(WebDriver);
@@ -51,7 +56,7 @@ namespace Course01.Course02
             WebElementExtensions.Click(vehicle, "Choose vehicle type");
             WebElementExtensions.SendKeys(Bday, "31051994", "Birthday inserted");
             WebElementExtensions.Click(SaveDetailsButton, "save details clicked");
-            WaitElementToBeDisplayed(WebDriver.FindElement(By.Id("detailsSavedMessage")), "details saved info message", 10);
+            wait.WaitElementToBeDisplayed(WebDriver.FindElement(By.Id("detailsSavedMessage")), "details saved info message", 10);
             CheckElementContainsText(WebDriver.FindElement(By.Id("detailsSavedMessage")), "Details saved");
 
             return this;
@@ -77,7 +82,7 @@ namespace Course01.Course02
         public WikiPage NavigateToWiki()
         {
             WebDriver.FindElement(By.XPath("//a[@href='wikipage.html'][@style='padding-left:5em'][contains(text(),'WikiPage')]")).Click();
-            WaitElementToBeDisplayed(WebDriver.FindElement(By.Id("htmlVersion")), "wiki page field", 10);
+            wait.WaitElementToBeDisplayed(WebDriver.FindElement(By.Id("htmlVersion")), "wiki page field", 10);
             return new WikiPage(WebDriver);
         }
     }
