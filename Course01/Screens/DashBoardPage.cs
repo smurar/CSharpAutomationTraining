@@ -1,11 +1,7 @@
 ﻿using Course01.Screens;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Course01.Course02
 {
@@ -50,14 +46,11 @@ namespace Course01.Course02
             Reporter.LogInfo("Last name field cleared");
             FirstName.SendKeys("Bogdan");
             Reporter.LogInfo("first name field filled");
-            LastName.SendKeys("Hasiu");
-            Reporter.LogInfo("last name field filled");
+            WebElementExtensions.SendKeys(LastName,"Hasiu", "Last Name Input");
             vehicle.Click();
-            Reporter.LogInfo("vehicle chosed");
-            Bday.SendKeys("31051994");
-            Reporter.LogInfo("Bday inserted");
-            SaveDetailsButton.Click();
-            Reporter.LogInfo("save details clicked");
+            WebElementExtensions.Click(vehicle, "Choose vehicle type");
+            WebElementExtensions.SendKeys(Bday, "31051994", "Birthday inserted");
+            WebElementExtensions.Click(SaveDetailsButton, "save details clicked");
             WaitElementToBeDisplayed(WebDriver.FindElement(By.Id("detailsSavedMessage")), "details saved info message", 10);
             CheckElementContainsText(WebDriver.FindElement(By.Id("detailsSavedMessage")), "Details saved");
 
