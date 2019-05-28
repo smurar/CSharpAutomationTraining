@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpAutoTraining
+namespace CSharpAutoTraining.Course1
 {
     class HomepageClass
     {
