@@ -129,6 +129,12 @@
   <data name="HeadingTitle" xml:space="preserve">
     <value>HTML</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>InvalidEmail</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>InvalidPassword</value>
+  </data>
   <data name="NullEmailValidationText" xml:space="preserve">
     <value>Email address can't be null</value>
   </data>

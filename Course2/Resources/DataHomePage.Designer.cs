@@ -97,6 +97,24 @@ namespace Course2.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InvalidEmail.
+        /// </summary>
+        internal static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InvalidPassword.
+        /// </summary>
+        internal static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email address can&apos;t be null.
         /// </summary>
         internal static string NullEmailValidationText {

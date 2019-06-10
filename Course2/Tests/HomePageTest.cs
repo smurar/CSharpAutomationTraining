@@ -1,4 +1,5 @@
 ﻿using Course2.BrowserFactory;
+using Course2.PageObjects;
 using Course2.Reports;
 using Course2.Resources;
 using NUnit.Framework;
@@ -61,7 +62,10 @@ namespace Course2.Tests
         public void EmailValidationsTest()
         {
             GoToHomePage()
+                .ClickLogin<HomePage>()
                 .CheckNullEmailValidationText(DataHomePage.NullEmailValidationText)
+                .FillInEmail(DataHomePage.InvalidEmail)
+                .ClickLogin<HomePage>()
                 .CheckFormatEmailValidationText(DataHomePage.FormatEmailValidationText);
         }
 
@@ -69,14 +73,20 @@ namespace Course2.Tests
         public void PasswordValidationTest()
         {
             GoToHomePage()
-                .CheckInvalidPasswordValidation(DataHomePage.PasswordValidationText);
+                .FillInEmail(DataHomePage.InvalidEmail)
+                .FillInPassword(DataHomePage.InvalidPassword)
+                .ClickLogin<HomePage>()
+                .CheckInvalidPasswordValidationMessage(DataHomePage.PasswordValidationText);
         }
 
         [Test]
         public void SuccessfullyLoginTest()
         {
             GoToHomePage()
-                .Login(DataHomePage.ValidEmail, DataHomePage.ValidPassword)
+                .FillInEmail(DataHomePage.ValidEmail)
+                .FillInPassword(DataHomePage.ValidPassword)
+                .ClickLogin<DashboardPage>()
+                
                 .CheckPageTitle(DataDashboardPage.Title);
         }
 

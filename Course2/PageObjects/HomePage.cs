@@ -100,7 +100,7 @@ namespace Course2.PageObjects
 
         public HomePage CheckNullEmailValidationText(string nullEmailValidation)
         {
-            LoginButton.Click("Login Button");
+            
             Reporter.LogInfo("Check that the valadation message displayed for null email is: " + nullEmailValidation);
             Assert.AreEqual(nullEmailValidation, EmailValidationText.Text, "The null email validation message is not correct");
             return this;
@@ -108,30 +108,40 @@ namespace Course2.PageObjects
 
         public HomePage CheckFormatEmailValidationText(string formatEmailValidation)
         {
-            Email.SendKeys("Test", "Email Field");
-            LoginButton.Click("Login Button");
+           
             Reporter.LogInfo("Check that the valadation message displayed for incorrect email is: " + formatEmailValidation);
             Assert.AreEqual(formatEmailValidation, EmailValidationText.Text, "The format email validation message is not correct");
             return this;
         }
 
-        public HomePage CheckInvalidPasswordValidation(string passwordValidationMessage)
+      
+
+        public HomePage CheckInvalidPasswordValidationMessage(string passwordValidationMessage)
         {
-            Email.SendKeys("Test@test.com", "Email Field");
-            Password.SendKeys("test", "Password Field");
-            LoginButton.Click("Login Button");
             Reporter.LogInfo("Check that the password validation message is: " + passwordValidationMessage);
             Assert.AreEqual(passwordValidationMessage, PasswordValidationText.Text, "The password validation message is not correct");
             return this;
+
         }
 
-        public DashboardPage Login(string validEmail, string validPassword)
+        public HomePage FillInEmail(string email)
         {
-            Email.SendKeys(validEmail, "Email Field");
-            Password.SendKeys(validPassword, "Password Field");
-            LoginButton.Click("Login Button");
-            return new DashboardPage(WebDriver);
+            Email.SendKeys(email, "Email Field");
+            return this;
         }
+
+        public HomePage FillInPassword(string password)
+        {
+            Password.SendKeys(password, "Password Field");
+            return this;
+        }
+
+        public T ClickLogin<T>()
+        {
+            LoginButton.Click("login button");
+            return (T)Activator.CreateInstance(typeof(T), new object[1] { WebDriver });
+        }
+       
 
         public WikiPage GoToWikiPage()
         {

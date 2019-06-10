@@ -22,6 +22,7 @@ namespace Course2.Tests
        
         
         public string HomePageURL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL"];
+        public string WindowsHandlingUrl { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL2"];
 
         [OneTimeSetUp]
         public void BeforeTestClass()
@@ -45,10 +46,19 @@ namespace Course2.Tests
             return new HomePage(Browser.GetDriver());
         }
 
+        public WindowsHandlingHomePage GoToHomePageForWindowsAndFramesHandling()
+        {
+            Browser.GoToUrl(WindowsHandlingUrl);
+
+            return new WindowsHandlingHomePage(Browser.GetDriver());
+        }
+
         public DashboardPage GoToDashboardPage()
         {
             GoToHomePage()
-                .Login(DataHomePage.ValidEmail, DataHomePage.ValidPassword);
+                .FillInEmail(DataHomePage.ValidEmail)
+                .FillInPassword(DataHomePage.ValidPassword)
+                .ClickLogin<DashboardPage>();
             return new DashboardPage(Browser.GetDriver());
         }
 
