@@ -158,7 +158,7 @@ namespace Course01
         [Test]
         public void WindowsFrameTest_WriteInBothFrames()
         {
-            GoToHomePageForWindowsAndFramesHandling()
+            OpenHomePageAndGoToWindowsFrame()
                 .ClickWindowsFrameLink()
                 .WriteToFrame1TextArea();
         }

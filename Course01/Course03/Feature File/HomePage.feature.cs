@@ -97,6 +97,24 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("BDD Verify Header links and Image Displayed")]
+        [NUnit.Framework.CategoryAttribute("HomePageTESTS")]
+        public virtual void BDDVerifyHeaderLinksAndImageDisplayed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Verify Header links and Image Displayed", null, new string[] {
+                        "HomePageTESTS"});
+#line 15
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 16
+ testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.Then("I verify that header and image are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

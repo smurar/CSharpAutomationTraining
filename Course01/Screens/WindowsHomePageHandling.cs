@@ -17,7 +17,7 @@ namespace Course01.Screens
         {
             this.WebDriver = WebDriver;
         }
-
+  
         public WindowsFramePage ClickWindowsFrameLink()
         {
             WindowsFrameLink.Click("Window + Frame link");

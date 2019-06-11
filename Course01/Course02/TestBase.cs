@@ -16,7 +16,7 @@ namespace Course01.Course02
     {
         public IWebDriver WebDriver { get; set; }
         public string URL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL"];
-        public string URL2 { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL2"];
+        public string WindowsFrame { get; set; } = System.Configuration.ConfigurationManager.AppSettings["WindowsFrameURL"];
 
         [OneTimeSetUp]
         public void beforeTestClass()
@@ -31,9 +31,9 @@ namespace Course01.Course02
           Reporter.StartTEST(TestContext.CurrentContext.Test.MethodName);
         }
 
-        public WindowsHomePageHandling GoToHomePageForWindowsAndFramesHandling()
+        public WindowsHomePageHandling OpenHomePageAndGoToWindowsFrame()
         {
-            WebDriver.Url = URL2;
+            WebDriver.Url = WindowsFrame;
 
             return new WindowsHomePageHandling(WebDriver);
         }
@@ -52,7 +52,7 @@ namespace Course01.Course02
 
         public HomePage GoToHomePage()
         {
-            WebDriver.Url = URL2;
+            WebDriver.Url = WindowsFrame;
             return new HomePage(WebDriver);
         }
     }

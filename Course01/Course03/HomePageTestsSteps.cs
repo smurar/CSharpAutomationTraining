@@ -18,6 +18,15 @@ namespace Course01
 
         private WikiPage wikiPage;
 
+        [Then(@"I verify that header and image are displayed")]
+        public void GivenIVerifyThatHeaderAndImageAreDisplayed()
+        {
+            homePage = new HomePage(WebDriverBDD.WebDriver);
+
+            homePage.CheckPageTitle(Resource.PageTitle).CheckImageDisplayed().CheckHeaderDisplayed();
+        }
+
+
         [Given(@"I am on homepage")]
         public void GivenIAmOnHomepage()
         {
