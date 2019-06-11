@@ -19,7 +19,7 @@ namespace Course1
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
             driver.Url = "file:///C:/Users/tfoldi/Desktop/Endava%20Trainings/CSharpAutomationtraining/Pages/homepage.html";
-            
+
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='header']/a/img")).Displayed);
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='navHeader']//*[text()='Home']")).Displayed);
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='navHeader']//*[text()='WikiPage']")).Displayed);
@@ -47,7 +47,7 @@ namespace Course1
             Assert.AreEqual("HTML", (driver.FindElement(By.XPath("//html/body/h1"))).Text);
 
             driver.Quit();
-            
+
         }
 
         [Test]
@@ -157,7 +157,7 @@ namespace Course1
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
             driver.Url = "file:///C:/Users/tfoldi/Desktop/Endava%20Trainings/CSharpAutomationtraining/Pages/homepage.html";
-                        
+
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='nav']/li[1]")).Displayed);
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='nav']/li[2]")).Displayed);
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='nav']/li[3]")).Displayed);
