@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using System;
 using TestProject.Course2.Base;
 using TestProject.Course2.Reports;
 using TestProject.Course2.Resources.Resx;
@@ -17,24 +18,24 @@ namespace TestProject.Course2.POM
 
         #region WebElements
         #region Header Elements
-        private IWebElement HeaderPhoto { get { return driver.FindElement(By.XPath("//img")); } }
-        private IWebElement HeaderHomeLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'homepage.html']")); } }
-        private IWebElement HeaderWikiPageLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'wikipage.html']")); } }
+        public IWebElement HeaderPhoto { get { return driver.FindElement(By.XPath("//img")); } }
+        public IWebElement HeaderHomeLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'homepage.html']")); } }
+        public IWebElement HeaderWikiPageLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'wikipage.html']")); } }
         #endregion
         #region Body Elements
-        private IWebElement HeadlingTitle { get { return driver.FindElement(By.XPath("//h1")); } }
-        private IWebElement DefaultUser { get { return driver.FindElement(By.XPath("//b/p[contains(text(),'admin@domain.org')]")); } }
-        private IWebElement DefaultPassword { get { return driver.FindElement(By.XPath("//b/p[contains(text(),'111111')]")); } }
-        private IWebElement EmailField { get { return driver.FindElement(By.Id("email")); } }
-        private IWebElement PasswordField { get { return driver.FindElement(By.Id("password")); } }
-        private IWebElement LogInButton { get { return driver.FindElement(By.Id("Login")); } }
-        private IWebElement EmailErrorText { get { return driver.FindElement(By.Id("emailErrorText")); } }
-        private IWebElement PasswordErrorText { get { return driver.FindElement(By.Id("passwordErrorText")); } }
+        public IWebElement HeadlingTitle { get { return driver.FindElement(By.XPath("//h1")); } }
+        public IWebElement DefaultUser { get { return driver.FindElement(By.XPath("//b/p[contains(text(),'admin@domain.org')]")); } }
+        public IWebElement DefaultPassword { get { return driver.FindElement(By.XPath("//b/p[contains(text(),'111111')]")); } }
+        public IWebElement EmailField { get { return driver.FindElement(By.Id("email")); } }
+        public IWebElement PasswordField { get { return driver.FindElement(By.Id("password")); } }
+        public IWebElement LogInButton { get { return driver.FindElement(By.Id("Login")); } }
+        public IWebElement EmailErrorText { get { return driver.FindElement(By.Id("emailErrorText")); } }
+        public IWebElement PasswordErrorText { get { return driver.FindElement(By.Id("passwordErrorText")); } }
         #endregion
         #region Footer Elements
-        private IWebElement FooterHomeLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'homepage.html']")); } }
-        private IWebElement FooterWikiLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'wikipage.html']")); } }
-        private IWebElement FooterContactLink { get { return driver.FindElement(By.LinkText("Contact (NA)")); } }
+        public IWebElement FooterHomeLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'homepage.html']")); } }
+        public IWebElement FooterWikiLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'wikipage.html']")); } }
+        public IWebElement FooterContactLink { get { return driver.FindElement(By.LinkText("Contact (NA)")); } }
         #endregion
         #endregion
 
@@ -138,6 +139,12 @@ namespace TestProject.Course2.POM
             LogInButton.ClickElement("LogIn Button");
 
             return this;
+        }
+
+        public T ClickLogin<T>()
+        {
+            LogInButton.ClickElement("LogIn Button");
+            return (T)Activator.CreateInstance(typeof(T), new object[1] { Driver });
         }
 
         public HomePagePOM EnterInvalidLogInCredentials()

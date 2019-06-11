@@ -19,26 +19,26 @@ namespace TestProject.Course2.POM
 
         #region Webelements
         #region Header Elements
-        private IWebElement HeaderPhoto { get { return driver.FindElement(By.XPath("//img")); } }
-        private IWebElement HeaderHomeLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'homepage.html']")); } }
-        private IWebElement HeaderWikiPageLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'wikipage.html']")); } }
+        public IWebElement HeaderPhoto { get { return driver.FindElement(By.XPath("//img")); } }
+        public IWebElement HeaderHomeLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'homepage.html']")); } }
+        public IWebElement HeaderWikiPageLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'wikipage.html']")); } }
         #endregion
         #region Body Elements      
-        private IWebElement Spinner { get { return driver.FindElement(By.Id("loader")); } } //testing scope
-        private IWebElement HeadlingTitle { get { return driver.FindElement(By.XPath("//h1")); } }
-        private IWebElement FirstnameField { get { return driver.FindElement(By.Id("firstname")); } }
-        private IWebElement LastnameField { get { return driver.FindElement(By.XPath("//input[@value='David']")); } }
-        private IWebElement VehicleOneCheckBox { get { return driver.FindElement(By.Name("vehicle2")); } }
-        private IWebElement BirthdayField { get { return driver.FindElement(By.Name("bday")); } }
-        private IWebElement UploadPictureButton { get { return driver.FindElement(By.Name("picture")); } }
-        private IWebElement SaveButton { get { return driver.FindElement(By.Id("SaveDetails")); } }
-        private IWebElement DetailsSavedMessage { get { return driver.FindElement(By.Id("detailsSavedMessage")); } }
-        private IWebElement LogOutButton { get { return driver.FindElement(By.Id("Logout") , 60); } } //testing scope
+        public IWebElement Spinner { get { return driver.FindElement(By.Id("loader")); } } //testing scope
+        public IWebElement HeadlingTitle { get { return driver.FindElement(By.XPath("//h1")); } }
+        public IWebElement FirstnameField { get { return driver.FindElement(By.Id("firstname")); } }
+        public IWebElement LastnameField { get { return driver.FindElement(By.XPath("//input[@value='David']")); } }
+        public IWebElement VehicleOneCheckBox { get { return driver.FindElement(By.Name("vehicle2")); } }
+        public IWebElement BirthdayField { get { return driver.FindElement(By.Name("bday")); } }
+        public IWebElement UploadPictureButton { get { return driver.FindElement(By.Name("picture")); } }
+        public IWebElement SaveButton { get { return driver.FindElement(By.Id("SaveDetails")); } }
+        public IWebElement DetailsSavedMessage { get { return driver.FindElement(By.Id("detailsSavedMessage")); } }
+        public IWebElement LogOutButton { get { return driver.FindElement(By.Id("Logout") , 60); } } //testing scope
         #endregion
         #region Footer Elements
-        private IWebElement FooterHomeLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'homepage.html']")); } }
-        private IWebElement FooterWikiLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'wikipage.html']")); } }
-        private IWebElement FooterContactLink { get { return driver.FindElement(By.LinkText("Contact (NA)")); } }
+        public IWebElement FooterHomeLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'homepage.html']")); } }
+        public IWebElement FooterWikiLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'wikipage.html']")); } }
+        public IWebElement FooterContactLink { get { return driver.FindElement(By.LinkText("Contact (NA)")); } }
         #endregion
         #endregion
 
@@ -128,6 +128,11 @@ namespace TestProject.Course2.POM
             LogOutButton.ClickElement("LogOut button");            
 
             return new HomePagePOM(driver);
+        }
+
+        public void ClickLogOutButton()
+        {
+            LogOutButton.ClickElement("LogOut button");
         }
 
         //testing scope

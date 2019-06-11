@@ -39,7 +39,7 @@ namespace TestProject.Course2.Reports
         public static void EndReporting()
         {
             extent.Flush();
-            EmailSender.SendReportEmail(); //for the moment it works only for one namespace
+          //  EmailSender.SendReportEmail(); //for the moment it works only for one namespace
         }
 
         public static void StartTest(string testName)
@@ -70,7 +70,7 @@ namespace TestProject.Course2.Reports
             }
 
             test.Log(logStatus, "Test ended with :" + logStatus + stackTrace);                     
-            extent.Flush(); //for the moment it works only for one namespace           
+            //extent.Flush(); //for the moment it works only for one namespace           
         }     
 
         public static void LogInfo(string info)
