@@ -152,8 +152,15 @@ namespace Course01
            .CheckPageTitle(Resource.DashboardPageTitle)
            .CheckH1Title()
            .EditPersonalInfoAndSave()
-           .Logout();
-           
+           .Logout();        
+        }
+
+        [Test]
+        public void WindowsFrameTest_WriteInBothFrames()
+        {
+            GoToHomePageForWindowsAndFramesHandling()
+                .ClickWindowsFrameLink()
+                .WriteToFrame1TextArea();
         }
     }
 }

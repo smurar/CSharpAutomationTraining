@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Course01.Screens;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Course01.Course02
 {
     public class HomePage
     {
+        Waiters wait;
+
         private IWebDriver WebDriver;
         private IWebElement Email { get { return WebDriver.FindElement(By.Id("email")); } }
 
@@ -27,10 +30,27 @@ namespace Course01.Course02
 
         private IWebElement LoginButton { get { return WebDriver.FindElement(By.Id("Login")); } }
 
+        private IWebElement WikiPage { get { return WebDriver.FindElement(By.XPath("//a[@href='wikipage.html'][@style='padding-left:5em']")); } }
+
+       
+
         public HomePage(IWebDriver WebDriver)
-        { this.WebDriver = WebDriver; }
+        { this.WebDriver = WebDriver;
+            wait = new Waiters(WebDriver);
+        }
 
+        public T ClickLogin<T>()
+        {
+            LoginButton.Click("login button");
+            return (T) Activator.CreateInstance(typeof(T), new object[1] { WebDriver });
+        }
 
+        public WikiPage ClickOnWikiPage()
+        {
+            wait.WaitElementToBeDisplayed(WikiPage, "Wiki page button", 2);
+            WikiPage.Click("WikiPage html");
+            return new WikiPage(WebDriver);
+        }
         public DashBoardPage LoginWithValidCredentials()
         {
             SendKeysToField(Email, "admin@domain.org", "Email field");
@@ -39,6 +59,11 @@ namespace Course01.Course02
             return new DashBoardPage(WebDriver);
         }
 
+        public HomePage ClickLoginButton()
+        {
+            LoginButton.Click();
+            return this;
+        }
         public HomePage SendKeysToField(IWebElement element, string textToWrite, string elementName)
         {
             Reporter.LogInfo("Write text '" + textToWrite + "' to elemet: " + elementName);
@@ -108,6 +133,12 @@ namespace Course01.Course02
         public HomePage CheckH1Title()
         {
             Assert.IsTrue(H1Title.Text.Contains("HTML"));
+            return this;
+        }
+
+        public HomePage AssertPageTitleIs (string expectedTitle)
+        {
+            Assert.True(WebDriver.Title.Equals(expectedTitle));
             return this;
         }
 
