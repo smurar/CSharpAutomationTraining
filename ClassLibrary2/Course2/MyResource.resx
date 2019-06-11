@@ -156,11 +156,20 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Home page</value>
   </data>
+  <data name="ParentFramePartialURLText" xml:space="preserve">
+    <value>frame_parent</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>111111</value>
   </data>
   <data name="PasswordLabelText" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="TextFrameA" xml:space="preserve">
+    <value>text frame A</value>
+  </data>
+  <data name="TextFrameB" xml:space="preserve">
+    <value>text frame B</value>
   </data>
   <data name="WikipageTitle" xml:space="preserve">
     <value>WikiPage</value>

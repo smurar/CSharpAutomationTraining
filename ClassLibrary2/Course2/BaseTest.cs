@@ -15,6 +15,7 @@ namespace ClassLibrary2.Course2
 	{
 		public IWebDriver WebDriver { get; set; }
 		public string URL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL"];
+		public string URL_FRAMES { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL_FRAMES"];
 
 		[SetUp]
 		public void BeforeTest()
@@ -27,6 +28,12 @@ namespace ClassLibrary2.Course2
 		public HomePage GoToHomepage()
 		{
 			WebDriver.Url = URL;
+			return new HomePage(WebDriver);
+		}
+
+		public HomePage GoToHomepageWithFrames()
+		{
+			WebDriver.Url = URL_FRAMES;
 			return new HomePage(WebDriver);
 		}
 

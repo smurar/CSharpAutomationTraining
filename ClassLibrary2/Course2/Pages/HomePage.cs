@@ -1,6 +1,8 @@
-﻿using ClassLibrary2.Course2.Extensions;
+﻿using System;
+using ClassLibrary2.Course2.Extensions;
 using ClassLibrary2.Course2.Helpers;
 using ClassLibrary2.Course2.Pages;
+using ClassLibrary2.Course33;
 using OpenQA.Selenium;
 
 namespace ClassLibrary2.Course2
@@ -9,10 +11,12 @@ namespace ClassLibrary2.Course2
 	{
 		private IWebDriver WebDriver;
 		private WaitConditions wait;
+		private WindowsAndFramesHelper windowsAndFramesHelper;
 
 		//header
 		private IWebElement HomepageLink { get { return WebDriver.FindElement(By.XPath("//ul/li/a[@href='homepage.html']")); } }
 		private IWebElement WikipediaLink { get { return WebDriver.FindElement(By.XPath("//ul/li/a[@href='wikipage.html']")); } }
+		private IWebElement WindowsFrameLink { get { return WebDriver.FindElement(By.XPath("//ul[@id='navHeader']/a[@href='frame_parent.html']")); } }
 		private IWebElement Image { get { return WebDriver.FindElement(By.XPath("//a/img[contains(@src,'upload.wikimedia')]")); } }
 		private IWebElement PageHeadingTitle { get { return WebDriver.FindElement(By.XPath("//h1")); } }
 		private IWebElement LoginButton { get { return WebDriver.FindElement(By.Id("Login")); } }
@@ -36,6 +40,7 @@ namespace ClassLibrary2.Course2
 		{
 			this.WebDriver = WebDriver;
 			wait = new WaitConditions(WebDriver);
+			windowsAndFramesHelper = new WindowsAndFramesHelper(WebDriver);
 			wait.WaitElementToBeDisplayed(EmailInputField, "email textbox", 5);
 		}
 
@@ -147,6 +152,26 @@ namespace ClassLibrary2.Course2
 			FillInPassword(password);
 			ClickLoginButton();
 			return new DashboardPage(WebDriver);
+		}
+
+		public FramePage ClickWindowAndFrameLink()
+		{
+			WindowsFrameLink.Click("window_frame link");
+			return new FramePage(WebDriver);
+		}
+
+		public string GetParentWindow()
+		{
+			var currentWindow = windowsAndFramesHelper.GetCurrentWindow();
+			Reporter.LogInfo("Current window is: " + currentWindow);
+			return currentWindow;
+		}
+
+		public T ClickLogin<T>()
+		{
+			LoginButton.Click("login button");
+			return (T)Activator.CreateInstance(typeof(T), new object[1] { WebDriver });
+
 		}
 	}
 }

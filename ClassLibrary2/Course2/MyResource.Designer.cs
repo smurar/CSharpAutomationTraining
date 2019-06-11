@@ -178,6 +178,15 @@ namespace ClassLibrary2.Course2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to frame_parent.
+        /// </summary>
+        internal static string ParentFramePartialURLText {
+            get {
+                return ResourceManager.GetString("ParentFramePartialURLText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 111111.
         /// </summary>
         internal static string Password {
@@ -192,6 +201,24 @@ namespace ClassLibrary2.Course2 {
         internal static string PasswordLabelText {
             get {
                 return ResourceManager.GetString("PasswordLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to text frame A.
+        /// </summary>
+        internal static string TextFrameA {
+            get {
+                return ResourceManager.GetString("TextFrameA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to text frame B.
+        /// </summary>
+        internal static string TextFrameB {
+            get {
+                return ResourceManager.GetString("TextFrameB", resourceCulture);
             }
         }
         

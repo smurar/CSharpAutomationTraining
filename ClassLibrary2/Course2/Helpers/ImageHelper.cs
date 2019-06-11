@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 
 namespace ClassLibrary2.Course2.Helpers
 {
 	public class ImageHelper
 	{
+		/// <summary>
+		/// Capture a screenshot of the open page
+		/// </summary>
+		/// <param name="driver"></param>
+		/// <returns></returns>
 		public static string CaptureScreen(IWebDriver driver)
 		{
 			Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
