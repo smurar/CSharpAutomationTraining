@@ -14,7 +14,9 @@ namespace Course2.Tests
         {
             GoToHomePageForWindowsAndFramesHandling()
                 .ClickWindowsFrameLink()
-                .WriteToFrame1TextArea();
+                .WriteToFrame1TextArea()
+                .SwitchToDefaultContent()
+                .WriteToFrame2TextArea();
         }
     }
 }

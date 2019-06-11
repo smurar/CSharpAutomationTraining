@@ -23,7 +23,23 @@ namespace Course2.PageObjects
             WebDriver.SwitchTo().Window(Windows.ElementAt(1));
             WebDriver.SwitchTo().Frame(frame1);
             textArea.SendKeys("test");
+            
+            
+            return this;
+
+        }
+
+        public WindowsFramePage SwitchToDefaultContent()
+        {
             WebDriver.SwitchTo().DefaultContent();
+            return this;
+        }
+        public WindowsFramePage WriteToFrame2TextArea()
+        {
+            IReadOnlyCollection<string> Windows = WebDriver.WindowHandles;
+            WebDriver.SwitchTo().Window(Windows.ElementAt(1));
+           
+
             WebDriver.SwitchTo().Frame(frame2);
             textArea.SendKeys("test2");
             return this;
