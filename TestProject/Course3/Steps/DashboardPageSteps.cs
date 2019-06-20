@@ -1,10 +1,11 @@
 ﻿using TechTalk.SpecFlow;
-using TestProject.Course2.POM;
+using TestProject.Resources.Class;
+using TestProject.Resources.POM;
 
 namespace TestProject.Course3.Steps
 {
     [Binding]
-    public class DashboardPageSteps : WebDriverBDD
+    public class DashboardPageSteps
     {
         private HomePagePOM homaPage;
         private DashboardPagePOM dashboarPage;
@@ -12,7 +13,7 @@ namespace TestProject.Course3.Steps
         [StepDefinition(@"The user lands succesfully on DashboardPage")]
         public void ThenTheUserLandsSuccesfullyOnDashboardPage()
         {
-            dashboarPage = new DashboardPagePOM(Driver);
+            dashboarPage = new DashboardPagePOM(Driver.DriverInstance);
             dashboarPage.CheckPageTitle();           
         }
 

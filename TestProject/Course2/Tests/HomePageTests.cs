@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using TestProject.Course2.Base;
-using TestProject.Course2.Resources.Resx;
+using TestProject.Resources.Resx;
 
 namespace TestProject.Course2.HomePageTests
 {

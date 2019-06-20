@@ -91,47 +91,11 @@
     <Compile Include="Course1\DashboardPageTests.cs" />
     <Compile Include="Course1\HomPageTests.cs" />
     <Compile Include="Course2\Base\BasePage.cs" />
-    <Compile Include="Course2\Reports\EmailSender.cs" />
-    <Compile Include="Course2\Base\Helpers.cs" />
-    <Compile Include="Course2\Base\WebElementExtensions.cs" />
-    <Compile Include="Course2\POM\DashboardPagePOM.cs" />
-    <Compile Include="Course2\POM\WikiPagePOM.cs" />
-    <Compile Include="Course2\Reports\ImageHelper.cs" />
-    <Compile Include="Course2\Reports\Reporter.cs" />
-    <Compile Include="Course2\Resources\Class\Templates.cs" />
-    <Compile Include="Course2\Resources\Resx\AssertMessages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AssertMessages.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Course2\Resources\Class\Paths.cs" />
-    <Compile Include="Course2\Resources\Resx\DashboardPageResx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DashboardPageResx.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Course2\Resources\Resx\FileTypeResx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FileTypeResx.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Course2\Resources\Resx\HomePageResx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HomePageResx.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Course2\Resources\Resx\EmailResx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmailResx.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Course2\Resources\Resx\WikiPageResx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WikiPageResx.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Resources\Class\Driver.cs" />
+    <Compile Include="Resources\POM\DashboardPagePOM.cs" />
+    <Compile Include="Resources\POM\WikiPagePOM.cs" />
     <Compile Include="Course2\Tests\DashboardPageTests.cs" />
-    <Compile Include="Course2\POM\HomePagePOM.cs" />
+    <Compile Include="Resources\POM\HomePagePOM.cs" />
     <Compile Include="Course2\Tests\HomePageTests.cs" />
     <Compile Include="Course3\Features\DashboardPageFeature.feature.cs">
       <AutoGen>True</AutoGen>
@@ -151,8 +115,45 @@
     <Compile Include="Course3\Steps\DashboardPageSteps.cs" />
     <Compile Include="Course3\Steps\HomePageSteps.cs" />
     <Compile Include="Course3\Steps\WikiPageSteps.cs" />
-    <Compile Include="Course3\WebDriverBDD.cs" />
+    <Compile Include="Course3\Base\BasePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Class\Helpers.cs" />
+    <Compile Include="Resources\Class\Paths.cs" />
+    <Compile Include="Resources\Class\Templates.cs" />
+    <Compile Include="Resources\Class\WebElementExtensions.cs" />
+    <Compile Include="Resources\Reports\EmailSender.cs" />
+    <Compile Include="Resources\Reports\ImageHelper.cs" />
+    <Compile Include="Resources\Reports\Reporter.cs" />
+    <Compile Include="Resources\Resx\AssertMessages.Designer.cs">
+      <DependentUpon>AssertMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resx\DashboardPageResx.Designer.cs">
+      <DependentUpon>DashboardPageResx.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resx\EmailResx.Designer.cs">
+      <DependentUpon>EmailResx.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resx\FileTypeResx.Designer.cs">
+      <DependentUpon>FileTypeResx.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resx\HomePageResx.Designer.cs">
+      <DependentUpon>HomePageResx.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resx\WikiPageResx.Designer.cs">
+      <DependentUpon>WikiPageResx.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -172,58 +173,58 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Course2\Resources\Resx\AssertMessages.resx">
+    <EmbeddedResource Include="Resources\Resx\AssertMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AssertMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\Resx\DashboardPageResx.resx">
+    <EmbeddedResource Include="Resources\Resx\DashboardPageResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DashboardPageResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\Resx\FileTypeResx.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FileTypeResx.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\Resx\HomePageResx.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomePageResx.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\Resx\EmailResx.resx">
+    <EmbeddedResource Include="Resources\Resx\EmailResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Course2\Resources\Resx\WikiPageResx.resx">
+    <EmbeddedResource Include="Resources\Resx\FileTypeResx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FileTypeResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resx\HomePageResx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomePageResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resx\WikiPageResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>WikiPageResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Course2\Resources\Driver\chromedriver.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Course2\Resources\Driver\geckodriver.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Course2\Resources\Pages\dashboardpage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Course2\Resources\Pages\frame_a.html" />
-    <Content Include="Course2\Resources\Pages\frame_b.html" />
-    <Content Include="Course2\Resources\Pages\frame_parent.html" />
-    <Content Include="Course2\Resources\Pages\homepage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Course2\Resources\Pages\wikipage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Course2\Resources\Photo\car.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="extent-config.xml" />
+    <Content Include="Resources\Driver\chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Driver\geckodriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pages\dashboardpage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pages\frame_a.html" />
+    <Content Include="Resources\Pages\frame_b.html" />
+    <Content Include="Resources\Pages\frame_parent.html" />
+    <Content Include="Resources\Pages\homepage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pages\wikipage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Photo\car.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Course2\Reports\Results\ReportFiles\" />
-    <Folder Include="Course2\Reports\Results\Screenshots\" />
+    <Folder Include="Resources\Reports\Results\ReportFiles\" />
+    <Folder Include="Resources\Reports\Results\Screenshots\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

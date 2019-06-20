@@ -1,19 +1,13 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using System;
-using TestProject.Course2.POM;
-using TestProject.Course2.Reports;
-using TestProject.Course2.Resources.Class;
+using TestProject.Resources.POM;
+using TestProject.Resources.Reports;
+using TestProject.Resources.Class;
+
 
 namespace TestProject.Course2.Base
 {
-    public class BasePage
-    {
-        public IWebDriver Driver { get; set; }             
-
+    public class BasePage 
+    {                  
         [OneTimeSetUp]
         public void BeforeTestClass()
         {
@@ -23,7 +17,7 @@ namespace TestProject.Course2.Base
         [SetUp]
         public void BeforeEachTest()
         {
-            ConfigureDriver();
+            Driver.ConfigureDriver();
             Reporter.StartTest(Helpers.GetCurrentTestName());
         }
 
@@ -36,33 +30,17 @@ namespace TestProject.Course2.Base
         [TearDown]
         public void AfterEachTest()
         {            
-            Driver.Quit();        
+            Driver.DriverInstance.Quit();        
             Reporter.EndTest();
             ImageHelper.ResetScreenShotNumber();
-        }
-
-        public void ConfigureDriver()
-        {
-            switch (Helpers.GetBrowserType("BrowserType"))
-            {
-                case "Chrome":
-                    Driver = new ChromeDriver(Paths.Driver);
-                    break;
-
-                case "Firefox":
-                    Driver = new FirefoxDriver(Paths.Driver);                    
-                    break;               
-            }
-            Driver.Manage().Window.Maximize();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);      
-        }
+        }              
 
         public HomePagePOM GoToHomePage()
         {
-            Driver.Navigate().GoToUrl(Paths.HomePageUrl);
-            Driver.Url = Paths.HomePageUrl;
+            Driver.DriverInstance.Navigate().GoToUrl(Paths.HomePageUrl);
+            Driver.DriverInstance.Url = Paths.HomePageUrl;
 
-            return new HomePagePOM(Driver);
+            return new HomePagePOM(Driver.DriverInstance);
         }
 
         public DashboardPagePOM GoToDashboardPage()
@@ -70,7 +48,7 @@ namespace TestProject.Course2.Base
             GoToHomePage()
                 .LogInSuccesful();
 
-            return new DashboardPagePOM(Driver);
+            return new DashboardPagePOM(Driver.DriverInstance);
         }
     }
 }

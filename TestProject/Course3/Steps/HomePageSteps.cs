@@ -2,15 +2,15 @@
 using System;
 using TechTalk.SpecFlow;
 using TestProject.Course2.Base;
-using TestProject.Course2.POM;
-using TestProject.Course2.Reports;
-using TestProject.Course2.Resources.Class;
-using TestProject.Course2.Resources.Resx;
+using TestProject.Resources.POM;
+using TestProject.Resources.Reports;
+using TestProject.Resources.Class;
+using TestProject.Resources.Resx;
 
 namespace TestProject.Course3.Steps
 {
     [Binding]
-    public class HomePageFeatureSteps : WebDriverBDD
+    public class HomePageFeatureSteps
     {
         public HomePagePOM homePage;
         public DashboardPagePOM dashboardPage;
@@ -19,9 +19,9 @@ namespace TestProject.Course3.Steps
         [Given(@"The user navigates to HomePage")]
         public void GivenTheUserNavigatesToHomePage()
         {
-            Driver.Navigate().GoToUrl(Paths.HomePageUrl);
-            Driver.Url = Paths.HomePageUrl;
-            homePage = new HomePagePOM(Driver);
+            Driver.DriverInstance.Navigate().GoToUrl(Paths.HomePageUrl);
+            Driver.DriverInstance.Url = Paths.HomePageUrl;
+            homePage = new HomePagePOM(Driver.DriverInstance);
         }
         
         [StepDefinition(@"The user lands succesfully on HomePage")]       
