@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Course2.Utils
+namespace CSharpAutoTraining.Utils
 {
     public class ImageHelper
     {

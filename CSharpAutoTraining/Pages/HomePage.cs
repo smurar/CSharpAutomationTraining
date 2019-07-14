@@ -1,20 +1,20 @@
-﻿using NUnit.Framework;
+﻿
+using CSharpAutoTraining.Utils;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Course2
+namespace CSharpAutoTraining
 {
-    public class HomePage
+    public class HomePage :  BaseTest
     {
         private IWebDriver WebDriver;
         private IWebElement HeaderImg => WebDriver.FindElement(By.XPath("//*[@id='header']/a/img"));
         private IWebElement HeaderHomePageLink => WebDriver.FindElement(By.XPath("//*[@id='navHeader']//*[text()='Home']"));
         private IWebElement HeaderWikiPageLink => WebDriver.FindElement(By.XPath("//*[@id='navHeader']//*[text()='WikiPage']"));
         private IWebElement HeadingTitle => WebDriver.FindElement(By.XPath("//html/body/h1"));
+        private IWebElement DefaultEmail => WebDriver.FindElement(By.XPath("/html/body/b/p[1]"));
+        private IWebElement DefaultPassword => WebDriver.FindElement(By.XPath("/html/body/b/p[2]"));
         private IWebElement EmailField => WebDriver.FindElement(By.Id("email"));
         private IWebElement PasswordField => WebDriver.FindElement(By.Id("password"));
         private IWebElement EmailLoginError => WebDriver.FindElement(By.Id("emailErrorText"));
@@ -23,15 +23,32 @@ namespace Course2
         private IWebElement FooterLinkHome => WebDriver.FindElement(By.XPath("//*[@id='nav']/li[1]/a"));
         private IWebElement FooterLinkWikiPage => WebDriver.FindElement(By.XPath("//*[@id='nav']/li[2]/a"));
         private IWebElement FooterLinkContact => WebDriver.FindElement(By.XPath("//*[@id='nav']/li[3]/a"));
-                
+
         public HomePage(IWebDriver WebDriver)
         {
             this.WebDriver = WebDriver;
         }
-                                   
+
         public HomePage VerifyPageTitle(string expected)
         {
             Assert.IsTrue(condition: object.Equals(WebDriver.Title, expected));
+            return this;
+        }
+
+        public HomePage VerifyHeadingH1(string expected)
+        {
+            Assert.AreEqual(expected, HeadingTitle.Text);
+            return this;
+        }
+
+        public HomePage DefaultEmailFieldValidation(string defaulEmail)
+        {
+            Assert.IsTrue(DefaultEmail.Text.Contains(defaulEmail));
+            return this;
+        }
+        public HomePage DefaultPasswordFieldValidation(string defaulPassword)
+        {
+            Assert.IsTrue(DefaultPassword.Text.Contains(defaulPassword));
             return this;
         }
 
@@ -69,17 +86,18 @@ namespace Course2
 
         public HomePage GoToHomePageByClickOnLink(bool headerHomeLink = true)
         {
-            if(headerHomeLink)
+            if (headerHomeLink)
             {
                 HeaderHomePageLink.Click();
-            } else
+            }
+            else
             {
                 FooterLinkHome.Click();
             }
             return this;
         }
 
-        public WikiPage GoToWikiPaheByClickOnLink(bool headerWikiLink = true)
+        public WikiPage GoToWikiPageByClickOnLink(bool headerWikiLink = true)
         {
             if (headerWikiLink)
             {
@@ -92,73 +110,65 @@ namespace Course2
             return new WikiPage(WebDriver);
         }
 
-        public bool HeaderItemVisibilityVerification()            
+        public HomePage HeaderItemVisibilityVerification()
         {
-            if(HeaderImg.Displayed.Equals(false) || 
-                HeaderHomePageLink.Displayed.Equals(false) ||
-                HeaderWikiPageLink.Displayed.Equals(false))
+            try
             {
-                Console.WriteLine("Header does not contain all necessary fields");
-                return false;
+                Assert.IsTrue(HeaderImg.Displayed);
+                Assert.IsTrue(HeaderHomePageLink.Displayed);
+                Assert.IsTrue(HeaderWikiPageLink.Displayed);
             }
-            else
+            catch (NoSuchElementException)
             {
-                return true;
+                Assert.Fail("Header Element not found");
+                Reporter.LogFail("Header Element not found");
             }
+            return this;
         }
 
-        public bool FooterItemVisibilityVerification()
+        public HomePage FooterItemVisibilityVerification()
         {
-            if(FooterLinkHome.Displayed.Equals(false) ||
-                FooterLinkWikiPage.Displayed.Equals(false) ||
-                FooterLinkContact.Displayed.Equals(false))
+            try
             {
-                Console.WriteLine("Footer does not contain all necessary fields");
-                return false;
+                Assert.IsTrue(FooterLinkHome.Displayed);
+                Assert.IsTrue(FooterLinkWikiPage.Displayed);
+                Assert.IsTrue(FooterLinkContact.Displayed);
             }
-            else
+            catch (NoSuchElementException)
             {
-                return true;
+
+                Reporter.LogFail("Header Element not found");
+                throw;
             }
+            return this;
         }
 
-        public bool PageBodyItemVisibilityVerification()
+        public HomePage PageBodyItemVisibilityVerification()
         {
-            if (HeadingTitle.Displayed.Equals(false) ||
-                EmailField.Displayed.Equals(false) ||
-                PasswordField.Displayed.Equals(false) ||
-                LoginButton.Displayed.Equals(false))
+            try
             {
-                return false;
+                Assert.IsTrue(EmailField.Displayed);
+                Assert.IsTrue(PasswordField.Displayed);
+                Assert.IsTrue(LoginButton.Displayed);
             }
-            else
+            catch (NoSuchElementException)
             {
-                return true;
+                Assert.Fail("Element not found");
+                Reporter.LogFail("Element not found");               
             }
+            return this;
         }
 
-        public bool EmailErrorValidation(string ErrorMsg)
+        public HomePage EmailErrorValidation(string ErrorMsg)
         {
-            if (EmailLoginError.Text.Contains(ErrorMsg))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }            
+            Assert.AreEqual(ErrorMsg, EmailLoginError.Text);
+            return this;
         }
 
-        public bool PasswordErrorValidation(string ErrorMsg)
+        public HomePage PasswordErrorValidation(string ErrorMsg)
         {
-            if (PasswordLoginError.Text.Contains(ErrorMsg))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Assert.AreEqual(ErrorMsg, PasswordLoginError.Text);
+            return this;
         }
     }
 }

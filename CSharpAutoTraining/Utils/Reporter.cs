@@ -2,15 +2,10 @@
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Course2.Utils
+namespace CSharpAutoTraining.Utils
 {
     public class Reporter
     {

@@ -1,12 +1,14 @@
-﻿using NUnit.Framework;
+﻿using CSharpAutoTraining.Utils;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Course2
+namespace CSharpAutoTraining
 {
     public class DashboardPage
     {
@@ -29,10 +31,20 @@ namespace Course2
         private IWebElement FooterLinkHome => WebDriver.FindElement(By.XPath("//*[@id='nav']/li[1]"));
         private IWebElement FooterLinkWikiPage => WebDriver.FindElement(By.XPath("//*[@id='nav']/li[2]"));
         private IWebElement FooterLinkContact => WebDriver.FindElement(By.XPath("//*[@id='nav']/li[3]"));
-        
+        private IWebElement Loader => WebDriver.FindElement(By.Id("loader"));
+
         public DashboardPage(IWebDriver WebDriver)
         {
             this.WebDriver = WebDriver;
+        }
+
+        public DashboardPage WaitForPageToLoad()
+        {
+            while (Loader.Displayed)
+            {
+                Thread.Sleep(1000);
+            }
+            return this;
         }
 
         public DashboardPage VerifyPageTitle(string expected)
@@ -48,67 +60,95 @@ namespace Course2
             return this;
         }
 
-        public bool HeaderItemVisibilityVerification()
+        public DashboardPage HeaderItemVisibilityVerification()
         {
-            if (HeaderImg.Displayed.Equals(false) ||
-                HeaderHomePageLink.Displayed.Equals(false) ||
-                HeaderWikiPageLink.Displayed.Equals(false))
+            try
             {
-                Console.WriteLine("Header does not contain all necessary fields");
-                return false;
+                Assert.IsTrue(HeaderImg.Displayed);
+                Assert.IsTrue(HeaderHomePageLink.Displayed);
+                Assert.IsTrue(HeaderWikiPageLink.Displayed);
             }
-            else
+            catch (Exception)
             {
-                return true;
+                Assert.Fail("Header does not contain all mandatory fields");
+                Reporter.LogFail("WebElement missing");
             }
+            return this;
         }
 
-        public bool FooterItemVisibilityVerification()
+        public DashboardPage FooterItemVisibilityVerification()
         {
-            if (FooterLinkHome.Displayed.Equals(false) ||
-                FooterLinkWikiPage.Displayed.Equals(false) ||
-                FooterLinkContact.Displayed.Equals(false))
+            try
             {
-                Console.WriteLine("Footer does not contain all necessary fields");
-                return false;
+                Assert.IsTrue(FooterLinkHome.Displayed);
+                Assert.IsTrue(FooterLinkWikiPage.Displayed);
+                Assert.IsTrue(FooterLinkContact.Displayed);
             }
-            else
+            catch (Exception)
             {
-                return true;
+                Assert.Fail("Footer does not contain all mandatory fields");
+                Reporter.LogFail("WebElement missing");
             }
+            return this;
         }
 
-        public DashboardPage EditUserInfo(string firstname, string lastname, bool isMale, string birthday, bool bike = false, bool car = false)
+        public DashboardPage EditUserInfo(string firstname, string lastname, string Gender, string birthday, bool bike = false, bool car = false)
         {
-            FirstName.SendKeys(firstname);
-            LastName.SendKeys(lastname);
-            if (!isMale)
-            {
-                IsFemale.Click();
-            }
-            if (bike)
-            {
-                HaveABike.Click();
-            }
-            if (car)
-            {
-                HaveACar.Click();
-            }
-            Birthday.SendKeys(birthday);
+            AddUserName(firstname, lastname);
+            MaleOrFemale(Gender);
+            SelectBike(bike);
+            SelectCar(car);
+            AddBirthDate(birthday);
 
             return this;
         }
 
-        public bool SaveConfirmationDisplayed()
+        public DashboardPage AddUserName(string fName, string lName)
         {
-            if (SaveConfirmationMSG.Displayed)
+            FirstName.Clear();
+            LastName.Clear();
+            FirstName.SendKeys(fName);
+            LastName.SendKeys(lName);
+            return this;
+        }
+
+        public DashboardPage MaleOrFemale(string gender)
+        {
+            switch (gender)
             {
-                return true;
+                case "Male":
+                    IsMale.Click();
+                    break;
+                case "Female":
+                    IsFemale.Click();
+                    break;
             }
-            else
-            {
-                return false;
-            }
+            return this;
+        }
+
+        public DashboardPage AddBirthDate(string birthdate)
+        {
+            DateTime date = Convert.ToDateTime(birthdate);
+            Birthday.SendKeys(date.Day + date.Month + Keys.Tab + date.Year);
+            return this;
+        }
+
+        public DashboardPage SelectBike(bool haveABike)
+        {
+            if (haveABike) { HaveABike.Click(); }
+            return this;
+        }
+
+        public DashboardPage SelectCar(bool haveACar)
+        {
+            if (haveACar) { HaveACar.Click(); }
+            return this;
+        }
+
+        public DashboardPage SaveConfirmationDisplayed()
+        {
+            Assert.IsTrue(SaveConfirmationMSG.Displayed);
+            return this;
         }
 
         public DashboardPage SavePage()

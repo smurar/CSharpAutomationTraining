@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Course2.Data {
+namespace CSharpAutoTraining.Data {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Course2.Data {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Course2.Data.MyResources", typeof(MyResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSharpAutoTraining.Data.MyResources", typeof(MyResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
