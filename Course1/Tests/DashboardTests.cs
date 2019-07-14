@@ -63,11 +63,10 @@ namespace Course1
             driver.FindElement(By.Id("password")).SendKeys("111111");
             driver.FindElement(By.Id("Login")).Click();
 
-            if ("Dashboard page".Equals(driver.Title))
+            if("Dashboard page".Equals(driver.Title))
             {
                 Assert.AreEqual("Dashboard page", driver.FindElement(By.XPath("//html/body/h1")).Text);
-            }
-            else
+            } else
             {
                 Assert.Fail("Page is not the Dashboard page");
             }
@@ -95,7 +94,7 @@ namespace Course1
 
             driver.FindElement(By.CssSelector("#myDiv>form>input[type='radio']:nth-child(10)")).Click();
             driver.FindElement(By.XPath("//*[@id='myDiv']/form/input[5]")).Click();
-
+            
             driver.FindElement(By.XPath("//*[@id='myDiv']/form/input[7]")).SendKeys("12" + "NOV" + "1986");
 
             driver.FindElement(By.Id("SaveDetails")).Click();
