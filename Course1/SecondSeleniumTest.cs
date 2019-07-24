@@ -4,16 +4,14 @@ using NUnit.Framework;
 namespace Course1
 {
     [TestFixture]
-    public class SecondSeleniumTest : BaseTest
+    public class SecondSeleniumTest : TestBase
     {
         [Test]
         public void LoginSeleniumTest()
         {
             GoToHomePage()
                 .CheckPageTitle(Pages.HomePage)
-                .FillInEmail(UserData.Email)
-                .FillInPassword(UserData.Password)
-                .ClickLogin();
+                .Login(UserData.Email, UserData.Password);
         }
     }
 }

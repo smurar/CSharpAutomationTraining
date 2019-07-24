@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Course1.Course2.Tests
 {
     [TestFixture]
-    public class HomePageTests : BaseTest
+    public class HomePageTests : TestBase
     {
         [Test]
         public void HeaderLinksAndImageAreDisplayedTest()
@@ -33,10 +33,10 @@ namespace Course1.Course2.Tests
         public void DefaultEmailAndPasswordTextIsCorrectTest()
         {
             GoToHomePage()
-               .FillInEmail(UserData.Email)
-               .FillInPassword(UserData.Password)
-               .ClickLogin()
-               .CheckPageTitle(Data.Pages.DashboardPage);
+                .DefaultLoginInfo("Default email: admin@domain.org")
+                .DefaultLoginInfo("Default password: 111111");
+               //.Login(UserData.Email, UserData.Password)
+               //.CheckPageTitle(Data.Pages.DashboardPage);
         }
     }
 }

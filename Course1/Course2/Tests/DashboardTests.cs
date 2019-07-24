@@ -5,15 +5,13 @@ using NUnit.Framework;
 namespace Course1.Course2.Tests
 {
     [TestFixture]
-    public class DashboardTests : BaseTest
+    public class DashboardTests : TestBase
     {
         [Test]
         public void DashboardTitleIsCorrectTest()
         {
             GoToHomePage()
-               .FillInEmail(UserData.Email)
-               .FillInPassword(UserData.Password)
-               .ClickLogin()
+               .Login(UserData.Email, UserData.Password)
                .CheckPageTitle(Data.Pages.DashboardPage);
         }
 
@@ -21,9 +19,7 @@ namespace Course1.Course2.Tests
         public void HeaderLinksAndImageAreDisplayedTest()
         {
             GoToHomePage()
-               .FillInEmail(UserData.Email)
-               .FillInPassword(UserData.Password)
-               .ClickLogin()
+               .Login(UserData.Email, UserData.Password)
                .CheckHeaderImageIsDisplayed(true)
                .CheckHomeHeaderLinkIsDisplayed(true)
                .CheckWikiPageHeaderLinkIsDisplayed(true);
@@ -33,9 +29,7 @@ namespace Course1.Course2.Tests
         public void FooterLinksAreDisplayedTest()
         {
             GoToHomePage()
-               .FillInEmail(UserData.Email)
-               .FillInPassword(UserData.Password)
-               .ClickLogin()
+               .Login(UserData.Email, UserData.Password)
                .CheckHomeFooterLinkIsDisplayed(true)
                .CheckWikiPageFooterLinkIsDisplayed(true)
                .CheckFooterContactNALinkIsDisplayed(true);
@@ -44,33 +38,22 @@ namespace Course1.Course2.Tests
         [Test]
         public void LogoutTest()
         {
-            var dashboardPage = GoToHomePage()
-               .FillInEmail(UserData.Email)
-               .FillInPassword(UserData.Password)
-               .ClickLogin()
-               .CheckPageTitle(Data.Pages.DashboardPage);
-
-            Thread.Sleep(3000);//will be replaced with wait method
-
-            dashboardPage
-               .ClickLogout()
+            GoToHomePage()
+               .Login(UserData.Email, UserData.Password)
+               .CheckPageTitle(Data.Pages.DashboardPage)
+               .ClickLogoutButton()
                .CheckPageTitle(Data.Pages.HomePage);
         }
 
         [Test]
         public void UserEditInfoTest()
         {
-            var dashboardPage = GoToHomePage()
-               .FillInEmail(UserData.Email)
-               .FillInPassword(UserData.Password)
-               .ClickLogin();
-
-            Thread.Sleep(3000);//will be replaced with wait method
-
-            dashboardPage
+            GoToHomePage()
+               .Login(UserData.Email, UserData.Password)
                .ClickFemaleRadioButton()
                .ClickBikeRadioButton()
-               .ClickCarRadioButton();
+               .ClickCarRadioButton()
+               .ClickSaveButton();
         }
     }
 }

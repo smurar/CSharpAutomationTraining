@@ -8,9 +8,11 @@ using OpenQA.Selenium.Chrome;
 
 namespace Course1
 {
-    public class BaseTest
+    public class TestBase
     {
         public IWebDriver WebDriver { get; set; }
+        public IWebElement WebElement { get; set; }
+        public string URL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL"];
 
         [SetUp]
         public void BeforeTest()
@@ -26,7 +28,7 @@ namespace Course1
 
         public HomePage GoToHomePage()
         {
-            WebDriver.Url = "file:///C:/homepage.html";
+            WebDriver.Url = URL;
             return new HomePage(WebDriver);
         }
 

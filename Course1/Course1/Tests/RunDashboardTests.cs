@@ -21,26 +21,44 @@ namespace Course1.Tests
             driver.FindElement(By.Id("password")).SendKeys("111111");
             driver.FindElement(By.Id("Login")).Click();
 
-            if (driver.FindElement(By.LinkText("Home")) != null)
+            try
             {
+                driver.FindElement(By.LinkText("Home"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'Home' link is displayed.", isElementPresent);
 
             isElementPresent = false;
 
-            if (driver.FindElement(By.LinkText("WikiPage")) != null)
+            try
             {
+                driver.FindElement(By.LinkText("WikiPage"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'WikiPage' link is displayed.", isElementPresent);
 
             isElementPresent = false;
 
-            if (driver.FindElement(By.XPath("//div[@id='header']//img")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//div[@id='header']//img"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check image is displayed.", isElementPresent);
 
             driver.Quit(); //quits the drive
@@ -70,17 +88,23 @@ namespace Course1.Tests
             driver.FindElement(By.Id("password")).SendKeys("111111");
             driver.FindElement(By.Id("Login")).Click();
 
-            if (driver.FindElement(By.XPath("//h1[text()='Dashboard page']")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//h1[text()='Dashboard page']"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'Dashboard page' h1 header is displayed.", isElementPresent);
 
             driver.Quit(); //quits the drive
         }
 
         [Test]
-        public void UserEditInfoTest()
+        public void UserEditPersonalInfoTest()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
@@ -103,7 +127,7 @@ namespace Course1.Tests
         }
 
         [Test]
-        public void LogoutTest()
+        public void UserCanLogoutTest()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
@@ -120,30 +144,48 @@ namespace Course1.Tests
         }
 
         [Test]
-        public void FooterLinksAreCorrectDisplayedTest()
+        public void FooterLinksAreDisplayedTest()
         {
             bool isTextDisplayed = false;
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
             driver.Url = "file:///C:/homepage.html";
 
-            if (driver.FindElement(By.XPath("//a[text()='Home']")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//a[text()='Home']"));
                 isTextDisplayed = true;
             }
+            catch
+            {
+                isTextDisplayed = false;
+            }
+
             Assert.True(true, "Check 'Home' footer link is displayed.", isTextDisplayed);
-
             isTextDisplayed = false;
-            if (driver.FindElement(By.XPath("//a[text()='WikiPage']")) != null)
+
+            try
             {
+                driver.FindElement(By.XPath("//a[text()='WikiPage']"));
                 isTextDisplayed = true;
             }
+            catch
+            {
+                isTextDisplayed = false;
+            }
+
             Assert.True(true, "Check 'Wiki Page' footer link is displayed.", isTextDisplayed);
-
             isTextDisplayed = false;
-            if (driver.FindElement(By.XPath("//a[text()='Contact (NA)']")) != null)
+
+            try
             {
+                driver.FindElement(By.XPath("//a[text()='Contact (NA)']"));
                 isTextDisplayed = true;
             }
+            catch
+            {
+                isTextDisplayed = false;
+            }
+
             Assert.True(true, "Check 'Contact (NA)' footer link is displayed.", isTextDisplayed);
 
             driver.Quit(); //quits the drive

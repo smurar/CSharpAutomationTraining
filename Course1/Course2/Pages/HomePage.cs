@@ -11,6 +11,10 @@ namespace Course1.Course2.Pages
         private IWebElement HeaderImage { get { return WebDriver.FindElement(By.XPath("//div[@id='header']//img")); } }
         #endregion header
 
+        #region page
+        private static string DefaultLoginInfoText = "//b//p[text()=text()='%s']";
+        #endregion page
+
         #region login
         private IWebElement EmailTextField { get { return WebDriver.FindElement(By.Id("email")); } }
         private IWebElement PasswordTextField { get { return WebDriver.FindElement(By.Id("password")); } }
@@ -47,24 +51,47 @@ namespace Course1.Course2.Pages
             return this;
         }
 
-        public HomePage FillInEmail(string email)
+        public HomePage DefaultLoginInfo(string info)
+        {
+            string fullXpath = string.Format(DefaultLoginInfoText, info);
+            bool InfoIsDisplayed = WebDriver.FindElement(By.XPath(fullXpath)).Displayed;
+
+            Assert.AreEqual(true, InfoIsDisplayed, "Check " + info + " is displayed");
+
+            return this;
+        }
+        //public HomePage FillInEmail(string email)
+        //{
+        //    Reporter.LogInfo("Fill in e-mail address: '" + email + "'");
+        //    EmailTextField.SendKeys(email);
+
+        //    return this;
+        //}
+
+        //public HomePage FillInPassword(string password)
+        //{
+        //    Reporter.LogInfo("Fill in password: '" + password + "'");
+        //    PasswordTextField.SendKeys(password);
+
+        //    return this;
+        //}
+
+        //public DashboardPage ClickLogin()
+        //{
+        //    Reporter.LogInfo("Click 'Login' button");
+        //    LoginButton.Click();
+
+        //    return new DashboardPage(WebDriver);
+        //}
+
+        public DashboardPage Login(string email, string password)
         {
             Reporter.LogInfo("Fill in e-mail address: '" + email + "'");
             EmailTextField.SendKeys(email);
 
-            return this;
-        }
-
-        public HomePage FillInPassword(string password)
-        {
             Reporter.LogInfo("Fill in password: '" + password + "'");
             PasswordTextField.SendKeys(password);
 
-            return this;
-        }
-
-        public DashboardPage ClickLogin()
-        {
             Reporter.LogInfo("Click 'Login' button");
             LoginButton.Click();
 

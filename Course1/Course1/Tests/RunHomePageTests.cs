@@ -17,26 +17,51 @@ namespace Course1.Tests
 
             driver.Url = "file:///C:/homepage.html";
 
-            if (driver.FindElement(By.LinkText("Home")) != null)
+            // the wrong way:
+            //    if (driver.FindElement(By.LinkText("Home")) != null)
+            //    {
+            //        isElementPresent = true;
+            //    }
+
+            // the good way:
+            try
             {
+                driver.FindElement(By.LinkText("Home"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'Home' link is displayed.", isElementPresent);
 
             isElementPresent = false;
 
-            if (driver.FindElement(By.LinkText("WikiPage")) != null)
+            try
             {
+                driver.FindElement(By.LinkText("WikiPage"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'WikiPage' link is displayed.", isElementPresent);
 
             isElementPresent = false;
 
-            if (driver.FindElement(By.XPath("//div[@id='header']//img")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//div[@id='header']//img"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check image is displayed.", isElementPresent);
 
             driver.Quit(); //quits the drive
@@ -60,10 +85,16 @@ namespace Course1.Tests
 
             driver.Url = "file:///C:/homepage.html";
 
-            if (driver.FindElement(By.XPath("//h1[text()='HTML']")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//h1[text()='HTML']"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'HTML' h1 header is displayed.", isElementPresent);
 
             driver.Quit(); //quits the drive
@@ -77,18 +108,30 @@ namespace Course1.Tests
 
             driver.Url = "file:///C:/homepage.html";
 
-            if (driver.FindElement(By.XPath("//p[text()='Default email: admin@domain.org']")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//p[text()='Default email: admin@domain.org']"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'Default email' text is displayed and contains the expected value.", isElementPresent);
 
             isElementPresent = false;
 
-            if (driver.FindElement(By.XPath("//p[text()='Default password: 111111']")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//p[text()='Default password: 111111']"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check 'Default password' text is displayed and contains the expected value.", isElementPresent);
 
             driver.Quit(); //quits the drive
@@ -102,25 +145,37 @@ namespace Course1.Tests
 
             driver.Url = "file:///C:/homepage.html";
 
-            if (driver.FindElement(By.Id("password")) != null)
+            try
             {
+                driver.FindElement(By.Id("password"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check password field is displayed.", isElementPresent);
 
             isElementPresent = false;
 
-            if (driver.FindElement(By.Id("email")) != null)
+            try
             {
+                driver.FindElement(By.Id("email"));
                 isElementPresent = true;
             }
+            catch
+            {
+                isElementPresent = false;
+            }
+
             Assert.True(true, "Check email field is displayed.", isElementPresent);
 
             driver.Quit(); //quits the drive
         }
 
         [Test]
-        public void NoDataIsProvidedErrorMessageTest()
+        public void ErrorMessageEmailAddressCanTBeNullIsDisplayedAndContainTheExpectedValues()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
@@ -133,13 +188,14 @@ namespace Course1.Tests
             {
                 isErrorTextDisplayed = true;
             }
+
             Assert.True(true, "Check 'Email address can't be null' error message is displayed.", isErrorTextDisplayed);
 
             driver.Quit(); //quits the drive
         }
 
         [Test]
-        public void ErrorMessageIsDisplayedWhenArondCharacterMissesFromEmailFieldTest()
+        public void ErrorMessageEmailAddressFormatIsNotValidIsDisplayedWhenArontCharacterIsNotPresentInTheEmailBodyTest()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
@@ -153,13 +209,14 @@ namespace Course1.Tests
             {
                 isErrorTextDisplayed = true;
             }
+
             Assert.True(true, "Check 'Email address format is not valid' error message is displayed.", isErrorTextDisplayed);
 
             driver.Quit(); //quits the drive
         }
 
         [Test]
-        public void ProperErrorIsDisplayedForInvalidEmailOrPasswordTest()
+        public void ErrorMessageInvalidPasswordEmailsDisplayedWhenEmailAndPasswordAreNotValidTest()
         {
             bool isErrorTextDisplayed = false;
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
@@ -173,13 +230,14 @@ namespace Course1.Tests
             {
                 isErrorTextDisplayed = true;
             }
+
             Assert.True(true, "Check 'Invalid password/email' error message is displayed.", isErrorTextDisplayed);
 
             driver.Quit(); //quits the drive
         }
 
         [Test]
-        public void LandingPageIsCorrectTest()
+        public void UserCanLoginWithValidCredetialsAndCheckLandingPageTitleTest()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
@@ -192,7 +250,7 @@ namespace Course1.Tests
         }
 
         [Test]
-        public void UserCanNavigateToWikiPageTest()
+        public void UserCanNavigateToWikiPageAndCheckLandingPageTitleTest()
         {
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
             driver.Url = "file:///C:/homepage.html";
@@ -202,30 +260,48 @@ namespace Course1.Tests
         }
 
         [Test]
-        public void FooterLinksAreCorrectDisplayedTest()
+        public void FooterLinksAreDisplayedTest()
         {
             bool isTextDisplayed = false;
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
             driver.Url = "file:///C:/homepage.html";
 
-            if (driver.FindElement(By.XPath("//a[text()='Home']")) != null)
+            try
             {
+                driver.FindElement(By.XPath("//a[text()='Home']"));
                 isTextDisplayed = true;
             }
+            catch
+            {
+                isTextDisplayed = false;
+            }
+
             Assert.True(true, "Check 'Home' footer link is displayed.", isTextDisplayed);
-
             isTextDisplayed = false;
-            if (driver.FindElement(By.XPath("//a[text()='WikiPage']")) != null)
+
+            try
             {
+                driver.FindElement(By.XPath("//a[text()='WikiPage']"));
                 isTextDisplayed = true;
             }
+            catch
+            {
+                isTextDisplayed = false;
+            }
+
             Assert.True(true, "Check 'Wiki Page' footer link is displayed.", isTextDisplayed);
-
             isTextDisplayed = false;
-            if (driver.FindElement(By.XPath("//a[text()='Contact (NA)']")) != null)
+
+            try
             {
+                driver.FindElement(By.XPath("//a[text()='Contact (NA)']"));
                 isTextDisplayed = true;
             }
+            catch
+            {
+                isTextDisplayed = false;
+            }
+
             Assert.True(true, "Check 'Contact (NA)' footer link is displayed.", isTextDisplayed);
 
             driver.Quit(); //quits the drive

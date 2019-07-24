@@ -1,5 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 //!!!!!!!!!!!!!! namespace Courses.Course2.Pages
 namespace Course1.Course2.Pages
@@ -16,6 +18,7 @@ namespace Course1.Course2.Pages
         private IWebElement FemaleRadioButton { get { return WebDriver.FindElement(By.XPath("//input[@value='female']")); } }
         private IWebElement BikeRadioButton { get { return WebDriver.FindElement(By.XPath("//input[@value='Bike']")); } }
         private IWebElement CarRadioButton { get { return WebDriver.FindElement(By.XPath("//input[@value='Car']")); } }
+        private IWebElement SaveButton { get { return WebDriver.FindElement(By.Id("SaveDetails")); } }
 
         #endregion user data
 
@@ -32,6 +35,12 @@ namespace Course1.Course2.Pages
         public DashboardPage(IWebDriver WebDriver)
         {
             this.WebDriver = WebDriver;
+            WaitForPageToLoad();
+        }
+
+        private void WaitForPageToLoad()
+        {
+            Thread.Sleep(2000);//will be replaced with wait method
         }
 
         public DashboardPage CheckPageTitle(string expectedTitle)
@@ -86,7 +95,15 @@ namespace Course1.Course2.Pages
             return this;
         }
 
-        public HomePage ClickLogout()
+        public DashboardPage ClickSaveButton()
+        {
+            Reporter.LogInfo("Click 'Save' button");
+            SaveButton.Click();
+
+            return this;
+        }
+
+        public HomePage ClickLogoutButton()
         {
             Reporter.LogInfo("Click 'Login' button");
             LogoutButton.Click();
