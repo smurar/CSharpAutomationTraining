@@ -1,4 +1,5 @@
-﻿using Course1.Data;
+﻿using Course1.Course2.Pages;
+using Course1.Data;
 using NUnit.Framework;
 
 namespace Course1
@@ -11,7 +12,7 @@ namespace Course1
         {
             GoToHomePage()
                 .CheckPageTitle(Pages.HomePage)
-                .Login(UserData.Email, UserData.Password);
+                .FillInCredentialsAndLogin<DashboardPage>(UserData.Email, UserData.Password);
         }
     }
 }

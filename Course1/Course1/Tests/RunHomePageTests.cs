@@ -216,7 +216,7 @@ namespace Course1.Tests
         }
 
         [Test]
-        public void ErrorMessageInvalidPasswordEmailsDisplayedWhenEmailAndPasswordAreNotValidTest()
+        public void ErrorMessageInvalidPasswordEmailIsDisplayedWhenEmailAndPasswordAreNotValidTest()
         {
             bool isErrorTextDisplayed = false;
             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");

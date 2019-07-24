@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using System;
 
 namespace Course1.Course2.Pages
 {
@@ -19,6 +20,8 @@ namespace Course1.Course2.Pages
         private IWebElement EmailTextField { get { return WebDriver.FindElement(By.Id("email")); } }
         private IWebElement PasswordTextField { get { return WebDriver.FindElement(By.Id("password")); } }
         private IWebElement LoginButton { get { return WebDriver.FindElement(By.Id("Login")); } }
+        private IWebElement EmailErrorMessage { get { return WebDriver.FindElement(By.Id("emailErrorText")); } }
+        private IWebElement PasswordErrorMessage { get { return WebDriver.FindElement(By.Id("passwordErrorText")); } }
         #endregion login
 
         #region footer
@@ -84,7 +87,7 @@ namespace Course1.Course2.Pages
         //    return new DashboardPage(WebDriver);
         //}
 
-        public DashboardPage Login(string email, string password)
+        public T FillInCredentialsAndLogin <T> (string email, string password)
         {
             Reporter.LogInfo("Fill in e-mail address: '" + email + "'");
             EmailTextField.SendKeys(email);
@@ -95,7 +98,8 @@ namespace Course1.Course2.Pages
             Reporter.LogInfo("Click 'Login' button");
             LoginButton.Click();
 
-            return new DashboardPage(WebDriver);
+            object[] args = new object[1] { WebDriver };
+            return (T)Activator.CreateInstance(typeof(T), args);
         }
 
         public HomePage CheckHomeHeaderLinkIsDisplayed(bool expected)
@@ -115,6 +119,34 @@ namespace Course1.Course2.Pages
         public HomePage CheckHeaderImageIsDisplayed(bool expected)
         {
             Assert.True(expected, "Check header image is displayed.", HeaderImage.Displayed);
+
+            return this;
+        }
+
+        public HomePage CheckEmailTextFieldIsDisplayed(bool expected)
+        {
+            Assert.True(expected, "Check email text field is displayed.", EmailTextField.Displayed);
+
+            return this;
+        }
+
+        public HomePage CheckPasswordTextFiekdIsDisplayed(bool expected)
+        {
+            Assert.True(expected, "Check password text field is displayed.", PasswordTextField.Displayed);
+
+            return this;
+        }
+
+        public HomePage ChecEmailErrorMessage(string expectedMessage)
+        {
+            Assert.AreEqual(expectedMessage, EmailErrorMessage.Text, "Check email error text.");
+
+            return this;
+        }
+
+        public HomePage ChecPasswordErrorMessage(string expectedMessage)
+        {
+            Assert.AreEqual(expectedMessage, PasswordErrorMessage.Text, "Check password error text.");
 
             return this;
         }
