@@ -54,6 +54,14 @@ namespace Course1.Course2.Pages
             return this;
         }
 
+        public WikiPage ClickWikiPageHeaderLink()
+        {
+            Reporter.LogInfo("Click 'WikiPage' header link.");
+            WikiPageHeaderLink.Click();
+
+            return new WikiPage (WebDriver);
+        }
+
         public HomePage DefaultLoginInfo(string info)
         {
             string fullXpath = string.Format(DefaultLoginInfoText, info);

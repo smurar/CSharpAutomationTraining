@@ -79,5 +79,13 @@ namespace Course1.Course2.Tests
                 .FillInCredentialsAndLogin<DashboardPage>(Credentials.Email, Credentials.Password)
                 .CheckPageTitle(Data.Pages.DashboardPage);
         }
+
+        [Test]
+        public void UserCanNavigateToWikiPageAndCheckLandingPageTitleTest()
+        {
+            GoToHomePage()
+                .ClickWikiPageHeaderLink()
+                .CheckPageTitle(Data.Pages.WikiPage);
+        }
     }
 }

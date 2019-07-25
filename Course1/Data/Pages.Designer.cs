@@ -77,5 +77,14 @@ namespace Course1.Data {
                 return ResourceManager.GetString("HomePage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wiki page.
+        /// </summary>
+        internal static string WikiPage {
+            get {
+                return ResourceManager.GetString("WikiPage", resourceCulture);
+            }
+        }
     }
 }
