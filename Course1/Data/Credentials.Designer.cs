@@ -61,6 +61,24 @@ namespace Course1.Data {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default email: admin@domain.org.
+        /// </summary>
+        internal static string DefaultEmailText {
+            get {
+                return ResourceManager.GetString("DefaultEmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default password: 111111.
+        /// </summary>
+        internal static string DefaultPasswordText {
+            get {
+                return ResourceManager.GetString("DefaultPasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin@domain.org.
         /// </summary>
         internal static string Email {

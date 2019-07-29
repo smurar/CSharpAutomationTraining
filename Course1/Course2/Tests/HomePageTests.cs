@@ -34,8 +34,8 @@ namespace Course1.Course2.Tests
         public void DefaultEmailAndPasswordTextIsCorrectTest()
         {
             GoToHomePage()
-                .DefaultLoginInfo("Default email: admin@domain.org")
-                .DefaultLoginInfo("Default password: 111111")
+                .DefaultLoginInfo(Credentials.DefaultEmailText)
+                .DefaultLoginInfo(Credentials.DefaultPasswordText)
                 .FillInCredentialsAndLogin<DashboardPage>(UserData.Email, UserData.Password)
                 .CheckPageTitle(Data.Pages.DashboardPage);
         }
@@ -86,6 +86,15 @@ namespace Course1.Course2.Tests
             GoToHomePage()
                 .ClickWikiPageHeaderLink()
                 .CheckPageTitle(Data.Pages.WikiPage);
+        }
+
+        [Test]
+        public void FooterLinksAreDisplayedTest()
+        {
+            GoToHomePage()
+                .CheckHomeFooterLinkIsDisplayed(true)
+                .CheckWikiPageFooterLinkIsDisplayed(true)
+                .CheckContactFooterLinkIsDisplayed(true);
         }
     }
 }

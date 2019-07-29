@@ -71,6 +71,7 @@ namespace Course1.Course2.Pages
 
             return this;
         }
+
         //public HomePage FillInEmail(string email)
         //{
         //    Reporter.LogInfo("Fill in e-mail address: '" + email + "'");
@@ -155,6 +156,27 @@ namespace Course1.Course2.Pages
         public HomePage ChecPasswordErrorMessage(string expectedMessage)
         {
             Assert.AreEqual(expectedMessage, PasswordErrorMessage.Text, "Check password error text.");
+
+            return this;
+        }
+
+        public HomePage CheckHomeFooterLinkIsDisplayed(bool expected)
+        {
+            Assert.True(expected, "Check email text field is displayed.", HomeFooterLink.Displayed);
+
+            return this;
+        }
+
+        public HomePage CheckWikiPageFooterLinkIsDisplayed(bool expected)
+        {
+            Assert.True(expected, "Check email text field is displayed.", WikiPageFooterLink.Displayed);
+
+            return this;
+        }
+
+        public HomePage CheckContactFooterLinkIsDisplayed(bool expected)
+        {
+            Assert.True(expected, "Check email text field is displayed.", ContactFooterLink.Displayed);
 
             return this;
         }
