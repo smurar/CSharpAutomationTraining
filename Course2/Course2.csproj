@@ -105,6 +105,7 @@
     <Compile Include="Reporter.cs" />
     <Compile Include="Tests\DashboardPageTests.cs" />
     <Compile Include="Tests\HomePageTests.cs" />
+    <Compile Include="Extensions\WebElementExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

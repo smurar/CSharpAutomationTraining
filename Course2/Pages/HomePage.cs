@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,13 @@ namespace Course2
         public HomePage(IWebDriver Driver)
         {
             this.Driver = Driver;
+        }
+
+        public HomePage Wait()
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("email")));
+            return this;
         }
 
         public HomePage CheckHomeTitle(string ExpectedTitle)
@@ -82,9 +90,9 @@ namespace Course2
 
         public HomePage GoToWiki(string Title)
         {
-            Reporter.LogInfo("Navigating to Wiki page");
-            MyWikiLink.Click();
+            MyWikiLink.ClickIt("Wiki link");
             Assert.True(PageTitle.Equals(Title));
+            Reporter.LogScreenshot("Wiki page screenshot: ", ImageHelper.CaptureScreen(Driver));
             return this;
         }
 
@@ -104,7 +112,7 @@ namespace Course2
         {
             Reporter.LogInfo("Checking email error");
             Assert.True(EmailError.Text.Equals(Error));
-            Reporter.LogScreenshot("Email error", ImageHelper.CaptureScreen(Driver));
+            Reporter.LogScreenshot("Email error screenshot", ImageHelper.CaptureScreen(Driver));
             return this;
         }
 
@@ -112,36 +120,34 @@ namespace Course2
         {
             Reporter.LogInfo("Checking password error");
             Assert.True(PasswordError.Text.Equals(Error));
-            Reporter.LogScreenshot("Password error", ImageHelper.CaptureScreen(Driver));
+            Reporter.LogScreenshot("Password error screenshot", ImageHelper.CaptureScreen(Driver));
             return this;
         }
 
-        public HomePage FillInEmail(string Email)
+        public HomePage FillInEmail(string EmailAddress, string ElementName)
         {
-            Reporter.LogInfo("Filling in email field");
-            EmailField.SendKeys(Email);
+            EmailField.SendText(EmailAddress, ElementName);
             return this;
         }
 
-        public HomePage FillInPassword(string Password)
+        public HomePage FillInPassword(string Password, string ElementName)
         {
-            Reporter.LogInfo("Filling in password field");
-            PasswordField.SendKeys(Password);
+            PasswordField.SendText(Password, ElementName);
             return this;
         }
 
         public HomePage ClickLoginButton()
         {
-            Reporter.LogInfo("Clicking the Login button");
-            LoginButton.Click();
+            LoginButton.ClickIt("Login button");
             return this;
         }
 
-        public DashboardPage Login(string Email, string Password)
+        public DashboardPage Login(string Email, string Password, string ElementName1, string ElementName2)
         {
-            FillInEmail(Email);
-            FillInPassword(Password);
-            ClickLoginButton();
+            FillInEmail(Email, ElementName1);
+            FillInPassword(Password, ElementName2);
+            LoginButton.ClickIt("Login button");
+            Reporter.LogScreenshot("Logged in screenshot", ImageHelper.CaptureScreen(Driver));
             return new DashboardPage(Driver);
         }
 

@@ -13,29 +13,36 @@ namespace Course2.Tests
         [Test]
         public void DashboardPageTitleTest()
         {
-            GoToHomePage()
-                .Login(MyResource.Email, MyResource.Password)
+            GoToDashboardPage()              
                 .CheckDashboardTitle(MyResource.DashboardTitle);
         }
 
         [Test]
         public void DashboardHeadingTitleTest()
         {
-            GoToHomePage()
-                .Login(MyResource.Email, MyResource.Password)
+            GoToDashboardPage()
                 .CheckHeadingTitle(MyResource.DashboardHeading);
         }
 
         [Test]
-        public void EditPersonalInfoTest()
+        public void DashboardEditPersonalInfoTest()
         {
-            GoToHomePage()
-                .Login(MyResource.Email, MyResource.Password)
+            GoToDashboardPage()
                 .Wait()
-                .FillInName(MyResource.FirstName, MyResource.LastName)
+                .FillInName(MyResource.FirstName, "First name", MyResource.LastName, "Last name")
                 .SelectGender(MyResource.Gender)
                 .SelectVehicle(MyResource.Vehicle)
+                .SelectBirthDate(MyResource.Birthday, "Birthday")
                 .ClickSave();
+        }
+
+        [Test]
+        public void Logout()
+        {
+            GoToDashboardPage()
+                .Wait()
+                .Logout()
+                .CheckLoginFields();
         }
     }
 }

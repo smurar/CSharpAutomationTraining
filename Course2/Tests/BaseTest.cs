@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Course2.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +16,7 @@ namespace Course2
    public class BaseTest
     {
         public IWebDriver Driver { get; set; }
-        public string homeURL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["homeURL"];
+        public string HomeURL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["homeURL"];
 
         [OneTimeSetUp]
         public void BeforeTestClass()
@@ -44,8 +46,16 @@ namespace Course2
 
         public HomePage GoToHomePage()
         {
-            Driver.Url = homeURL;
+            Driver.Url = HomeURL;
             return new HomePage(Driver);
+        }
+
+        public DashboardPage GoToDashboardPage()
+        {
+            GoToHomePage()
+                .Login(MyResource.Email, MyResource.Password, "Email", "Password")
+                .Wait();          
+            return new DashboardPage(Driver);
         }
     }
 }

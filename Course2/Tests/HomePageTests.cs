@@ -64,7 +64,7 @@ namespace Course2
         public void EmptyEmailErrorTest()
         {
             GoToHomePage()
-                .FillInPassword(MyResource.Password)
+                .FillInPassword(MyResource.Password, "Password")
                 .ClickLoginButton()
                 .CheckEmailError(MyResource.EmptyEmailError);
         }
@@ -73,8 +73,8 @@ namespace Course2
         public void EmailFormatErrorTest()
         {
             GoToHomePage()
-                .FillInEmail(MyResource.InvalidEmail)
-                .FillInPassword(MyResource.Password)
+                .FillInEmail(MyResource.InvalidEmail, "Email")
+                .FillInPassword(MyResource.Password, "Password")
                 .ClickLoginButton()
                 .CheckEmailError(MyResource.InvalidEmailFormatError);
         }
@@ -83,8 +83,8 @@ namespace Course2
         public void InvalidLoginDataTest()
         {
             GoToHomePage()
-                .FillInEmail(MyResource.Email)
-                .FillInPassword(MyResource.InvalidPassword)
+                .FillInEmail(MyResource.Email, "Email")
+                .FillInPassword(MyResource.InvalidPassword, "Password")
                 .ClickLoginButton()
                 .CheckPasswordError(MyResource.InvalidLoginError);
         }
@@ -93,8 +93,8 @@ namespace Course2
         public void SuccessfulLoginTest()
         {
             GoToHomePage()
-                .FillInEmail(MyResource.Email)
-                .FillInPassword(MyResource.Password)
+                .FillInEmail(MyResource.Email, "Email")
+                .FillInPassword(MyResource.Password, "Password")
                 .ClickLoginButton()
                 .OnDashboard()
                 .CheckDashboardTitle(MyResource.DashboardTitle);

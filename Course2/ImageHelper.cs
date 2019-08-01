@@ -11,9 +11,9 @@ namespace Course2
 {
     class ImageHelper
     {
-        public static string CaptureScreen(IWebDriver driver)
+        public static string CaptureScreen(IWebDriver Driver)
         {
-            Screenshot sshot = ((ITakesScreenshot)driver).GetScreenshot();
+            Screenshot sshot = ((ITakesScreenshot)Driver).GetScreenshot();
             string imageName = DateTime.Now.ToString("yyyyMMdd-hhmmss");
             string directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"..\..\..\..\results\images\\";
             System.IO.Directory.CreateDirectory(directoryPath);

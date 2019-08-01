@@ -33,12 +33,13 @@ namespace Course2.Pages
         private IWebElement Birthday => Driver.FindElement(By.XPath("//input[@type='date']"));
         private IWebElement UploadFile => Driver.FindElement(By.XPath("//input[@type='file']"));
         private IWebElement SaveButton => Driver.FindElement(By.XPath("//button[@id='SaveDetails']"));
+        private IWebElement LogoutButton => Driver.FindElement(By.Id("Logout"));
 
         public DashboardPage(IWebDriver Driver)
         {
             this.Driver = Driver;
         }
-        
+
         public DashboardPage Wait()
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
@@ -50,11 +51,10 @@ namespace Course2.Pages
         {
             Reporter.LogInfo("Checking page title");
             Assert.True(Driver.Title.Equals(ExpectedTitle));
-            Reporter.LogScreenshot("Dashboard screenshot", ImageHelper.CaptureScreen(Driver));
             return this;
         }
 
-        public DashboardPage CheckHeadingTitle(String ExpectedTitle)
+        public DashboardPage CheckHeadingTitle(string ExpectedTitle)
         {
             Reporter.LogInfo("Checking heading title");
             Assert.True(HeadingTitle.Text.Equals(ExpectedTitle));
@@ -83,13 +83,10 @@ namespace Course2.Pages
             return this;
         }
 
-        public DashboardPage FillInName(string First, string Last)
+        public DashboardPage FillInName(string First, string Element1, string Last, string Element2)
         {
-            Reporter.LogInfo("Filling in the Name fields");
-            FirstName.Clear();
-            LastName.Clear();
-            FirstName.SendKeys(First);
-            LastName.SendKeys(Last);
+            FirstName.SendText(First, Element1);
+            LastName.SendText(Last, Element2);
             return this;
         }
 
@@ -98,33 +95,30 @@ namespace Course2.Pages
             Reporter.LogInfo("Selecting gender");
             if (Gender == Male.GetAttribute("value"))
             {
-                Male.Click();
+                Male.ClickIt("Radio button");
             } else
             {
-                Female.Click();
+                Female.ClickIt("Radio button");
             }
             return this;
         }
 
-        public DashboardPage SelectBirthDate(string Date)
+        public DashboardPage SelectBirthDate(string Date, string Element)
         {
-            Reporter.LogInfo("Filling in birthdate");
-            Birthday.SendKeys(Date);
+            Birthday.SendText(Date, Element);
             return this;
         }
 
         public DashboardPage SelectVehicle(string vehicle)
         {
             Reporter.LogInfo("Selecting vehicle");
-            Vehicle1.Click();
+            Vehicle1.ClickIt(vehicle);
             return this;
         }
 
         public DashboardPage ClickSave()
         {
-
-            Reporter.LogInfo("Saving");
-            SaveButton.Click();
+            SaveButton.ClickIt("Save button");
             Assert.True(DetailsSaved.Displayed);
             Reporter.LogScreenshot("Details Saved screenshot", ImageHelper.CaptureScreen(Driver));
             return this;
@@ -132,6 +126,8 @@ namespace Course2.Pages
 
         public HomePage Logout()
         {
+            LogoutButton.ClickIt("Logout button");
+            Reporter.LogScreenshot("Logged out screenshot", ImageHelper.CaptureScreen(Driver));
             return new HomePage(Driver);
         }
         
