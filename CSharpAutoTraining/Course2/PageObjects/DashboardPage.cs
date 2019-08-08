@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSharpAutoTraining.Course2.PageObjects
 {
-    public class DashboardPage: BasePage
+    public class DashboardPage : BasePage
     {
         public DashboardPage(IWebDriver driver) : base(driver)
         {
@@ -19,7 +19,7 @@ namespace CSharpAutoTraining.Course2.PageObjects
 
         private IWebElement DashboardTitle => driver.FindElement(By.CssSelector("head > title"));
 
-        private IWebElement PageHeadingTitle => driver.FindElement(By.XPath("//html/body/h1"));
+        private IWebElement PageHeadingTitle => driver.FindElement(By.CssSelector("body > h1"));
 
         private IWebElement FirstName => driver.FindElement(By.CssSelector("#firstname"));
 
@@ -42,5 +42,39 @@ namespace CSharpAutoTraining.Course2.PageObjects
         private ICollection<IWebElement> FooterLinks => driver.FindElements(By.XPath("//*[@id=\"nav\"]"));
 
         private IWebElement LogoutButton => driver.FindElement(By.Id("Logout"));
+
+        public bool HeaderImageIsDisplayed()
+        {
+            return HeaderImage.Displayed;
+        }
+
+        public bool HeaderLinksAreAllDisplayed()
+        {
+            foreach (IWebElement headerLink in HeaderLinks)
+            {
+                if (!headerLink.Displayed)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public string GetPageTitle()
+        {
+            return driver.Title;
+        }
+
+        public string GetPageHeadingTitle()
+        {
+            return PageHeadingTitle.Text;
+        }
+
+        public string FillInName()
+        {
+
+        }
+
     }
 }

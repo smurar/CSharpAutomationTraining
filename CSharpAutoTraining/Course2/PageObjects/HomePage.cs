@@ -91,7 +91,8 @@ namespace CSharpAutoTraining.Course2.PageObjects
             {
                 PasswordField.SendKeys(password);
             }
-            
+
+            Reporter.LogInfo("Click login button.");
             LoginButton.Click();
 
             return this;

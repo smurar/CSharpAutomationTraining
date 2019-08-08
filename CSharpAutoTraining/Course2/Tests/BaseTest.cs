@@ -18,18 +18,35 @@ namespace CSharpAutoTraining.Course2.Tests
         protected IWebDriver driver;
 
         [OneTimeSetUp]
-        public void BeforeTest()
+        public void BeforeTestClass()
         {
             // init driver
             driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+
+            Reporter.StartReporting();
         }
 
         [OneTimeTearDown]
-        public void EndTests()
+        public void AfterTestClass()
         {
             driver.Quit();
+
+            Reporter.EndReporting();
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+            Reporter.StartTest(TestContext.CurrentContext.Test.MethodName);
+            Reporter.LogScreenshot("screenshot", ImageHelper.CaptureScreen(driver));
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Reporter.EndTest();
         }
 
         protected HomePage GoToHomePage()

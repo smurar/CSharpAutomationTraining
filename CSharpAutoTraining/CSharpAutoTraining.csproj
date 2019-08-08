@@ -87,14 +87,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Course2\DataDashboardPage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDashboardPage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\DataHomePageCustom.cs" />
+    <Compile Include="Course2\ImageHelper.cs" />
     <Compile Include="Course2\PageObjects\BasePage.cs" />
     <Compile Include="Course2\PageObjects\DashboardPage.cs" />
     <Compile Include="Course2\PageObjects\HomePage.cs" />
+    <Compile Include="Course2\DataHomePage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataHomePage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course2\Reporter.cs" />
     <Compile Include="Course2\Tests\BaseTest.cs" />
     <Compile Include="Course2\Tests\DashboardPageTest.cs" />
     <Compile Include="Course1\Dashboard.cs" />
     <Compile Include="Course1\Home.cs" />
     <Compile Include="Course2\Tests\HomePageTest.cs" />
+    <Compile Include="Course2\WebElementExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Course1\Wiki.cs" />
@@ -109,6 +123,16 @@
     <Content Include="Drivers\chromedriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Course2\DataDashboardPage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataDashboardPage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Course2\DataHomePage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataHomePage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

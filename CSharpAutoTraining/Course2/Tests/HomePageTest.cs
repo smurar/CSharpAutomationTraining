@@ -15,8 +15,6 @@ namespace CSharpAutoTraining.Course2.Tests
 {
     public class HomePageTest : BaseTest
     {
-       
-
         //[Test, Order(1)]
         //public void TestHeaderLinksAndImageAreDisplayed()
         //{
@@ -43,25 +41,35 @@ namespace CSharpAutoTraining.Course2.Tests
         [Test, Order(2)]
         public void TestPageTitleIsCorrect()
         {
-            Assert.AreEqual("Home page", GoToHomePage().GetPageTitle());
+            // This test uses a resource file, that has a key which holds the title value
+            // It is, by all intents and purposes the same as TestPageTitleIsCorrectAgain.
+            Assert.AreEqual(DataHomePage.PageTitle, GoToHomePage().GetPageTitle());
+        }
+
+        [Test, Order(2)]
+        public void TestPageTitleIsCorrectAgain()
+        {
+            // This test uses a custom static class, that has a field which holds the title value
+            // It is, by all intents and purposes the same as TestPageTitleIsCorrect().
+            Assert.AreEqual(DataHomePageCustom.HomePageTitle, GoToHomePage().GetPageTitle());
         }
 
         [Test, Order(3)]
         public void TestHeadingTitleIsCorrect()
         {
-            Assert.AreEqual("HTML", GoToHomePage().GetPageHeadingTitle());
+            Assert.AreEqual(DataHomePage.HomePageHeadingTitle, GoToHomePage().GetPageHeadingTitle());
         }
 
         [Test, Order(4)]
         public void TestDefaultEmailIsCorrect()
         {
-            Assert.AreEqual("Default email: admin@domain.org", GoToHomePage().GetDefaultEmail());
+            Assert.AreEqual(DataHomePage.DefaultEmail, GoToHomePage().GetDefaultEmail());
         }
 
         [Test, Order(5)]
         public void TestDefaultPasswordIsCorrect()
         {
-            Assert.AreEqual("Default password: 111111", GoToHomePage().GetDefaultPassword());
+            Assert.AreEqual(DataHomePage.DefaultPassword, GoToHomePage().GetDefaultPassword());
         }
 
         [Test, Order(6)]
@@ -75,10 +83,10 @@ namespace CSharpAutoTraining.Course2.Tests
         {
             HomePage page = GoToHomePage();
 
-            page.Authenticate("admin@domain.org", "111111");
+            page.Authenticate(DataHomePage.AdminLoginEmail, DataHomePage.AdminLoginPassword);
 
             Assert.AreEqual(
-                System.Configuration.ConfigurationManager.AppSettings["DASHBOARD_PAGE_URL"], 
+                System.Configuration.ConfigurationManager.AppSettings[DataHomePage.DashboardURL], 
                 page.GetUrl()
             );
         }
@@ -88,16 +96,16 @@ namespace CSharpAutoTraining.Course2.Tests
         {
             HomePage page = GoToHomePage();
 
-            page.Authenticate(null, "111111");
+            page.Authenticate(null, DataHomePage.AdminLoginPassword);
 
             // Check we're still on the same page
             Assert.AreEqual(
-                System.Configuration.ConfigurationManager.AppSettings["HOME_PAGE_URL"],
+                System.Configuration.ConfigurationManager.AppSettings[DataHomePage.HomepageURL],
                 page.GetUrl()
             );
 
             // Check proper error message is displayed
-            Assert.AreEqual(page.GetEmailErrorMessage(), "Email address can't be null");
+            Assert.AreEqual(page.GetEmailErrorMessage(), DataHomePage.EmailErrorMessage);
         }
 
         [Test, Order(9)]
@@ -105,16 +113,16 @@ namespace CSharpAutoTraining.Course2.Tests
         {
             HomePage page = GoToHomePage();
 
-            page.Authenticate("jvngbbfsdxdeu", "111111");
+            page.Authenticate(DataHomePage.WrongUsername, DataHomePage.AdminLoginPassword);
 
             // Check we're still on the same page
             Assert.AreEqual(
-                System.Configuration.ConfigurationManager.AppSettings["HOME_PAGE_URL"],
+                System.Configuration.ConfigurationManager.AppSettings[DataHomePage.HomepageURL],
                 page.GetUrl()
             );
 
             // Check proper error message is displayed
-            Assert.AreEqual(page.GetEmailErrorMessage(), "Email address format is not valid");
+            Assert.AreEqual(page.GetEmailErrorMessage(), DataHomePage.InvalidEmailFormat);
         }
 
         [Test, Order(10)]
