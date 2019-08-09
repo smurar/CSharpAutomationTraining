@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Course2.Pages
 {
+
+    /// <summary>
+    /// DashboardPage page object
+    /// </summary>
     public class DashboardPage
     {
         public IWebDriver Driver;
@@ -40,13 +44,23 @@ namespace Course2.Pages
             this.Driver = Driver;
         }
 
+        /// <summary>
+        /// Wait until the page fully loads, i.e. first name field is visible
+        /// </summary>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage Wait()
         {
+            Reporter.LogInfo("Waiting for 'first name' to be displayed");
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("firstname")));
             return this;
         }
 
+        /// <summary>
+        /// Check the page title
+        /// </summary>
+        /// <param name="ExpectedTitle">Expected Dashboard page title</param>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage CheckDashboardTitle(string ExpectedTitle)
         {
             Reporter.LogInfo("Checking page title");
@@ -54,6 +68,11 @@ namespace Course2.Pages
             return this;
         }
 
+        /// <summary>
+        /// Check the page heading title
+        /// </summary>
+        /// <param name="ExpectedTitle">Expected heading title</param>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage CheckHeadingTitle(string ExpectedTitle)
         {
             Reporter.LogInfo("Checking heading title");
@@ -61,6 +80,10 @@ namespace Course2.Pages
             return this;
         }
 
+        /// <summary>
+        /// Check links and image in page header
+        /// </summary>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage CheckHeaderLinks()
         {
             Reporter.LogInfo("Checking page header links");
@@ -71,18 +94,30 @@ namespace Course2.Pages
             return this;
         }
 
-        public DashboardPage CheckFooterLinks(string Home, string Wiki, string Contact)
+        /// <summary>
+        /// Check footer links
+        /// </summary>
+        /// <returns>DashboadPage object</returns>
+        public DashboardPage CheckFooterLinks()
         {
             Reporter.LogInfo("Checking page footer links");
             Assert.True(FooterHomeLink.Displayed);
             Assert.True(FooterWikiLink.Displayed);
             Assert.True(FooterContactLink.Displayed);
-            Assert.True(FooterHomeLink.Text.Equals(Home));
-            Assert.True(FooterWikiLink.Text.Equals(Wiki));
-            Assert.True(FooterContactLink.Text.Equals(Contact));
+            Assert.True(FooterHomeLink.Text.Equals(MyResource.FooterHome));
+            Assert.True(FooterWikiLink.Text.Equals(MyResource.FooterWiki));
+            Assert.True(FooterContactLink.Text.Equals(MyResource.FooterContact));
             return this;
         }
 
+        /// <summary>
+        /// Write text into the name fields
+        /// </summary>
+        /// <param name="First">First name to be written</param>
+        /// <param name="Element1">Name of the field</param>
+        /// <param name="Last">Last name to be written</param>
+        /// <param name="Element2">Name of the field</param>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage FillInName(string First, string Element1, string Last, string Element2)
         {
             FirstName.SendText(First, Element1);
@@ -90,40 +125,74 @@ namespace Course2.Pages
             return this;
         }
 
+        /// <summary>
+        /// Select gender
+        /// </summary>
+        /// <param name="Gender">Gender to be selected</param>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage SelectGender(string Gender)
         {
             Reporter.LogInfo("Selecting gender");
             if (Gender == Male.GetAttribute("value"))
             {
-                Male.ClickIt("Radio button");
+                Male.ClickIt("'" + Gender + "'" + " radio button");
             } else
             {
-                Female.ClickIt("Radio button");
+                Female.ClickIt("'" + Gender + "'" + " radio button");
             }
             return this;
         }
 
+        /// <summary>
+        /// Write the birthdate into the Birthdate field
+        /// </summary>
+        /// <param name="Date">The date to be written</param>
+        /// <param name="Element">The name of the field</param>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage SelectBirthDate(string Date, string Element)
         {
             Birthday.SendText(Date, Element);
             return this;
         }
 
+        /// <summary>
+        /// Select the vehicle
+        /// </summary>
+        /// <param name="vehicle">Vehicle to be selected</param>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage SelectVehicle(string vehicle)
         {
             Reporter.LogInfo("Selecting vehicle");
-            Vehicle1.ClickIt(vehicle);
+            Vehicle1.ClickIt("'" + vehicle + "'" + " checkbox");
             return this;
         }
 
+        /// <summary>
+        /// Click the Save button
+        /// </summary>
+        /// <returns>DashboardPage object</returns>
         public DashboardPage ClickSave()
         {
-            SaveButton.ClickIt("Save button");
+            SaveButton.ClickIt("Save button");            
+            return this;
+        }
+
+        /// <summary>
+        /// Check the "Details saved" messsage
+        /// </summary>
+        /// <returns>DashboardPage object</returns>
+        public DashboardPage CheckDetailsSavedMessage()
+        {
+            Reporter.LogInfo("Checkin the Details Saved message");
             Assert.True(DetailsSaved.Displayed);
             Reporter.LogScreenshot("Details Saved screenshot", ImageHelper.CaptureScreen(Driver));
             return this;
         }
 
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns>HomePage object</returns>
         public HomePage Logout()
         {
             LogoutButton.ClickIt("Logout button");

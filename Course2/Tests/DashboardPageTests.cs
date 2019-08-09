@@ -33,15 +33,17 @@ namespace Course2.Tests
                 .SelectGender(MyResource.Gender)
                 .SelectVehicle(MyResource.Vehicle)
                 .SelectBirthDate(MyResource.Birthday, "Birthday")
-                .ClickSave();
+                .ClickSave()
+                .CheckDetailsSavedMessage();
+            
         }
 
         [Test]
         public void Logout()
         {
             GoToDashboardPage()
-                .Wait()
                 .Logout()
+                .Wait()
                 .CheckLoginFields();
         }
     }

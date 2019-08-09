@@ -51,13 +51,14 @@ namespace Course2
         public void FooterLinksDisplayedTest()
         {
             GoToHomePage()
-                .CheckFooterLinks(MyResource.FooterHome, MyResource.FooterWiki, MyResource.FooterContact);
+                .CheckFooterLinks();
         }
 
+        [Test]
         public void NavigateToWikiTest()
         {
             GoToHomePage()
-                .GoToWiki(MyResource.WikiTitle);
+                .GoToWiki();
         }
 
         [Test]
@@ -65,7 +66,7 @@ namespace Course2
         {
             GoToHomePage()
                 .FillInPassword(MyResource.Password, "Password")
-                .ClickLoginButton()
+                .ClickLogin<HomePage>()
                 .CheckEmailError(MyResource.EmptyEmailError);
         }
 
@@ -75,7 +76,7 @@ namespace Course2
             GoToHomePage()
                 .FillInEmail(MyResource.InvalidEmail, "Email")
                 .FillInPassword(MyResource.Password, "Password")
-                .ClickLoginButton()
+                .ClickLogin<HomePage>()
                 .CheckEmailError(MyResource.InvalidEmailFormatError);
         }
 
@@ -85,7 +86,7 @@ namespace Course2
             GoToHomePage()
                 .FillInEmail(MyResource.Email, "Email")
                 .FillInPassword(MyResource.InvalidPassword, "Password")
-                .ClickLoginButton()
+                .ClickLogin<HomePage>()
                 .CheckPasswordError(MyResource.InvalidLoginError);
         }
 
@@ -93,10 +94,7 @@ namespace Course2
         public void SuccessfulLoginTest()
         {
             GoToHomePage()
-                .FillInEmail(MyResource.Email, "Email")
-                .FillInPassword(MyResource.Password, "Password")
-                .ClickLoginButton()
-                .OnDashboard()
+                .LoginPositiveFlow()
                 .CheckDashboardTitle(MyResource.DashboardTitle);
         }
     }

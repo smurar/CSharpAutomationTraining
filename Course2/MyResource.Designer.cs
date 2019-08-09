@@ -259,6 +259,15 @@ namespace Course2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sample text for text area..
+        /// </summary>
+        internal static string TextToWrite {
+            get {
+                return ResourceManager.GetString("TextToWrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bike.
         /// </summary>
         internal static string Vehicle {

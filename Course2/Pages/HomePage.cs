@@ -11,9 +11,11 @@ using System.Threading.Tasks;
 
 namespace Course2
 {
+    /// <summary>
+    /// HomePage page object
+    /// </summary>
     public class HomePage
     {
-
         private IWebDriver Driver;
         
         private IWebElement HeaderWikiLink => Driver.FindElement(By.XPath("//div[@id='header']/a"));
@@ -38,13 +40,11 @@ namespace Course2
             this.Driver = Driver;
         }
 
-        public HomePage Wait()
-        {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("email")));
-            return this;
-        }
-
+        /// <summary>
+        /// Check page title
+        /// </summary>
+        /// <param name="ExpectedTitle">Expected page title</param>
+        /// <returns>HomePage object</returns>
         public HomePage CheckHomeTitle(string ExpectedTitle)
         {
             Reporter.LogInfo("Checking page title");
@@ -52,6 +52,22 @@ namespace Course2
             return this;
         }
 
+        /// <summary>
+        /// Waiting for the page to fully load - used in the Logout test
+        /// </summary>
+        /// <returns>HomePage tests</returns>
+        public HomePage Wait()
+        {
+            Reporter.LogInfo("Waiting for 'email' to be displayed");
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("email")));
+            return this;
+        }
+
+        /// <summary>
+        /// Check links and image in the header
+        /// </summary>
+        /// <returns>HomePage object</returns>
         public HomePage CheckHeaderLinks()
         {
             Reporter.LogInfo("Checking page header links");
@@ -63,6 +79,11 @@ namespace Course2
             return this;
         }
 
+        /// <summary>
+        /// Check title of page heading
+        /// </summary>
+        /// <param name="ExpectedHeading">Expected heading title</param>
+        /// <returns>HomePage object</returns>
         public HomePage CheckHeadingTitle(string ExpectedHeading)
         {
             Reporter.LogInfo("Checking heading title");
@@ -70,6 +91,12 @@ namespace Course2
             return this;
         }
 
+        /// <summary>
+        /// Check the default text for email and password
+        /// </summary>
+        /// <param name="EmailText">Default email text</param>
+        /// <param name="PasswordText">Default password text</param>
+        /// <returns>HomePage object</returns>
         public HomePage CheckDefaultEmailPassText(string EmailText, string PasswordText)
         {
             Reporter.LogInfo("Checking default email and password are displayed");
@@ -80,6 +107,10 @@ namespace Course2
             return this;
         }
 
+        /// <summary>
+        /// Check that the login fields are displayed
+        /// </summary>
+        /// <returns>HomePage object</returns>
         public HomePage CheckLoginFields()
         {
             Reporter.LogInfo("Checking login fields are displayed");
@@ -88,26 +119,41 @@ namespace Course2
             return this;
         }
 
-        public HomePage GoToWiki(string Title)
+        /// <summary>
+        /// Navigating to the Wiki page
+        /// </summary>
+        /// <param name="ExpectedTitle">WikiPage title</param>
+        /// <returns>WikiPage object</returns>
+        public WikiPage GoToWiki()
         {
             MyWikiLink.ClickIt("Wiki link");
-            Assert.True(PageTitle.Equals(Title));
-            Reporter.LogScreenshot("Wiki page screenshot: ", ImageHelper.CaptureScreen(Driver));
-            return this;
+            Assert.True(Driver.Title.Equals(MyResource.WikiTitle));
+            Reporter.LogScreenshot("Wiki page screenshot", ImageHelper.CaptureScreen(Driver));
+            return new WikiPage(Driver);
         }
 
-        public HomePage CheckFooterLinks(string Home, string Wiki, string Contact)
+        /// <summary>
+        /// Check the page footer links
+        /// </summary>
+        /// <returns>HomePage object</returns>
+        public HomePage CheckFooterLinks()
         {
+            Reporter.LogInfo("Checking the footer links");
             Assert.True(FooterHomeLink.Displayed);
             Assert.True(FooterWikiLink.Displayed);
             Assert.True(FooterContactLink.Displayed);
-            Assert.True(FooterHomeLink.Text.Equals(Home));
-            Assert.True(FooterWikiLink.Text.Equals(Wiki));
-            Assert.True(FooterContactLink.Text.Equals(Contact));
+            Assert.True(FooterHomeLink.Text.Equals(MyResource.FooterHome));
+            Assert.True(FooterWikiLink.Text.Equals(MyResource.FooterWiki));
+            Assert.True(FooterContactLink.Text.Equals(MyResource.FooterContact));
 
             return this;
         }
 
+        /// <summary>
+        /// Email error check
+        /// </summary>
+        /// <param name="Error">The error to be checked</param>
+        /// <returns>HomePage object</returns>
         public HomePage CheckEmailError(string Error)
         {
             Reporter.LogInfo("Checking email error");
@@ -116,6 +162,11 @@ namespace Course2
             return this;
         }
 
+        /// <summary>
+        /// Password error check
+        /// </summary>
+        /// <param name="Error">The error to be checked</param>
+        /// <returns>HomePage object</returns>
         public HomePage CheckPasswordError(string Error)
         {
             Reporter.LogInfo("Checking password error");
@@ -124,35 +175,63 @@ namespace Course2
             return this;
         }
 
+        /// <summary>
+        /// Write text into the Email field
+        /// </summary>
+        /// <param name="EmailAddress">The address to be written</param>
+        /// <param name="ElementName">The name of the field</param>
+        /// <returns>HomePage object</returns>
         public HomePage FillInEmail(string EmailAddress, string ElementName)
         {
             EmailField.SendText(EmailAddress, ElementName);
             return this;
         }
 
+        /// <summary>
+        /// Write text into the Password field
+        /// </summary>
+        /// <param name="Password">The password to be written</param>
+        /// <param name="ElementName">The name of the field</param>
+        /// <returns>HomePage object</returns>
         public HomePage FillInPassword(string Password, string ElementName)
         {
             PasswordField.SendText(Password, ElementName);
             return this;
         }
 
-        public HomePage ClickLoginButton()
+        /// <summary>
+        /// Click the login button
+        /// </summary>
+        /// <typeparam name="T">Generic type parameter</typeparam>
+        /// <returns>HomePage object</returns>
+        public T ClickLogin<T>()
         {
             LoginButton.ClickIt("Login button");
+            return (T)Activator.CreateInstance(typeof(T), new object[1] { Driver });
+        }
+
+        /// <summary>
+        /// Failed login flow with missing password
+        /// </summary>
+        /// <returns>HomePage object</returns>
+        public HomePage LoginNegativeFlow()
+        {
+            FillInEmail(MyResource.Email, "Email");
+            ClickLogin<HomePage>();
+            Reporter.LogScreenshot("Login error screenshot", ImageHelper.CaptureScreen(Driver));
             return this;
         }
 
-        public DashboardPage Login(string Email, string Password, string ElementName1, string ElementName2)
+        /// <summary>
+        /// Successful login flow
+        /// </summary>
+        /// <returns>HomePage object</returns>
+        public DashboardPage LoginPositiveFlow()
         {
-            FillInEmail(Email, ElementName1);
-            FillInPassword(Password, ElementName2);
-            LoginButton.ClickIt("Login button");
+            FillInEmail(MyResource.Email, "Email");
+            FillInPassword(MyResource.Password, "Password");
+            ClickLogin<DashboardPage>();
             Reporter.LogScreenshot("Logged in screenshot", ImageHelper.CaptureScreen(Driver));
-            return new DashboardPage(Driver);
-        }
-
-        public DashboardPage OnDashboard()
-        {
             return new DashboardPage(Driver);
         }
     }

@@ -53,9 +53,16 @@ namespace Course2
         public DashboardPage GoToDashboardPage()
         {
             GoToHomePage()
-                .Login(MyResource.Email, MyResource.Password, "Email", "Password")
+                .LoginPositiveFlow()
                 .Wait();          
             return new DashboardPage(Driver);
+        }
+
+        public WikiPage GoToWikiPage()
+        {
+            GoToHomePage()
+                .GoToWiki();
+            return new WikiPage(Driver);
         }
     }
 }

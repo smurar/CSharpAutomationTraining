@@ -183,6 +183,9 @@
   <data name="Password" xml:space="preserve">
     <value>111111</value>
   </data>
+  <data name="TextToWrite" xml:space="preserve">
+    <value>Sample text for text area.</value>
+  </data>
   <data name="Vehicle" xml:space="preserve">
     <value>Bike</value>
   </data>
