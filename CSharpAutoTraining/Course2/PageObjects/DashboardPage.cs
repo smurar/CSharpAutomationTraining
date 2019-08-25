@@ -25,7 +25,7 @@ namespace CSharpAutoTraining.Course2.PageObjects
 
         private IWebElement LastName => driver.FindElement(By.CssSelector("#myDiv > form > input:nth-child(5)"));
 
-        private IWebElement RadioButton => driver.FindElement(By.XPath("//*[@name=\"gender\" and @value=\"female\"]"));
+        private IWebElement FemaleRadioButton => driver.FindElement(By.XPath("//*[@name=\"gender\" and @value=\"female\"]"));
 
         private IWebElement CheckboxBike => driver.FindElement(By.XPath(("//*[@id=\"myDiv\"]/form/input[5]")));
 
@@ -71,10 +71,84 @@ namespace CSharpAutoTraining.Course2.PageObjects
             return PageHeadingTitle.Text;
         }
 
-        public string FillInName()
+        public BasePage FillInName(string firstName, string lastName)
         {
+            FirstName.Clear();
+            LastName.Clear();
 
+            if (firstName != null)
+            {
+                FirstName.SendKeys("Gill");
+            }
+
+            if (lastName != null)
+            {
+                LastName.SendKeys("Toy");
+            }
+
+            return this;
         }
 
-    }
+        public void RadioButtons()
+        {
+            FemaleRadioButton.Click();
+        }
+
+        public BasePage Checkbox(bool checkboxBike, bool checkboxCar)
+        {
+            if (!CheckboxBike.Selected)
+            {
+                CheckboxBike.Click();
+            }
+
+            if (CheckboxCar.Selected)
+            {
+                CheckboxCar.Click();
+            }
+
+            return this;
+        }
+
+        public void SelectBirthday()
+        {
+            BirthdayButton.SendKeys("11011980");
+        }
+
+        public void UploadFile()
+        {
+            ChooseFileButton.SendKeys(@"C:\Users\rstreja\Desktop\testpic.jpg");
+        }
+        
+        public DashboardPage SaveForm()
+        {
+            SaveButton.Click();
+
+            return this;
+        }
+
+        public String GetDetailsMessageText()
+        {
+            return DetailsSavedMessage.Text;
+        }
+
+        public bool FooterLinksAreDisplayed()
+        {
+            foreach (IWebElement footerLink in FooterLinks)
+            {
+                if (!footerLink.Displayed)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public string Logout()
+        {
+            LogoutButton.Click();
+            return driver.Url;
+        }
+
+        }
 }

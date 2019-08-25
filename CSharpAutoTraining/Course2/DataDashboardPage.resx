@@ -123,4 +123,10 @@
   <data name="DashboardTitle" xml:space="preserve">
     <value>Dashboard page</value>
   </data>
+  <data name="DetailsSavedMessage" xml:space="preserve">
+    <value>Details saved</value>
+  </data>
+  <data name="HomePageURL" xml:space="preserve">
+    <value>HOME_PAGE_URL</value>
+  </data>
 </root>

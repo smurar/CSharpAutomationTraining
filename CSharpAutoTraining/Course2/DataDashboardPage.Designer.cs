@@ -77,5 +77,23 @@ namespace CSharpAutoTraining.Course2 {
                 return ResourceManager.GetString("DashboardTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details saved.
+        /// </summary>
+        internal static string DetailsSavedMessage {
+            get {
+                return ResourceManager.GetString("DetailsSavedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HOME_PAGE_URL.
+        /// </summary>
+        internal static string HomePageURL {
+            get {
+                return ResourceManager.GetString("HomePageURL", resourceCulture);
+            }
+        }
     }
 }

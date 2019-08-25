@@ -32,9 +32,33 @@ namespace CSharpAutoTraining.Course2.Tests
         }
 
         [Test, Order(4)]
-        public void TestNameCanBeFilledIn()
+        public void TestDetailsSaved()
         {
+            DashboardPage page = GoToDashboardPage();
+            page.SaveForm();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
+            Assert.AreEqual(
+                DataDashboardPage.DetailsSavedMessage,
+                page.GetDetailsMessageText()
+            );
+        }
+
+        [Test, Order(5)]
+        public void TestFooterLinksAreDisplayed()
+        {
+            DashboardPage page = GoToDashboardPage();
+
+            Assert.True(page.FooterLinksAreDisplayed());
+        }
+
+        [Test, Order(6)]
+        public void LogoutRedirect()
+        {
+            Assert.AreEqual(
+                System.Configuration.ConfigurationManager.AppSettings[DataHomePage.HomepageURL],
+                GoToDashboardPage().Logout()
+            );
         }
     }
 }
