@@ -1,4 +1,5 @@
 ﻿using CSharpAutoTraining.Course2.PageObjects;
+using CSharpAutoTraining.Properties;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;

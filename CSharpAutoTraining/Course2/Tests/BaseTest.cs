@@ -51,14 +51,14 @@ namespace CSharpAutoTraining.Course2.Tests
 
         protected HomePage GoToHomePage()
         {
-            driver.Url = System.Configuration.ConfigurationManager.AppSettings["HOME_PAGE_URL"];
+            driver.Url = ConfigurationManager.AppSettings["HOME_PAGE_URL"];
 
             return new HomePage(driver);
         }
 
         protected DashboardPage GoToDashboardPage()
         {
-            driver.Url = System.Configuration.ConfigurationManager.AppSettings["DASHBOARD_PAGE_URL"];
+            driver.Url = ConfigurationManager.AppSettings["DASHBOARD_PAGE_URL"];
 
             return new DashboardPage(driver);
         }
