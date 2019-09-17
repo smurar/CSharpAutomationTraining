@@ -34,6 +34,8 @@ namespace CSharpAutoTraining.Course3.Pages
 
         private IWebElement EmailErrorText { get { return driver.FindElement(By.Id("emailErrorText")); } }
 
+        private IWebElement PasswordErrorText { get { return driver.FindElement(By.Id("passwordErrorText")); } }
+
         private ICollection<IWebElement> FooterLinks { get { return driver.FindElements(By.XPath("//*[@id=\"nav\"]")); } }
 
         public bool HeaderImageIsDisplayed()
@@ -48,7 +50,6 @@ namespace CSharpAutoTraining.Course3.Pages
                     return false;
                 }
             }
-
             return true;
         }
 
@@ -96,12 +97,16 @@ namespace CSharpAutoTraining.Course3.Pages
             LoginButton.Click();
 
             return this;
-
         }
 
         public string GetEmailErrorMessage()
         {
             return EmailErrorText.Text;
+        }
+
+        public string GetPasswordErrorMessage()
+        {
+            return PasswordErrorText.Text;
         }
 
         public bool FooterLinksAreDisplayed()

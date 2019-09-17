@@ -87,10 +87,22 @@ namespace CSharpAutoTraining.Course3.TestSteps
             Assert.AreEqual(homePage.GetEmailErrorMessage(), "Email address format is not valid");
         }
 
-        //[Then(@"a null password error should be displayed")]
-        //public void ThenANullPasswordErrorShouldBeDisplayed()
-        //{
-        //    Assert.AreEqual(homePage.GetPasswordErrorMessage(), "Password can't be null");
-        //}
+        [Then(@"a null password error should be displayed")]
+        public void ThenANullPasswordErrorShouldBeDisplayed()
+        {
+            Assert.AreEqual(homePage.GetPasswordErrorMessage(), "Password can't be null");
+        }
+
+        [Then(@"an invalid password error should be displayed")]
+        public void ThenAnInvalidPasswordErrorShouldBeDisplayed()
+        {
+            Assert.AreEqual(homePage.GetPasswordErrorMessage(), "Invalid password/email");
+        }
+
+        [Then(@"the footer links are displayed")]
+        public void ThenTheFooterLinksAreDisplayed()
+        {
+            Assert.True(homePage.FooterLinksAreDisplayed());
+        }
     }
 }

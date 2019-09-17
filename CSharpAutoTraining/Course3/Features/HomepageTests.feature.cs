@@ -230,6 +230,134 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Login with missing password")]
+        public virtual void LoginWithMissingPassword()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with missing password", null, ((string[])(null)));
+#line 50
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 51
+ testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "E-mail",
+                        "Password"});
+            table4.AddRow(new string[] {
+                        "admin@domain.org",
+                        ""});
+#line 52
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table4, "When ");
+#line 55
+ testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 56
+ testRunner.And("a null password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Login with wrong password")]
+        public virtual void LoginWithWrongPassword()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with wrong password", null, ((string[])(null)));
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 59
+ testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "E-mail",
+                        "Password"});
+            table5.AddRow(new string[] {
+                        "admin@domain.org",
+                        "invalid"});
+#line 60
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table5, "When ");
+#line 63
+ testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 64
+ testRunner.And("an invalid password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Login without credentials")]
+        public virtual void LoginWithoutCredentials()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login without credentials", null, ((string[])(null)));
+#line 66
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 67
+ testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "E-mail",
+                        "Password"});
+            table6.AddRow(new string[] {
+                        "",
+                        ""});
+#line 68
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table6, "When ");
+#line 71
+ testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 72
+ testRunner.And("a null email error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+ testRunner.And("a null password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Login with wrong credentials")]
+        public virtual void LoginWithWrongCredentials()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with wrong credentials", null, ((string[])(null)));
+#line 75
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 76
+ testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "E-mail",
+                        "Password"});
+            table7.AddRow(new string[] {
+                        "invalid",
+                        "invalid"});
+#line 77
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table7, "When ");
+#line 80
+ testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 81
+ testRunner.And("an invalid email error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+ testRunner.And("an invalid password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Test that footer links are displayed")]
+        public virtual void TestThatFooterLinksAreDisplayed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that footer links are displayed", null, ((string[])(null)));
+#line 84
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 85
+ testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 86
+ testRunner.Then("the footer links are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

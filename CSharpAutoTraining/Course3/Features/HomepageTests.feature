@@ -47,23 +47,40 @@ Scenario: Login with wrong email
 	Then I should remain on 'Homepage'
 	And an invalid email error should be displayed
 
-#Scenario: Login with missing password
-#	Given I am on homepage
-#	When I type in the credentials and click the login button
-#	| E-mail           | Password |
-#	| admin@domain.org |          |
-#	Then I should remain on 'Homepage'
-#	And a null password error should be displayed
-#
-#Scenario: Login with wrong password
-#	Given I am on homepage
-#	When I type in the credentials and click the login button
-#	| E-mail           | Password |
-#	| admin@domain.org | invalid  |
-#	Then I should remain on 'Homepage'
-#	And an invalid password error should be displayed
+Scenario: Login with missing password
+	Given I am on homepage
+	When I type in the credentials and click the login button
+	| E-mail           | Password |
+	| admin@domain.org |          |
+	Then I should remain on 'Homepage'
+	And a null password error should be displayed
 
+Scenario: Login with wrong password
+	Given I am on homepage
+	When I type in the credentials and click the login button
+	| E-mail           | Password |
+	| admin@domain.org | invalid  |
+	Then I should remain on 'Homepage'
+	And an invalid password error should be displayed
 
+Scenario: Login without credentials
+	Given I am on homepage
+	When I type in the credentials and click the login button
+	| E-mail           | Password |
+	|				   |		  |
+	Then I should remain on 'Homepage'
+	And a null email error should be displayed
+	And a null password error should be displayed
 
+Scenario: Login with wrong credentials
+	Given I am on homepage
+	When I type in the credentials and click the login button
+	| E-mail           | Password |
+	| invalid		   | invalid  |
+	Then I should remain on 'Homepage'
+	And an invalid email error should be displayed
+	And an invalid password error should be displayed
 
-#Scenario: Test that footer links are displayed
+Scenario: Test that footer links are displayed
+	Given I am on homepage
+	Then the footer links are displayed
