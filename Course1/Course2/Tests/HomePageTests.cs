@@ -8,6 +8,8 @@ namespace Course1.Course2.Tests
     public class HomePageTests : TestBase
     {
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void HeaderLinksAndImageAreDisplayedTest()
         {
             GoToHomePage()
@@ -17,6 +19,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void HomePageTitleIsCorrectTest()
         {
             GoToHomePage()
@@ -24,6 +28,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void PageHeadingTitleH1IsCorrectTest()
         {
             GoToHomePage()
@@ -31,6 +37,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P1")]
         public void DefaultEmailAndPasswordTextIsCorrectTest()
         {
             GoToHomePage()
@@ -41,6 +49,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P1")]
         public void LoginFieldsAreDisplayedTest()
         {
             GoToHomePage()
@@ -49,6 +59,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void ErrorMessageEmailAddressCanTBeNullIsDisplayedAndContainTheExpectedValues()
         {
             GoToHomePage()
@@ -57,6 +69,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void ErrorMessageEmailAddressFormatIsNotValidIsDisplayedWhenArontCharacterIsNotPresentInTheEmailBodyTest()
         {
             GoToHomePage()
@@ -65,6 +79,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void ErrorMessageInvalidPasswordEmailIsDisplayedWhenEmailAndPasswordAreNotValidTest()
         {
             GoToHomePage()
@@ -73,6 +89,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void UserCanLoginWithValidCredetialsAndCheckLandingPageTitleTest()
         {
             GoToHomePage()
@@ -81,6 +99,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void UserCanNavigateToWikiPageAndCheckLandingPageTitleTest()
         {
             GoToHomePage()
@@ -89,6 +109,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("HomePage")]
+        [Property("Severity", "P2")]
         public void FooterLinksAreDisplayedTest()
         {
             GoToHomePage()

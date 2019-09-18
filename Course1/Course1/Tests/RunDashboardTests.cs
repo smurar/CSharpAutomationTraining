@@ -114,7 +114,7 @@ namespace Course1.Tests
             driver.FindElement(By.Id("Login")).Click();
             Assert.True(driver.Title.Equals("Dashboard page"));
 
-            Thread.Sleep(3000); //will be replaced with wait method
+            Thread.Sleep(3000); // will be replaced with wait method
 
             driver.FindElement(By.XPath("//form//input[@id='firstname']")).SendKeys("Mihai");
             driver.FindElement(By.XPath("//input[@value='David']")).SendKeys("Cuciureanu");

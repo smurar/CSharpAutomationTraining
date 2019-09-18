@@ -10,6 +10,8 @@ namespace Course1.Course2.Tests
     {
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Severity", "P2")]
         public void HeaderLinksAndImageAreDisplayedTest()
         {
             GoToHomePage()
@@ -20,6 +22,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Severity", "P2")]
         public void PageTitleIsCorrectLinkTest()
         {
             GoToHomePage()
@@ -28,6 +32,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Severity", "P2")]
         public void FooterLinksAreDisplayedTest()
         {
             GoToHomePage()
@@ -38,6 +44,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Severity", "P1")]
         public void LogoutTest()
         {
             GoToHomePage()
@@ -48,6 +56,8 @@ namespace Course1.Course2.Tests
         }
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Severity", "P2")]
         public void UserEditInfoTest()
         {
             GoToHomePage()
