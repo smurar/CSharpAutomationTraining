@@ -1,7 +1,4 @@
 ﻿Feature: HomePage Tests
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
 
 Scenario: Check if header links and image are displayed
 	Given I am on homepage

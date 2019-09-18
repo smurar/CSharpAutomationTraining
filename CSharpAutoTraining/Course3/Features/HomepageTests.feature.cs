@@ -31,8 +31,7 @@ namespace CSharpAutoTraining.Course3.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HomePage Tests", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HomePage Tests", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,14 +74,14 @@ namespace CSharpAutoTraining.Course3.Features
         public virtual void CheckIfHeaderLinksAndImageAreDisplayed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if header links and image are displayed", null, ((string[])(null)));
-#line 6
+#line 3
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 7
+#line 4
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
+#line 5
  testRunner.Then("the header links are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 9
+#line 6
  testRunner.And("the image in the header is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -93,12 +92,12 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TestThatThePageTitleIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that the page title is correct", null, ((string[])(null)));
-#line 11
+#line 8
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 12
+#line 9
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
+#line 10
  testRunner.Then("the page title is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -109,12 +108,12 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TestThatThePageHeadingTitleIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that the page heading title is correct", null, ((string[])(null)));
-#line 15
+#line 12
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 16
+#line 13
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
+#line 14
  testRunner.Then("the page heading title is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -125,12 +124,12 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TestThatTheDefaultE_MailIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that the default e-mail is correct", null, ((string[])(null)));
-#line 19
+#line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 20
+#line 17
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
+#line 18
  testRunner.Then("the default e-mail is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -141,12 +140,12 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TestThatTheDefaultPasswordIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that the default password is correct", null, ((string[])(null)));
-#line 23
+#line 20
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 24
+#line 21
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
+#line 22
  testRunner.Then("the default password is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -157,10 +156,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TestThatTheUserCanAuthenticate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that the user can authenticate", null, ((string[])(null)));
-#line 27
+#line 24
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 28
+#line 25
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -169,9 +168,9 @@ this.ScenarioInitialize(scenarioInfo);
             table1.AddRow(new string[] {
                         "admin@domain.org",
                         "111111"});
-#line 29
+#line 26
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table1, "When ");
-#line 32
+#line 29
  testRunner.Then("I am redirected to \'Dashboard page\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -182,10 +181,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void LoginWithMissingEmail()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with missing email", null, ((string[])(null)));
-#line 34
+#line 31
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 35
+#line 32
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -194,11 +193,11 @@ this.ScenarioInitialize(scenarioInfo);
             table2.AddRow(new string[] {
                         "",
                         "111111"});
-#line 36
+#line 33
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table2, "When ");
-#line 39
+#line 36
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 40
+#line 37
  testRunner.And("a null email error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -209,10 +208,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void LoginWithWrongEmail()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with wrong email", null, ((string[])(null)));
-#line 42
+#line 39
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 43
+#line 40
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -221,11 +220,11 @@ this.ScenarioInitialize(scenarioInfo);
             table3.AddRow(new string[] {
                         "invalid",
                         "111111"});
-#line 44
+#line 41
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table3, "When ");
-#line 47
+#line 44
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 48
+#line 45
  testRunner.And("an invalid email error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -236,10 +235,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void LoginWithMissingPassword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with missing password", null, ((string[])(null)));
-#line 50
+#line 47
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 51
+#line 48
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -248,11 +247,11 @@ this.ScenarioInitialize(scenarioInfo);
             table4.AddRow(new string[] {
                         "admin@domain.org",
                         ""});
-#line 52
+#line 49
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table4, "When ");
-#line 55
+#line 52
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 56
+#line 53
  testRunner.And("a null password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -263,10 +262,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void LoginWithWrongPassword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with wrong password", null, ((string[])(null)));
-#line 58
+#line 55
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 59
+#line 56
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -275,11 +274,11 @@ this.ScenarioInitialize(scenarioInfo);
             table5.AddRow(new string[] {
                         "admin@domain.org",
                         "invalid"});
-#line 60
+#line 57
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table5, "When ");
-#line 63
+#line 60
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 64
+#line 61
  testRunner.And("an invalid password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -290,10 +289,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void LoginWithoutCredentials()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login without credentials", null, ((string[])(null)));
-#line 66
+#line 63
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 67
+#line 64
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -302,13 +301,13 @@ this.ScenarioInitialize(scenarioInfo);
             table6.AddRow(new string[] {
                         "",
                         ""});
-#line 68
+#line 65
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table6, "When ");
-#line 71
+#line 68
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 72
+#line 69
  testRunner.And("a null email error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 73
+#line 70
  testRunner.And("a null password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -319,10 +318,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void LoginWithWrongCredentials()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with wrong credentials", null, ((string[])(null)));
-#line 75
+#line 72
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 76
+#line 73
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -331,13 +330,13 @@ this.ScenarioInitialize(scenarioInfo);
             table7.AddRow(new string[] {
                         "invalid",
                         "invalid"});
-#line 77
+#line 74
  testRunner.When("I type in the credentials and click the login button", ((string)(null)), table7, "When ");
-#line 80
+#line 77
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 81
+#line 78
  testRunner.And("an invalid email error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 82
+#line 79
  testRunner.And("an invalid password error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -348,12 +347,12 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TestThatFooterLinksAreDisplayed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test that footer links are displayed", null, ((string[])(null)));
-#line 84
+#line 81
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 85
+#line 82
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 86
+#line 83
  testRunner.Then("the footer links are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

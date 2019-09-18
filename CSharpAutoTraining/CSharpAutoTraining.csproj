@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Course3\TestSteps\DashboardTestsSteps.cs" />
     <Compile Include="Properties\DataDashboardPage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +157,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Course3\Features\DashboardTests.feature" />
     <None Include="Course3\Features\HomepageTests.feature" />
     <None Include="packages.config" />
   </ItemGroup>
