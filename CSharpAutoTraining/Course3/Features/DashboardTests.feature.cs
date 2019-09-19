@@ -82,9 +82,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("I am on dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.Then("the header links are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 7
- testRunner.And("the image in the header is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("the dashboard header links and image are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -94,13 +92,69 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void DashboardPageTitleIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dashboard page title is correct", null, ((string[])(null)));
-#line 9
+#line 8
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 10
+#line 9
  testRunner.Given("I am on dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
- testRunner.Then("the page title is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+ testRunner.Then("the dashboard page title is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Dashboard page heading title is correct")]
+        public virtual void DashboardPageHeadingTitleIsCorrect()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dashboard page heading title is correct", null, ((string[])(null)));
+#line 12
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 13
+ testRunner.Given("I am on dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.Then("the dashboard page heading title is correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Details Saved message is displayed")]
+        public virtual void DetailsSavedMessageIsDisplayed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Details Saved message is displayed", null, ((string[])(null)));
+#line 16
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 17
+ testRunner.Given("I am on dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 18
+ testRunner.When("I fill in the firstName and lastName", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.And("I select male gender", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.And("I check the \'I have a bike\' checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.And("I chose my birthday", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.And("I upload a file from my PC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.And("I click on the \'Save\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.Then("the \'Details Saved\' message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("When I click on the Logout button I am redirected to homepage")]
+        public virtual void WhenIClickOnTheLogoutButtonIAmRedirectedToHomepage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("When I click on the Logout button I am redirected to homepage", null, ((string[])(null)));
+#line 26
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
 #line hidden
             this.ScenarioCleanup();
         }
