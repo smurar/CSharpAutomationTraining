@@ -1,6 +1,8 @@
 ﻿using Course2.Reports;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,14 +30,53 @@ namespace Course2.BrowserFactory
            // Driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\Drivers");
             switch (browserName)
              {
-                case "Chrome":
-                     if (Driver == null)
-                     {
-                         Driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\Drivers");
-                       //  Drivers.Add("Chrome", Driver);
-                     }
-                     break;
+
+                case "ChromeHeadless":
+                    {
+                        if (Driver == null)
+                        {
+                            Reporter.LogInfo("Starting Chrome browser in headless mode");
+                            ChromeOptions chromeOptions = new ChromeOptions(); chromeOptions.AddArguments("--headless"); chromeOptions.AddArguments("--start-maximized");
+                            Driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\Drivers", chromeOptions);
+                            //  Drivers.Add("Chrome", Driver);
+                        }
+                        break;
+                    }
+                case "FF":
+                    {
+                        if (Driver==null)
+                        {
+                            Reporter.LogInfo("Starting Firefox browser");
+                            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\Drivers");
+                            Driver = new FirefoxDriver(service);
+                            
+                        }
+                        break;
+                    }
+
+                case "ME":
+                    {
+                        if (Driver == null)
+                        {
+                            Reporter.LogInfo("Starting Microsoft Edge browser");
+                            // Driver = new EdgeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\Drivers");
+                            Driver = new EdgeDriver();
+                        }
+                        break;
+                    }
+
+                default:
+                    {
+                        if (Driver == null)
+                        {
+                            Reporter.LogInfo("Starting Chrome browser");
+                            Driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\Drivers");
+                            //  Drivers.Add("Chrome", Driver);
+                        }
+                        break;
+                    }
              }
+            
         }
 
         public static void Maximize()

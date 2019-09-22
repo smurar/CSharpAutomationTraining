@@ -9,7 +9,9 @@ namespace Course2.Tests
 {
     class WindowsFrameTest:BaseTest
     {
+       
         [Test]
+        [Category("WorkflowTests")]
         public void WriteDifferentFrameTest()
         {
             GoToHomePageForWindowsAndFramesHandling()

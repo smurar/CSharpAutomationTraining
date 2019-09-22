@@ -23,6 +23,7 @@ namespace Course2.PageObjects
         private IWebElement SaveButton => WebDriver.FindElement(By.Id("SaveDetails"));
         private IWebElement SavedDetailsMessage => WebDriver.FindElement(By.Id("detailsSavedMessage"));
         private IWebElement LogOutButton => WebDriver.FindElement(By.Id("Logout"));
+        private IWebElement Loader => WebDriver.FindElement(By.Id("loader"));
 
 
 
@@ -30,6 +31,7 @@ namespace Course2.PageObjects
         public DashboardPage(IWebDriver WebDriver)
         {
             this.WebDriver = WebDriver;
+            WebDriver.WaitElementToBeDisplayed(Loader, false, "loader");
         }
 
         public DashboardPage CheckPageTitle(string title)
@@ -70,7 +72,7 @@ namespace Course2.PageObjects
 
         public DashboardPage FillInFirstName(string firstName)
         {
-            Extensions.WaitForCompleteLoading(WebDriver);
+            //Extensions.WaitForCompleteLoading(WebDriver);
             FirstName.SendKeys(firstName, "First Name");
             return this;
         }
@@ -120,7 +122,7 @@ namespace Course2.PageObjects
 
         public HomePage LogOut()
         {
-            Extensions.WaitForCompleteLoading(WebDriver);
+            //Extensions.WaitForCompleteLoading(WebDriver);
             LogOutButton.Click("Logout button");
             return new HomePage(WebDriver);
         }

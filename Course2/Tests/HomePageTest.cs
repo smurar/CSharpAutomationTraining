@@ -13,21 +13,27 @@ namespace Course2.Tests
 {
     class HomePageTest:BaseTest
     {
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void HeaderImageTest()
         {
             GoToHomePage()
                 .CheckHeaderImage();
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void PageTitleTest()
         {
             GoToHomePage()
                 .CheckPageTitle(DataHomePage.Title);
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void HeaderLinksTest()
         {
            
@@ -36,14 +42,18 @@ namespace Course2.Tests
                 .CheckWikiPageLink();
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void HeadingTitleTest()
         {
             GoToHomePage()
                 .CheckHeadingTitle(DataHomePage.HeadingTitle);
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void DefaultEmailPasswordTest()
         {
             GoToHomePage()
@@ -51,14 +61,18 @@ namespace Course2.Tests
                 .CheckDefaultPassword(DataHomePage.DefaultPasswordText);
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void LoginDisplayTest()
         {
             GoToHomePage()
                 .CheckLoginFieldsAreDisplayed();
         }
 
+        
         [Test]
+        [Category("ValidationTests")]
         public void EmailValidationsTest()
         {
             GoToHomePage()
@@ -69,7 +83,9 @@ namespace Course2.Tests
                 .CheckFormatEmailValidationText(DataHomePage.FormatEmailValidationText);
         }
 
+        
         [Test]
+        [Category("ValidationTests")]
         public void PasswordValidationTest()
         {
             GoToHomePage()
@@ -79,7 +95,10 @@ namespace Course2.Tests
                 .CheckInvalidPasswordValidationMessage(DataHomePage.PasswordValidationText);
         }
 
+        
         [Test]
+        [Category("WorkflowTests")]
+        [Property("Severity", "P1")]
         public void SuccessfullyLoginTest()
         {
             GoToHomePage()
@@ -90,7 +109,9 @@ namespace Course2.Tests
                 .CheckPageTitle(DataDashboardPage.Title);
         }
 
+        
         [Test]
+        [Category("WorkflowTests")]
         public void WikiPageTest()
         {
             GoToHomePage()

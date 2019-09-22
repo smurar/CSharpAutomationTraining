@@ -10,7 +10,9 @@ namespace Course2.Tests
 {
     class DashboardTest:BaseTest
     {
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void HeaderImageTest()
         {
             GoToDashboardPage()
@@ -18,7 +20,9 @@ namespace Course2.Tests
                 .CheckHeaderImage();
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void HeaderLinksTest()
         {
 
@@ -27,21 +31,27 @@ namespace Course2.Tests
                 .CheckWikiPageLink();
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void PageTitleTest()
         {
             GoToDashboardPage()
                 .CheckPageTitle(DataDashboardPage.Title);
         }
 
+        
         [Test]
+        [Category("ItemsVisibilityTests")]
         public void HeadingTitleTest()
         {
             GoToDashboardPage()
                 .CheckHeadingTitle(DataDashboardPage.HeadingTitle);
         }
 
+        
         [Test]
+        [Category("WorkflowTests")]
         public void SaveDetailsTest()
         {
             GoToDashboardPage()
@@ -53,7 +63,10 @@ namespace Course2.Tests
                 .CheckSaveDetailsMessage(DataDashboardPage.SavedDetailsMessage);
         }
 
+        
         [Test]
+        [Category("WorkflowTests")]
+        [Property("Severity", "P1")]
         public void LogOutTest()
         {
             GoToDashboardPage()

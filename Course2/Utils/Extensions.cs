@@ -1,5 +1,6 @@
 ﻿using Course2.Reports;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,18 @@ namespace Course2.Utils
                 element.Click();
             }
             else { Reporter.LogInfo(elementName + " check box was already selected"); }
+        }
+        public static void WaitElementToBeDisplayed(this IWebDriver driver, IWebElement element, bool isDisplayed, string elementName, int timeout = 30)
+        {
+            Reporter.LogInfo(string.Format("Wait element '{0}' to be displayed: {1}", elementName, isDisplayed));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+            if (isDisplayed)
+            {
+                wait.Until(x => element.Displayed);
+            }
+            else {
+                wait.Until(x => !element.Displayed);
+            }
         }
     }
 }
