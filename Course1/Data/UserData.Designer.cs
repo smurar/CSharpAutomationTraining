@@ -70,6 +70,15 @@ namespace Course1.Data {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string EmptyPassword {
+            get {
+                return ResourceManager.GetString("EmptyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 111111.
         /// </summary>
         internal static string Password {
