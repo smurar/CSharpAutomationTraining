@@ -25,7 +25,7 @@ namespace CSharpAutoTraining.Course2
 
             ss.SaveAsFile(imagePath, ScreenshotImageFormat.Jpeg);
 
-            return imagePath
+            return imagePath;
         }
     }
 }

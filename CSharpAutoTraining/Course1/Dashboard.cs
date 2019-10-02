@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -139,7 +140,11 @@ namespace CSharpAutoTraining.Course1
 
             IWebElement femaleButton = driver.FindElement(By.XPath("//*[@id=\"myDiv\"]/form/input[4]"));
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+
+            wait.Until(driver => femaleButton.Displayed);
 
             if (femaleButton.Selected == false)
             {
@@ -293,7 +298,8 @@ namespace CSharpAutoTraining.Course1
         [TearDown]
         public void CloseDriver()
         {
-            driver.Close();
+            //driver.Close();
+            driver.Quit();
         }
     }
 }

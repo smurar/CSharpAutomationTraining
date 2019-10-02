@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharpAutoTraining.Course2
 {
-    class Reporter
+    public class Reporter
     {
         private static ExtentReports extent;
 

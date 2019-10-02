@@ -89,7 +89,7 @@ namespace CSharpAutoTraining.Course2
             home.GoToHomepage();
             Reporter.LogInfo("Check if default password is displayed on page");
             Assert.IsTrue(home.DefaultPass.Displayed);
-            Assert.AreEqual(TestData.ExpectedDefaultPasswordDisplayed, home.DefaultPass.Displayed);
+            Assert.AreEqual(TestData.ExpectedDefaultPasswordDisplayed, home.DefaultPass.Text);
         }
 
 

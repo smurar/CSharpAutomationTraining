@@ -35,11 +35,11 @@ namespace CSharpAutoTraining.Course2
         [SetUp]
         public void InitializeTest()
         {
+            Reporter.StartTest(TestContext.CurrentContext.Test.MethodName);
+
             WebDriver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Drivers");
 
-            WebDriver.Manage().Window.Maximize();
-
-            Reporter.StartTest(TestContext.CurrentContext.Test.MethodName);
+            WebDriver.Manage().Window.Maximize();                        
         }
 
 
@@ -49,7 +49,7 @@ namespace CSharpAutoTraining.Course2
         {
             Reporter.LogScreenshot("Screenshot", ImageHelper.CaputeScreen(WebDriver));
 
-            WebDriver.Close();
+            WebDriver.Quit();
 
             Reporter.EndTest();                        
         }
