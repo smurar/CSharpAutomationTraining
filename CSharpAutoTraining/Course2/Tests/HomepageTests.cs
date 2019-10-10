@@ -16,6 +16,8 @@ namespace CSharpAutoTraining.Course2
     class HomepageTests : BaseTest
     {
         [Test]
+        [Category("Homepage")]
+        [Property("Prio","Low")]
         public void HeaderImageDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -27,6 +29,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void HomeHeaderLinkDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -38,6 +42,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void WikiHeaderLinkDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -49,6 +55,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void HomepageTitleCorrect()
         {
             HomePage home = new HomePage(WebDriver);
@@ -59,6 +67,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void HomepageHeadingCorrect()
         {
             HomePage home = new HomePage(WebDriver);
@@ -70,6 +80,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void DefaultEmailDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -82,6 +94,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void DefaultPassDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -94,6 +108,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Medium")]
         public void LoginFieldsDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -106,6 +122,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Medium")]
         public void EmailCantBeNull()
         {
             HomePage home = new HomePage(WebDriver);
@@ -119,6 +137,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Medium")]
         public void EmailFormatInvalid()
         {
             HomePage home = new HomePage(WebDriver);
@@ -133,6 +153,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Medium")]
         public void InvalidEmailEntered()
         {
             HomePage home = new HomePage(WebDriver);
@@ -148,6 +170,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Medium")]
         public void InvalidPasswordEntered()
         {
             HomePage home = new HomePage(WebDriver);
@@ -163,6 +187,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "High")]
         public void LoginValidCredentials()
         {
             //can be done without variable declaration like below
@@ -179,6 +205,7 @@ namespace CSharpAutoTraining.Course2
 
         
         [Test]
+        [Category("Homepage")]
         public void RedirectToWikiPage()
         {
             HomePage home = new HomePage(WebDriver);
@@ -190,6 +217,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void HomeFooterLinkDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -202,6 +231,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void WikiFooterLinkDisplayed()
         {
             HomePage home = new HomePage(WebDriver);
@@ -214,6 +245,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Homepage")]
+        [Property("Prio", "Low")]
         public void ContactFooterLinkDisplayed()
         {
             HomePage home = new HomePage(WebDriver);

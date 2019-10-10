@@ -10,7 +10,9 @@ using OpenQA.Selenium.Support.UI;
 using CSharpAutoTraining.Course3.Helpers;
 
 namespace CSharpAutoTraining.Course3.PageObjects
-{
+{   /// <summary>
+    /// Dashboard Page Object
+    /// </summary>
     public class Dashboard
     {
         private IWebDriver driver;
@@ -41,7 +43,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
         public IWebElement SaveDetailsButton => ((RemoteWebDriver)driver).FindElement(By.XPath("//*[@id=\"SaveDetails\"]"));
         public IWebElement LogoutButton => ((RemoteWebDriver)driver).FindElement(By.XPath("//*[@id=\"Logout\"]"));
 
-
+        /// <summary>
+        /// Navigates to dashboard page. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard GoToDashboard()
         {
             ReporterBDD.LogInfo("Navigate to Dashboard page");
@@ -51,7 +56,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Checks page title. Returns Dashboard Object
+        /// </summary>
+        /// <param name="expectedTitle">Expected title to check against</param>
+        /// <returns></returns>
         public Dashboard CheckDashboardTitle(string expectedTitle)
         {
             ReporterBDD.LogInfo("Check Dashboard page title");
@@ -61,7 +70,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Fills in first name in the First Name field. Returns Dashboard Object
+        /// </summary>
+        /// <param name="firstName">first name to be written</param>
+        /// <returns></returns>
         public Dashboard FillInFirstName(string firstName)
         {
             ReporterBDD.LogInfo("Fill in first name");
@@ -75,7 +88,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Fills in last name in the Last Name field. Returns Dashboard Object
+        /// </summary>
+        /// <param name="lastName">last name to be written</param>
+        /// <returns></returns>
         public Dashboard FillInLastName(string lastName)
         {
             ReporterBDD.LogInfo("Fill in last name");
@@ -89,7 +106,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Clicks Save Details button. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard ClickSaveDetailsButton()
         {
             ReporterBDD.LogInfo("Click on Save Details button");
@@ -105,7 +125,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Checks if female button is selected. If not it selects it. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard SelectFemaleButton()
         {
             ReporterBDD.LogInfo("Select Female radio button");
@@ -122,7 +145,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Checks if male button is selected. If not it selects it. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard SelectMaleButton()
         {
             ReporterBDD.LogInfo("Select Male radio button");
@@ -139,7 +165,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Checks if bike button is selected. If not it selects it. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard SelectBikeButton()
         {
             ReporterBDD.LogInfo("Select Bike button");
@@ -156,7 +185,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Checks if car button is selected. If not it selects it. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard SelectCarButton()
         {
             ReporterBDD.LogInfo("Select Car button");
@@ -173,7 +205,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Clicks logout button. Returns Dashboard Object
+        /// </summary>
+        /// <returns></returns>
         public Dashboard ClickLogoutButton()
         {
             ReporterBDD.LogInfo("Click logout button");
@@ -187,7 +222,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Returns new Homepage Object. Used after ClickLogoutButton()
+        /// </summary>
+        /// <returns></returns>
         public HomePage LogoutRedirectToHomepage()
         {
             ReporterBDD.LogInfo("Redirect to homepage after logout button pressed");

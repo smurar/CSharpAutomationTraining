@@ -24,7 +24,7 @@ namespace CSharpAutoTraining.Course3.PageObjects
         /// <summary>
         /// Check expected title for WikiPage
         /// </summary>
-        /// <param name="expectedTitle">Expected page title</param>
+        /// <param name="expectedTitle">Expected page title to be checked against</param>
         /// <returns></returns>
         public WikiPage CheckWikiPageTitle(string expectedTitle)
         {

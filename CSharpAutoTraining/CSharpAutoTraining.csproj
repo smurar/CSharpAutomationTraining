@@ -132,6 +132,7 @@
     <Compile Include="Course2\Reporter.cs" />
     <Compile Include="Course3\Helpers\ImageHelperBDD.cs" />
     <Compile Include="Course3\Helpers\ReporterBDD.cs" />
+    <Compile Include="Course3\Helpers\WaitHelper.cs" />
     <Compile Include="Course3\Helpers\WebElementExtensions.cs" />
     <Compile Include="Course3\PageObjects\Dashboard.cs" />
     <Compile Include="Course3\PageObjects\FrameParentPage.cs" />
@@ -174,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drivers\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\geckodriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\MicrosoftWebDriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="extent-config.xml" />

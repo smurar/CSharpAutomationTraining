@@ -15,6 +15,8 @@ namespace CSharpAutoTraining.Course2
     class DashboardTests : BaseTest
     {
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void DashboardHeaderImageDisplayed()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -26,6 +28,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void HomeHeaderLinkDisplayed()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -37,6 +41,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void WikiPageHeaderLinkDisplayed()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -48,6 +54,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void DashboardTitleCorrect()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -59,6 +67,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void DashboardHeadingCorrect()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -70,6 +80,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Medium")]
         public void EditFirstNameSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -84,6 +96,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Medium")]
         public void EditLastNameSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -98,6 +112,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Medium")]
         public void EditFemaleRadioButtonSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -112,6 +128,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Medium")]
         public void EditMaleRadioButtonSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -126,6 +144,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Medium")]
         public void EditBikeButtonSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -140,6 +160,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Medium")]
         public void EditCarButtonSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -154,6 +176,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "High")]
         public void UserLogoutSuccessfully()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -167,6 +191,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void HomeFooterLinkDisplayed()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -178,6 +204,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void WikiFooterLinkDisplayed()
         {
             Dashboard dashboard = new Dashboard(WebDriver);
@@ -189,6 +217,8 @@ namespace CSharpAutoTraining.Course2
 
 
         [Test]
+        [Category("Dashboard")]
+        [Property("Prio", "Low")]
         public void ContactsFooterLinkDisplayed()
         {
             Dashboard dashboard = new Dashboard(WebDriver);

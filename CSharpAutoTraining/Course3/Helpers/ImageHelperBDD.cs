@@ -8,9 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharpAutoTraining.Course3.Helpers
-{
+{   /// <summary>
+    /// Image Heper class
+    /// </summary>
     class ImageHelperBDD
     {
+        /// <summary>
+        /// Make Screenshot method
+        /// </summary>
+        /// <param name="driver">passed webdriver</param>
+        /// <returns></returns>
         public static string CaputeScreen(IWebDriver driver)
         {
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();

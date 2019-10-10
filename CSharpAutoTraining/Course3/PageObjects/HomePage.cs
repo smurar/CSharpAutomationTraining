@@ -12,7 +12,9 @@ using System.Threading.Tasks;
 namespace CSharpAutoTraining.Course3.PageObjects
 {
     public class HomePage
-    {
+    {   /// <summary>
+        /// Homepage Page Object
+        /// </summary>
         private IWebDriver driver;
 
         public HomePage(IWebDriver driver)
@@ -46,7 +48,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
         public IWebElement CredentialsInvalidError => ((RemoteWebDriver)driver).FindElement(By.XPath("//*[@id='passwordErrorText']"));
 
         //page methods
-
+        /// <summary>
+        /// Navigates to Homepage. Returns HomePage object
+        /// </summary>
+        /// <returns></returns>
         public HomePage GoToHomepage()
         {
             ReporterBDD.LogInfo("Navigate to Homepage");
@@ -56,6 +61,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
+        /// <summary>
+        /// Checks homepage title against input string. Returns HomePage object
+        /// </summary>
+        /// <param name="expectedTitle">Expected Title to be checked against</param>
+        /// <returns></returns>
         //return HomePage in order to chain methods in test
         public HomePage CheckHomepageTitle(string expectedTitle)
         {
@@ -66,7 +76,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
-
+        /// <summary>
+        /// Fills in email field. Returns HomePage object
+        /// </summary>
+        /// <param name="email">Email to be written</param>
+        /// <returns></returns>
         public HomePage FillInEmail(string email)
         {
             ReporterBDD.LogInfo("Fill in email");
@@ -76,6 +90,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
+        /// <summary>
+        /// Fills in password field. Returns HomePage object
+        /// </summary>
+        /// <param name="password">Password to be written</param>
+        /// <returns></returns>
         public HomePage FillInPassword(string password)
         {
             ReporterBDD.LogInfo("Fill in password");
@@ -85,6 +104,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
+        /// <summary>
+        /// Clicks on login button. Returns HomePage object
+        /// </summary>
+        /// <returns></returns>
         public HomePage ClickLoginButton()
         {
             ReporterBDD.LogInfo("Click on login button");
@@ -94,6 +117,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
+        /// <summary>
+        /// Returns new Dashboard Object. Used after successfull login.
+        /// </summary>
+        /// <returns></returns>
         public Dashboard LoginRedirectToDashboard()
         {
             ReporterBDD.LogInfo("Redirect to Dashboard page after successful login");
@@ -101,6 +128,10 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return new Dashboard(this.driver);
         }
 
+        /// <summary>
+        /// Clicks on Wikipage header link. Returns HomePage object
+        /// </summary>
+        /// <returns></returns>
         public HomePage ClickOnWikiPage()
         {
             ReporterBDD.LogInfo("Click on Wikipage header link and Redirect");
@@ -110,6 +141,11 @@ namespace CSharpAutoTraining.Course3.PageObjects
             return this;
         }
 
+        /// <summary>
+        /// Returns new WikiPage object. Used after clicking on Wikipage header link
+        /// Might get deprecated as redirect test method creates new WikiPage object.
+        /// </summary>
+        /// <returns></returns>
         public WikiPage RedirectToWikiPage()
         {
             ReporterBDD.LogInfo("Redirect to Piki page");
