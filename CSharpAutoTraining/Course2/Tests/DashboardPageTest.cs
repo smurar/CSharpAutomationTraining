@@ -8,6 +8,8 @@ namespace CSharpAutoTraining.Course2.Tests
     public class DashboardPageTest : BaseTest
     {
         [Test, Order(1)]
+        [Category("Dev")]
+        [Category("Prod")]
         public void TestHeaderLinksAndImageAreDisplayed()
         {
             HomePage page = GoToHomePage();
@@ -17,18 +19,21 @@ namespace CSharpAutoTraining.Course2.Tests
         }
 
         [Test, Order(2)]
+        [Category("Dev")]
         public void TestDashboardTitleIsCorrect()
         {
             Assert.AreEqual(DataDashboardPage.DashboardTitle, GoToDashboardPage().GetPageTitle());
         }
 
         [Test, Order(3)]
+        [Category("Prod")]
         public void TestPageHeadingTitleIsCorrect()
         {
             Assert.AreEqual(DataDashboardPage.DashboardPageHeadingTitle, GoToDashboardPage().GetPageHeadingTitle());
         }
 
         [Test, Order(4)]
+        [Category("Dev")]
         public void TestDetailsSaved()
         {
             DashboardPage page = GoToDashboardPage();
@@ -42,6 +47,7 @@ namespace CSharpAutoTraining.Course2.Tests
         }
 
         [Test, Order(5)]
+        [Category("Prod")]
         public void TestFooterLinksAreDisplayed()
         {
             DashboardPage page = GoToDashboardPage();
@@ -50,6 +56,7 @@ namespace CSharpAutoTraining.Course2.Tests
         }
 
         [Test, Order(6)]
+        [Category("Dev")]
         public void LogoutRedirect()
         {
             Assert.AreEqual(

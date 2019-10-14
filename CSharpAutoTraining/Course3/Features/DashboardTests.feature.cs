@@ -120,28 +120,35 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Details Saved message is displayed")]
+        [NUnit.Framework.DescriptionAttribute("\"Details Saved\" message is displayed")]
         public virtual void DetailsSavedMessageIsDisplayed()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Details Saved message is displayed", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("\"Details Saved\" message is displayed", null, ((string[])(null)));
 #line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 17
  testRunner.Given("I am on dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FirstName",
+                        "LastName"});
+            table1.AddRow(new string[] {
+                        "Gill",
+                        "Toy"});
 #line 18
- testRunner.When("I fill in the firstName and lastName", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
- testRunner.And("I select male gender", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.And("I check the \'I have a bike\' checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I fill in the firstName and lastName", ((string)(null)), table1, "When ");
 #line 21
- testRunner.And("I chose my birthday", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I select male gender", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
- testRunner.And("I upload a file from my PC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I check the \'I have a bike\' checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
- testRunner.And("I click on the \'Save\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I chose my birthday", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
+ testRunner.And("I upload a file from my PC", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+ testRunner.And("I click on the \'Save\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
  testRunner.Then("the \'Details Saved\' message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -152,7 +159,7 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void WhenIClickOnTheLogoutButtonIAmRedirectedToHomepage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("When I click on the Logout button I am redirected to homepage", null, ((string[])(null)));
-#line 26
+#line 28
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

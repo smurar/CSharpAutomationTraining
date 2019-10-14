@@ -162,14 +162,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 25
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "admin@domain.org",
                         "111111"});
 #line 26
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table1, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table2, "When ");
 #line 29
  testRunner.Then("I am redirected to \'Dashboard page\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -187,14 +187,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 32
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "",
                         "111111"});
 #line 33
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table2, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table3, "When ");
 #line 36
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 37
@@ -214,14 +214,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 40
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "invalid",
                         "111111"});
 #line 41
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table3, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table4, "When ");
 #line 44
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 45
@@ -241,14 +241,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 48
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table4.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "admin@domain.org",
                         ""});
 #line 49
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table4, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table5, "When ");
 #line 52
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 53
@@ -268,14 +268,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 56
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "admin@domain.org",
                         "invalid"});
 #line 57
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table5, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table6, "When ");
 #line 60
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 61
@@ -295,14 +295,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 64
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table6.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "",
                         ""});
 #line 65
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table6, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table7, "When ");
 #line 68
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 69
@@ -324,14 +324,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 73
  testRunner.Given("I am on homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "E-mail",
                         "Password"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "invalid",
                         "invalid"});
 #line 74
- testRunner.When("I type in the credentials and click the login button", ((string)(null)), table7, "When ");
+ testRunner.When("I type in the credentials and click the login button", ((string)(null)), table8, "When ");
 #line 77
  testRunner.Then("I should remain on \'Homepage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 78
