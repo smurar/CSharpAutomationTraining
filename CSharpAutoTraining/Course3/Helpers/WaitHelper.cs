@@ -8,20 +8,22 @@ using System.Threading.Tasks;
 
 namespace CSharpAutoTraining.Course3.Helpers
 {
-    class WaitHelper
+    public static class WaitHelper
     {
-        private IWebDriver driver;
+        
 
-        public WaitHelper(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
-
-        public void WaitForElementToBeDisplayed(IWebElement element, string elementName, int timeoutSeconds)
+        public static void WaitForElementToBeDisplayed(this IWebDriver driver, IWebElement element, string elementName, bool isDisplayed, int timeoutSeconds)
         {
             ReporterBDD.LogInfo("Wait for element" + elementName + " to be displayed");
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutSeconds));
-            wait.Until(driver => element.Displayed);
+            if (isDisplayed)
+            {
+                wait.Until(x => element.Displayed);
+            }
+            else
+            {
+                wait.Until(x => !element.Displayed);
+            }
         }
 
     }

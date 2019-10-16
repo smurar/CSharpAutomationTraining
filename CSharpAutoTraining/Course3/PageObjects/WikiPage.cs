@@ -15,10 +15,12 @@ namespace CSharpAutoTraining.Course3.PageObjects
     public class WikiPage
     {
         private IWebDriver driver;
+        private IWebElement Loader => driver.FindElement(By.Id("loader"));
 
         public WikiPage(IWebDriver driver)
         {
             this.driver = driver;
+            driver.WaitForElementToBeDisplayed(Loader, "wikipage loader", false, 15);
         }
 
         /// <summary>
