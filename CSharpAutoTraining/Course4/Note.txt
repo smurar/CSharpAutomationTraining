@@ -1,0 +1,6 @@
+﻿WaitHelper from course 4 is in Course3
+NUnit tests attributes from course 4 are in Course2
+Documentation from course 3 is in Course3
+File Handler from course 4 not yet implemented
+
+Window and Frame handler from course 3 not yet implemented
