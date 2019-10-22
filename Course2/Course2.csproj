@@ -49,6 +49,9 @@
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="Json.Net, Version=1.0.16.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Json.Net.1.0.16\lib\netstandard2.0\Json.Net.dll</HintPath>
+    </Reference>
     <Reference Include="MongoDB.Bson, Version=2.4.0.70, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Bson.2.4.0\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -58,8 +61,8 @@
     <Reference Include="MongoDB.Driver.Core, Version=2.4.0.70, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Driver.Core.2.4.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
@@ -110,6 +113,18 @@
     <Compile Include="Course3\WikiPageTestsSteps.cs" />
     <Compile Include="Course4\FilesHandling.cs" />
     <Compile Include="Course4\FilesTest.cs" />
+    <Compile Include="Course5\ApiBase.cs" />
+    <Compile Include="Course5\ApiBaseTest.cs" />
+    <Compile Include="Course5\ApiData.cs" />
+    <Compile Include="Course5\ApiTest.cs" />
+    <Compile Include="Course5\ProductResult.cs" />
+    <Compile Include="Course5\Resources\APITestData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>APITestData.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Course5\ProductListResults.cs" />
+    <Compile Include="Course5\Products.cs" />
     <Compile Include="PageObjects\DashboardPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\WikiPage.cs" />
@@ -151,6 +166,12 @@
     <None Include="Course3\Feature Files\DashboardPage tests.feature" />
     <None Include="Course3\Feature Files\HomePage tests.feature" />
     <None Include="Course3\Feature Files\WikiPage tests.feature" />
+    <None Include="Course5\Resources\RestProductPost.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Course5\Resources\RestProductPut.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Default.srprofile">
       <SubType>Designer</SubType>
     </None>
@@ -175,6 +196,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Course5\Resources\APITestData.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>APITestData.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\DataDashboardPage.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DataDashboardPage.Designer.cs</LastGenOutput>
