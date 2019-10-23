@@ -162,5 +162,41 @@ namespace Course2.Course5
 
         }
 
+        [Test]
+        public void ApiSoapMultiply()
+        {
+            var apiBase = new ApiBase();
+            var xmlPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Multiply.xml";
+            var SOAPActionHeader = "http://tempuri.org/IService1/Multiply";
+            var mediaType = "text/xml";
+            apiBase.PostSoap(ApiData.URL_Calculator, xmlPath, SOAPActionHeader, mediaType);
+            var response = apiBase.DeserializeXmlResponseToObject<MultiplyResponseModel>();
+
+            int sum = int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Multiply.xml", "Multiply").val1)
+                    * int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Multiply.xml", "Multiply").val2);
+            Reporter.LogInfo("Check that the returned result " + response.MultiplyResponse.MultiplyResult+ " equals the expected result " + sum.ToString());
+            Assert.AreEqual(sum, int.Parse(response.MultiplyResponse.MultiplyResult));
+            Reporter.LogPass("Pass");
+
+        }
+
+        [Test]
+        public void ApiSoapSubtract()
+        {
+            var apiBase = new ApiBase();
+            var xmlPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Subtract.xml";
+            var SOAPActionHeader = "http://tempuri.org/IService1/Subtract";
+            var mediaType = "text/xml";
+            apiBase.PostSoap(ApiData.URL_Calculator, xmlPath, SOAPActionHeader, mediaType);
+            var response = apiBase.DeserializeXmlResponseToObject<SubtractResponseModel>();
+
+            int sum = int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Subtract.xml", "Subtract").val1)
+                    - int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Subtract.xml", "Subtract").val2);
+            Reporter.LogInfo("Check that the returned result " + response.SubtractResponse.SubtractResult + " equals the expected result " + sum.ToString());
+            Assert.AreEqual(sum, int.Parse(response.SubtractResponse.SubtractResult));
+            Reporter.LogPass("Pass");
+
+        }
+
     }
 }
