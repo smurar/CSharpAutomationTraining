@@ -20,6 +20,13 @@ namespace CSharpAutoTraining.Course5
             return JToken.Parse(json).ToString(Formatting.Indented);
         }
 
+
+        public List<Y> DeserializeRootObjectList<Y>(string rootObject)
+        {
+            var jobj = JObject.Parse(Result);
+            return JsonConvert.DeserializeObject<List<Y>>(jobj[rootObject].ToString());
+        }
+
         public T MapResultsToObject<T>()
         {
             return JsonConvert.DeserializeObject<T>(Result);

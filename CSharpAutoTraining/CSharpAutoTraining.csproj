@@ -145,7 +145,8 @@
     <Compile Include="Course5\Constants\ApiData.cs" />
     <Compile Include="Course5\Helpers\ReporterAPI.cs" />
     <Compile Include="Course5\ResponseMappers\Products.cs" />
-    <Compile Include="Course5\ResponseModels\ProductListResults.cs" />
+    <Compile Include="Course5\ResponseMappers\Products2.cs" />
+    <Compile Include="Course5\ResponseMappers\ProductListResults.cs" />
     <Compile Include="Course5\Tests\BaseTest.cs" />
     <Compile Include="Course5\Tests\RestTests.cs" />
     <Compile Include="Program.cs" />
