@@ -124,5 +124,43 @@ namespace Course2.Course5
             }
             Reporter.LogPass("The Product " + product.ProductId + " has been successfully updated");
         }
+
+        //Soap Tests
+        [Test]
+        public void ApiSoapAdd()
+        {
+            var apiBase = new ApiBase();
+            var xmlPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Add.xml";
+            var SOAPActionHeader = "http://tempuri.org/IService1/Add";
+            var mediaType = "text/xml";
+            apiBase.PostSoap(ApiData.URL_Calculator, xmlPath, SOAPActionHeader, mediaType);
+            var response = apiBase.DeserializeXmlResponseToObject<AddResponseModel>();
+
+            int sum=int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Add.xml","Add").val1)
+                    + int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Add.xml","Add").val2);
+            Reporter.LogInfo("Check that the returned result " + response.AddResponse.AddResult + " equals the expected result " + sum.ToString());
+            Assert.AreEqual(sum, int.Parse(response.AddResponse.AddResult));
+            Reporter.LogPass("Pass");
+            
+        }
+
+        [Test]
+        public void ApiSoapDivide()
+        {
+            var apiBase = new ApiBase();
+            var xmlPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Divide.xml";
+            var SOAPActionHeader = "http://tempuri.org/IService1/Divide";
+            var mediaType = "text/xml";
+            apiBase.PostSoap(ApiData.URL_Calculator, xmlPath, SOAPActionHeader, mediaType);
+            var response = apiBase.DeserializeXmlResponseToObject<DivideResponseModel>();
+
+            int sum = int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Divide.xml","Divide").val1)
+                    / int.Parse(apiBase.DeserializeXml<XMLValues>(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\Resources\Divide.xml", "Divide").val2);
+            Reporter.LogInfo("Check that the returned result " + response.DivideResponse.DivideResult + " equals the expected result " + sum.ToString());
+            Assert.AreEqual(sum, int.Parse(response.DivideResponse.DivideResult));
+            Reporter.LogPass("Pass");
+
+        }
+
     }
 }

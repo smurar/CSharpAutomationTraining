@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <tem:Add>
+      <!--Optional:-->
+      <tem:val1>11</tem:val1>
+      <!--Optional:-->
+      <tem:val2>12</tem:val2>
+    </tem:Add>
+  </soapenv:Body>
+</soapenv:Envelope>

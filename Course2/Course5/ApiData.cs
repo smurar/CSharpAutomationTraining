@@ -14,5 +14,6 @@ namespace Course2.Course5
         public const string ServiceName_PostRegister = "/RestProducts/Service1.svc/PostProduct";
         public const string ServiceName_Delete = "/RestProducts/Service1.svc/DeleteProduct";
         public const string ServiceName_PutRegister = "/RestProducts/Service1.svc/PutProduct";
+        public const string URL_Calculator= "http://localhost/SoapCalculator/Service1.svc"; 
     }
 }

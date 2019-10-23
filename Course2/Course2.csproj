@@ -113,10 +113,14 @@
     <Compile Include="Course3\WikiPageTestsSteps.cs" />
     <Compile Include="Course4\FilesHandling.cs" />
     <Compile Include="Course4\FilesTest.cs" />
+    <Compile Include="Course5\AddResponse.cs" />
+    <Compile Include="Course5\AddResponseModel.cs" />
     <Compile Include="Course5\ApiBase.cs" />
     <Compile Include="Course5\ApiBaseTest.cs" />
     <Compile Include="Course5\ApiData.cs" />
     <Compile Include="Course5\ApiTest.cs" />
+    <Compile Include="Course5\DivideResponse.cs" />
+    <Compile Include="Course5\DivideResponseModel.cs" />
     <Compile Include="Course5\ProductResult.cs" />
     <Compile Include="Course5\Resources\APITestData.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -125,6 +129,7 @@
     </Compile>
     <Compile Include="Course5\ProductListResults.cs" />
     <Compile Include="Course5\Products.cs" />
+    <Compile Include="Course5\XMLValues.cs" />
     <Compile Include="PageObjects\DashboardPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\WikiPage.cs" />
@@ -181,6 +186,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Course5\Resources\Add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Course5\Resources\Divide.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="extent-config.xml" />
     <Content Include="Resources\Drivers\chromedriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
