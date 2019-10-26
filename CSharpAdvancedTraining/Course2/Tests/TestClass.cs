@@ -7,7 +7,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 	{
 
 		[Test]
-		[Category("homepage")]
+		[Category("smoke")]
 		[Property("Severity", "P1")]
 		public void HomePageHeaderLinksAndImageAreDisplayedTest()
 		{
