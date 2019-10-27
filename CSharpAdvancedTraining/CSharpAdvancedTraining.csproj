@@ -48,8 +48,8 @@
     <Reference Include="MongoDB.Driver.Core, Version=2.4.0.70, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Driver.Core.2.4.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
@@ -127,6 +127,11 @@
     <Compile Include="Course3\Steps\DasboardPageSteps.cs" />
     <Compile Include="Course3\Steps\HomePageTestsSteps.cs" />
     <Compile Include="Course3\WindowsAndFramesHelper.cs" />
+    <Compile Include="Course5\ApiBase.cs" />
+    <Compile Include="Course5\ApiData.cs" />
+    <Compile Include="Course5\ApiTestClass.cs" />
+    <Compile Include="Course5\ProductListResults.cs" />
+    <Compile Include="Course5\Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Course3\TestBaseBDD.cs" />
   </ItemGroup>

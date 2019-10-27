@@ -71,7 +71,7 @@ namespace CSharpAdvancedTraining.Course33.FeatureFiles
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Header links and image are displayed")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDHeaderLinksAndImageAreDisplayed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Header links and image are displayed", null, new string[] {
@@ -93,7 +93,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Home Page Heading Title Is Correct")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDHomePageHeadingTitleIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Home Page Heading Title Is Correct", null, new string[] {
@@ -111,7 +111,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Default Email And Password Label Checks")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDDefaultEmailAndPasswordLabelChecks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Default Email And Password Label Checks", null, new string[] {
@@ -131,7 +131,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Login Fields Are Displayed")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDLoginFieldsAreDisplayed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Login Fields Are Displayed", null, new string[] {
@@ -151,7 +151,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Empty Email Address Error Message")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDEmptyEmailAddressErrorMessage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Empty Email Address Error Message", null, new string[] {
@@ -171,7 +171,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Email Address Not Valid")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDEmailAddressNotValid()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Email Address Not Valid", null, new string[] {
@@ -193,7 +193,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Email Address Or Password Not Valid")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDEmailAddressOrPasswordNotValid()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Email Address Or Password Not Valid", null, new string[] {
@@ -217,7 +217,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute(": BDD Login Successful")]
-        [NUnit.Framework.CategoryAttribute("homepagetests")]
+        [NUnit.Framework.CategoryAttribute("bdd_homepagetests")]
         public virtual void BDDLoginSuccessful()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(": BDD Login Successful", null, new string[] {

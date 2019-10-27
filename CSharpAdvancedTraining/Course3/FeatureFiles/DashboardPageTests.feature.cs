@@ -71,7 +71,7 @@ namespace CSharpAdvancedTraining.Course33.FeatureFiles
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD NavigateTo Wiki Page")]
-        [NUnit.Framework.CategoryAttribute("dashboardtests")]
+        [NUnit.Framework.CategoryAttribute("bdd_dashboardtests")]
         public virtual void BDDNavigateToWikiPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD NavigateTo Wiki Page", null, new string[] {
@@ -93,7 +93,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Dashboard Logout")]
-        [NUnit.Framework.CategoryAttribute("dashboardtests")]
+        [NUnit.Framework.CategoryAttribute("bdd_dashboardtests")]
         public virtual void BDDDashboardLogout()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Dashboard Logout", null, new string[] {
@@ -117,7 +117,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Dashboard Footer Links")]
-        [NUnit.Framework.CategoryAttribute("dashboardtests")]
+        [NUnit.Framework.CategoryAttribute("bdd_dashboardtests")]
         public virtual void BDDDashboardFooterLinks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Dashboard Footer Links", null, new string[] {
@@ -141,7 +141,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("BDD Edit User Info")]
-        [NUnit.Framework.CategoryAttribute("dashboardtests")]
+        [NUnit.Framework.CategoryAttribute("bdd_dashboardtests")]
         public virtual void BDDEditUserInfo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BDD Edit User Info", null, new string[] {

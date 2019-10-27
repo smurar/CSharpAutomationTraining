@@ -7,7 +7,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 	{
 
 		[Test]
-		[Category("smoke")]
+		[Category("homepagetests")]
 		[Property("Severity", "P1")]
 		public void HomePageHeaderLinksAndImageAreDisplayedTest()
 		{
@@ -18,7 +18,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		public void HomePageHeadingTitleIsCorrectTest()
 		{
 			GoToHomepage().CheckPageHeadingTitle(MyResource.HomePageHeadingTitle);
@@ -26,7 +26,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		[Property("Severity", "P2")]
 		public void DefaultEmailAndPasswordLabelChecksTest()
 		{
@@ -36,7 +36,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		public void LoginFieldsAreDisplayedTest()
 		{
 			GoToHomepage().CheckEmailFieldIsDisplayed()
@@ -45,7 +45,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		public void EmptyEmailAddressErrorMessageTest()
 		{
 			GoToHomepage().ClickLoginButtonWithError()
@@ -54,7 +54,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		public void EmailAddressNotValidTest()
 		{
 			GoToHomepage().FillInEmail(MyResource.InvalidEmailAddress)
@@ -65,7 +65,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		public void EmailAddressOrPasswordNotValidTest()
 		{
 			GoToHomepage().FillInEmail(MyResource.Email)
@@ -76,7 +76,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("dashboardpage")]
+		[Category("dashboardpagetests")]
 		public void LoginSuccessfulTest()
 		{
 			GoToHomepage().FillInEmail(MyResource.Email)
@@ -87,7 +87,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("dashboardpage")]
+		[Category("dashboardpagetests")]
 		public void NavigateToWikiPageTest()
 		{
 			GoToHomepage().LoginWithSuccess(MyResource.Email, MyResource.Password)
@@ -97,7 +97,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("homepage")]
+		[Category("homepagetests")]
 		public void HomePageFooterLinksAreDisplayedTest()
 		{
 			GoToHomepage().CheckFooterHomeLinkIsDisplayed()
@@ -107,7 +107,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("dashboardpage")]
+		[Category("dashboardpagetests")]
 		public void DashboardHeaderLinksAndImageTest()
 		{
 			GoToHomepage().LoginWithSuccess(MyResource.Email, MyResource.Password)
@@ -119,6 +119,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 
 
 		[Test]
+		[Category("smoke")]
 		public void LogoutTest()
 		{
 			GoToHomepage().LoginWithSuccess(MyResource.Email, MyResource.Password)
@@ -129,7 +130,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("dashboardpage")]
+		[Category("dashboardpagetests")]
 		public void DashboardFooterLinksTest()
 		{
 			GoToHomepage().LoginWithSuccess(MyResource.Email, MyResource.Password)
@@ -140,7 +141,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("dashboardpage")]
+		[Category("dashboardpagetests")]
 		public void EditUserInfoTest()
 		{
 			GoToHomepage().LoginWithSuccess(MyResource.Email, MyResource.Password)

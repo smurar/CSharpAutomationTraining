@@ -71,7 +71,7 @@ namespace CSharpAdvancedTraining.Course2
 
 		public static void LogInfo(string info)
 		{
-			test.Info(info);
+			test.Info("<pre>" + info + "</pre>");
 		}
 
 		public static void LogPass(string info)
