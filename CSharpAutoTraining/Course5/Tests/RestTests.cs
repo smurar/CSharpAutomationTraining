@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using static CSharpAutoTraining.Course5.ResponseMappers.Products2;
+
 
 namespace CSharpAutoTraining.Course5.Tests
 {
@@ -68,8 +68,24 @@ namespace CSharpAutoTraining.Course5.Tests
         [Test]
         public void PostProduct()
         {
-            var requestBodyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\PostDataRest.json";
-            ApiBaseInstance.Post(ApiData.URL_Rest, ApiData.ServiceName_GetProductList, requestBodyPath, "application/json");
+            var requestBodyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\POSTData\PostDataRest.json";
+            ApiBaseInstance.Post(ApiData.URL_Rest, ApiData.ServiceName_PostProductRest, requestBodyPath, "application/json");
+            Assert.AreEqual(200, ApiBaseInstance.StatusCode);
+            //declaring list directly since POST response does not contain RootObject in JSON
+            List<Products> obj = ApiBaseInstance.MapResultsToObject<List<Products>>();
+
+            Assert.That(obj.Any(p => p.ProductId == 3));
+        }
+
+        [Test]
+        public void DeleteProduct()
+        {
+            ApiBaseInstance.Delete(ApiData.URL_Rest, ApiData.ServiceName_DeleteProductRest, "3");
+            Assert.AreEqual(200, ApiBaseInstance.StatusCode);
+
+            List<Products> obj = ApiBaseInstance.MapResultsToObject<List<Products>>();
+
+            Assert.That(!obj.Any(p => p.ProductId == 3));
         }
     }
 }

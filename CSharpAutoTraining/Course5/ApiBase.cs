@@ -75,7 +75,7 @@ namespace CSharpAutoTraining.Course5
 
             using (var httpClient = new HttpClient())
             {
-                var content = new StringContent(requestBody.ToString(), Encoding.UTF8, mediaType);
+                var content = new StringContent(requestBody.ToString() , Encoding.UTF8, mediaType);
                 var response = httpClient.PostAsync(new Uri(URL + serviceName), content).Result;
 
                 Result = response.Content.ReadAsStringAsync().Result;
@@ -88,7 +88,7 @@ namespace CSharpAutoTraining.Course5
         {
             using (var httpClient = new HttpClient())
             {
-                var response = httpClient.DeleteAsync(new Uri(URL + "/" + serviceName)).Result;
+                var response = httpClient.DeleteAsync(new Uri(URL + serviceName + "/" + ID)).Result;
                 Result = response.Content.ReadAsStringAsync().Result;
                 StatusCode = (int)response.StatusCode;
                 ReporterAPI.LogInfo(PrettyPrintJSON(Result.ToString()));
