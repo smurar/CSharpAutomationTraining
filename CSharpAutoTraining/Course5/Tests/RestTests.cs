@@ -4,7 +4,9 @@ using CSharpAutoTraining.Course5.ResponseMappers;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static CSharpAutoTraining.Course5.ResponseMappers.Products2;
@@ -60,6 +62,14 @@ namespace CSharpAutoTraining.Course5.Tests
                 Assert.IsTrue(!string.IsNullOrEmpty(product.ProductId.ToString()));
                 ReporterAPI.LogPass("Pass, existing user ID: " + product.ProductId);
             }
+        }
+
+
+        [Test]
+        public void PostProduct()
+        {
+            var requestBodyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Course5\PostDataRest.json";
+            ApiBaseInstance.Post(ApiData.URL_Rest, ApiData.ServiceName_GetProductList, requestBodyPath, "application/json");
         }
     }
 }

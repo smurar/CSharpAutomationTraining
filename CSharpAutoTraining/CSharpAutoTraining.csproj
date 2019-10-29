@@ -166,6 +166,9 @@
     <None Include="Course3\FeatureFiles\DashboardFeature.feature" />
     <None Include="Course3\FeatureFiles\HomepageFeature.feature" />
     <None Include="Course3\FeatureFiles\WikiPageFeature.feature" />
+    <None Include="Course5\POSTData\PostDataRest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="license" />
     <None Include="packages.config" />
   </ItemGroup>
