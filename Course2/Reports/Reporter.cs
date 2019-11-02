@@ -75,6 +75,7 @@ namespace Course2.Reports
 
         public static void LogInfo(string info)
         {
+            Console.WriteLine(info);
            // test.Info(info);
             test.Info("<pre>" + info + "</pre>");
 
@@ -84,15 +85,18 @@ namespace Course2.Reports
 
         public static void LogPass(string info)
         {
+            Console.WriteLine(info);
             test.Pass(info);
         }
         public static void LogFail(string info)
         {
+            Console.WriteLine(info);
             test.Fail(info);
         }
 
         public static void LogScreenshot(string info, string screenshotpath)
         {
+            Console.WriteLine(info);
             test.Info(info).AddScreenCaptureFromPath(screenshotpath);
         }
     }
