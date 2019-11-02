@@ -15,6 +15,7 @@ namespace Course2.Course5
     class ApiTest:ApiBaseTest
     {
         [Test]
+        [Category("RestTests")]
         public void ApiGetProductsList()
         {
             var apiBase = new ApiBase();
@@ -31,6 +32,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("RestTests")]
         public void ApiGetProduct()
         {
             var apiBase = new ApiBase();
@@ -52,6 +54,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("RestTests")]
         public void CheckProductIdIsNotNull()
         {
             var apiBase = new ApiBase();
@@ -66,6 +69,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("RestTests")]
         public void ApiPostProduct()
         {
             var apiBase = new ApiBase();
@@ -83,6 +87,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("RestTests")]
         public void ApiDeleteProduct()
         {
             var apiBase = new ApiBase();
@@ -102,6 +107,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("RestTests")]
         public void ApiPutProduct()
         {
             var apiBase = new ApiBase();
@@ -127,6 +133,7 @@ namespace Course2.Course5
 
         //Soap Tests
         [Test]
+        [Category("SoapTests")]
         public void ApiSoapAdd()
         {
             var apiBase = new ApiBase();
@@ -145,6 +152,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("SoapTests")]
         public void ApiSoapDivide()
         {
             var apiBase = new ApiBase();
@@ -163,6 +171,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("SoapTests")]
         public void ApiSoapMultiply()
         {
             var apiBase = new ApiBase();
@@ -181,6 +190,7 @@ namespace Course2.Course5
         }
 
         [Test]
+        [Category("SoapTests")]
         public void ApiSoapSubtract()
         {
             var apiBase = new ApiBase();
