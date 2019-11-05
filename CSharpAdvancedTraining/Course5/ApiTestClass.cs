@@ -1,12 +1,15 @@
 ﻿
+using System.IO;
+using System.Reflection;
 using CSharpAdvancedTraining.Course2;
 using CSharpAdvancedTraining.Course2.Helpers;
+using NUnit.Framework;
 
 namespace CSharpAdvancedTraining.Course5
 {
 	public class ApiTestClass
 	{
-
+		[Test]
 		public void ApiGetListUsers()
 		{
 			var apiBase = new ApiBase();
@@ -23,6 +26,12 @@ namespace CSharpAdvancedTraining.Course5
 				Verifier.CheckThatAreEqual("Check that user id is not null", true, !string.IsNullOrEmpty(product.ProductId.ToString()));
 				Reporter.LogPass("Pass, existing user id: " + product.ProductId);
 			}
+		}
+
+		public void ApiPostRegister() {
+			var apiBase = new ApiBase();
+			var requestBodyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"Register.json";
+			//apiBase.Post(ApiData.URL_Rest, ApiData.ServiceName_PostRegister, requestBodyPath, "application/json"); 
 		}
 	}
 }

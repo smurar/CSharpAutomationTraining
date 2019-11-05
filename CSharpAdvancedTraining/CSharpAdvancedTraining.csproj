@@ -147,6 +147,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HomePageTests.feature.cs</LastGenOutput>
     </None>
+    <None Include="Course5\Register.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="license" />
     <None Include="packages.config" />
   </ItemGroup>

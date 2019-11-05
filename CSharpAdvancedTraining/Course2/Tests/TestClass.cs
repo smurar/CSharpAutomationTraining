@@ -76,7 +76,7 @@ namespace CSharpAdvancedTraining.Course2.Tests
 		}
 
 		[Test]
-		[Category("dashboardpagetests")]
+		[Category("smoke")]
 		public void LoginSuccessfulTest()
 		{
 			GoToHomepage().FillInEmail(MyResource.Email)
