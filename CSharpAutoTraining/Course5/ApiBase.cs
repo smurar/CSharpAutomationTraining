@@ -94,5 +94,20 @@ namespace CSharpAutoTraining.Course5
                 ReporterAPI.LogInfo(PrettyPrintJSON(Result.ToString()));
             }
         }
+
+        public void PostWithParams(string URL, string serviceName, object postBody, string mediaType)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var body = JsonConvert.SerializeObject(postBody);
+                var content = new StringContent(body, Encoding.UTF8, mediaType);
+                
+                var response = httpClient.PostAsync(new Uri(URL + serviceName), content).Result;
+                Result = response.Content.ReadAsStringAsync().Result;
+                StatusCode = (int)response.StatusCode;
+                ReporterAPI.LogInfo(PrettyPrintJSON(Result.ToString()));
+
+            }
+        }
     }
 }

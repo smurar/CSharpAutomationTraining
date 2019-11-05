@@ -1,6 +1,8 @@
 ﻿using CSharpAutoTraining.Course5.Constants;
 using CSharpAutoTraining.Course5.Helpers;
 using CSharpAutoTraining.Course5.ResponseMappers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -86,6 +88,37 @@ namespace CSharpAutoTraining.Course5.Tests
             List<Products> obj = ApiBaseInstance.MapResultsToObject<List<Products>>();
 
             Assert.That(!obj.Any(p => p.ProductId == 3));
+        }
+
+        [Test]
+        public void PostWithParamsSentFromObject()
+        {
+            Products productPayload = new Products
+            {
+                CategoryName = "Test Cat Name",
+                Name = "Test Product Name",
+                Price = 33,
+                ProductId = 4
+            };
+
+            ApiBaseInstance.PostWithParams(ApiData.URL_Rest, ApiData.ServiceName_PostProductRest, productPayload, "application/json");
+            List<Products> products = ApiBaseInstance.MapResultsToObject<List<Products>>();
+
+            string latestProductAdded = JsonConvert.SerializeObject(productPayload);
+
+            Assert.IsTrue(products.Exists(w => w.ProductId == productPayload.ProductId), "The product: {0} was not added to the list of products!", latestProductAdded);
+            //Assert.IsTrue(products.Find());
+
+            ////a more dirty way of asserting that product is in response list
+            //List<string> ActualList = new List<string>();
+
+            //foreach (Products item in products)
+            //{
+            //    var itemString = JsonConvert.SerializeObject(item);
+            //    ActualList.Add(itemString);
+            //}
+            
+            //Assert.Contains(latestProductAdded, ActualList);
         }
     }
 }
