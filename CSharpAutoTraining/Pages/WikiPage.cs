@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using CSharpAutoTraining.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,18 @@ namespace CSharpAutoTraining
 {
     public class WikiPage
     {
-        private IWebDriver WebDriver;
+        private IWebDriver Driver;
+        private IWebElement Loader => Driver.FindElement(By.Id("loader"));
 
-       
-
-
-        public WikiPage(IWebDriver WebDriver)
+        public WikiPage(IWebDriver Driver)
         {
-            this.WebDriver = WebDriver;
+            this.Driver = Driver;
+            Driver.WaitElementToBeDisplayed(Loader, false, "loader");
         }
         
         public WikiPage VerifyPageTitle(string expected)
         {
-            Assert.IsTrue(condition: object.Equals(WebDriver.Title, expected));
+            Assert.IsTrue(condition: object.Equals(Driver.Title, expected));
             return this;
         }
 

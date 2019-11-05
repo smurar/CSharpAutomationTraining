@@ -2,11 +2,9 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
+using System.Configuration;
 
 namespace CSharpAutoTraining
 {
@@ -14,13 +12,15 @@ namespace CSharpAutoTraining
     {
         private IWebDriver Driver { get; set; }
 
-        public string URL { get; set; } = System.Configuration.ConfigurationManager.AppSettings["URL"];
+        private string Browser { get; set; } = ConfigurationManager.AppSettings["Browser"];
+        public string URL { get; set; } = ConfigurationManager.AppSettings["URL"];
+        
 
 
         [OneTimeSetUp]
         public void beforeTestClass()
         {
-            Reporter.StartReporting();
+            Reporter.StartReporting(TestContext.CurrentContext.Test.MethodName);
         }
 
         [OneTimeTearDown]
@@ -33,7 +33,7 @@ namespace CSharpAutoTraining
         public void SetUp()
         {
             Reporter.StartTest(TestContext.CurrentContext.Test.MethodName);
-            Driver = new ChromeDriver(System.Configuration.ConfigurationManager.AppSettings["ChromeDriver"]);
+            StartBrowser();
 
         }
 
@@ -44,6 +44,31 @@ namespace CSharpAutoTraining
             Reporter.EndTest();
             Driver.Quit();
 
+        }
+
+        private void StartBrowser()
+        {
+            switch(Browser)
+            {
+                case "CH":
+                    Reporter.LogInfo("Starting Chrome browser");
+                    ChromeOptions chOptions = new ChromeOptions();
+                    chOptions.AddArgument("--headless");
+                    Driver = new ChromeDriver(ConfigurationManager.AppSettings["WebDriver"]);
+                    break;
+                case "FF":
+                    Reporter.LogInfo("Starting Firefox browser");
+                    FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(ConfigurationManager.AppSettings["WebDriver"]);
+                    FirefoxOptions ffOption = new FirefoxOptions();
+                    Driver = new FirefoxDriver(service);
+                    break;
+                case "ME":
+                    Reporter.LogInfo("Starting Microsoft Edge browser");
+                    Driver = new EdgeDriver(ConfigurationManager.AppSettings["WebDriver"]);
+                    break;
+            }
+            Driver.Manage().Window.Maximize();
+            
         }
 
         public HomePage GoToHomePage()

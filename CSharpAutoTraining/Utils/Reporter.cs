@@ -12,7 +12,7 @@ namespace CSharpAutoTraining.Utils
         private static ExtentReports extent;
         private static ExtentTest test;
 
-        public static void StartReporting()
+        public static void StartReporting(string methodName)
         {
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"..\..\..\..\results\\";
             Directory.CreateDirectory(path);
@@ -74,7 +74,7 @@ namespace CSharpAutoTraining.Utils
 
         public static void LogInfo(string info)
         {
-            test.Info(info);
+            test.Info("<pre>"+info+"</pre>");
         }
 
         public static void LogPass(string info)

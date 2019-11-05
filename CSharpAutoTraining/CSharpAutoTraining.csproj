@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Pages\DashboardPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\WebDriverExtention.cs" />
     <Compile Include="Pages\WikiPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drivers\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\geckodriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\MicrosoftWebDriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
