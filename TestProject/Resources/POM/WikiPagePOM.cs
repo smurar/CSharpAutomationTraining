@@ -9,9 +9,11 @@ namespace TestProject.Resources.POM
     {
         IWebDriver driver;
 
+        public IWebElement Spinner { get { return driver.FindElement(By.Id("loader")); } }
+
         public WikiPagePOM(IWebDriver driver)
         {
-            this.driver = driver;
+            this.driver = driver;           
         }
 
         public WikiPagePOM CheckPageTitle()

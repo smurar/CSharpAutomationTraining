@@ -1,0 +1,1 @@
+C:\Users\yourUser\.nuget\packages\nunit.consolerunner\3.10.0\tools\nunit3-console.exe C:\Training\CSharpAutomationTraining\TestProject\bin\Debug\Beazley.Country.dll --test=TestProject.Courses.Course4 -result=ResultFileName.txt;format=nunit3 --where "cat==CategoryName"

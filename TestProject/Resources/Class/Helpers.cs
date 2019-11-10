@@ -3,11 +3,12 @@ using NUnit.Framework.Interfaces;
 using System;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 
 namespace TestProject.Resources.Class
 {
-    public static class Helpers
-    {
+    public class Helpers : Driver
+    {       
         public static string GetDirectoryPath(string key)
         {
             return GetExecutionDirectory() + GetValueFromAppConfig(key);
@@ -52,10 +53,10 @@ namespace TestProject.Resources.Class
         {
             return TestContext.CurrentContext.Result.Outcome.Status;
         }        
+
+        public static void SwitchToLastWindow()
+        {
+            DriverInstance.SwitchTo().Window(DriverInstance.WindowHandles.ElementAt(1));           
+        }
     }
 }
-        
-       
-    
-
-

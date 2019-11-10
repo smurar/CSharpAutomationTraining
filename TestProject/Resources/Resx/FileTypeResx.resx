@@ -123,4 +123,7 @@
   <data name="JPEG" xml:space="preserve">
     <value>.jpeg</value>
   </data>
+  <data name="TXT" xml:space="preserve">
+    <value>.txt</value>
+  </data>
 </root>

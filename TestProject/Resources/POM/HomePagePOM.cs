@@ -21,6 +21,7 @@ namespace TestProject.Resources.POM
         public IWebElement HeaderPhoto { get { return driver.FindElement(By.XPath("//img")); } }
         public IWebElement HeaderHomeLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'homepage.html']")); } }
         public IWebElement HeaderWikiPageLink { get { return driver.FindElement(By.XPath("//ul/a[@href = 'wikipage.html']")); } }
+        public IWebElement HeaderFramesPageLink { get { return driver.FindElement(By.LinkText("Window+Frame")); } }
         #endregion
         #region Body Elements
         public IWebElement HeadlingTitle { get { return driver.FindElement(By.XPath("//h1")); } }
@@ -168,9 +169,18 @@ namespace TestProject.Resources.POM
         public WikiPagePOM GoToWikiPage()
         {
             HeaderWikiPageLink.ClickElement("Header WikiPage link");
+            Helpers.SwitchToLastWindow();
 
             return new WikiPagePOM(driver);
         }
+
+        public FramesPagePOM GoToFramesPage()
+        {
+            HeaderFramesPageLink.ClickElement("Header FramesPage link");
+            Helpers.SwitchToLastWindow();
+
+            return new FramesPagePOM(driver);
+        }       
         #endregion
     }
 }

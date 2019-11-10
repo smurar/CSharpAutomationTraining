@@ -1,1 +1,1 @@
-C:\Users\itancau\.nuget\packages\nunit.consolerunner\3.10.0\tools\nunit3-console.exe C:\Training\CSharpAutomationTraining\TestProject\bin\Debug\TestProject.dll --test=TestProject.Course1 -result=TestResults.xml;format=nunit3
+C:\Users\itancau\.nuget\packages\nunit.consolerunner\3.10.0\tools\nunit3-console.exe C:\Training\CSharpAutomationTraining\TestProject\bin\Debug\TestProject.dll --test=TestProject.Courses.Course1 -result=Course1_TestResults.xml;format=nunit3

@@ -77,5 +77,14 @@ namespace TestProject.Resources.Resx {
                 return ResourceManager.GetString("JPEG", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .txt.
+        /// </summary>
+        internal static string TXT {
+            get {
+                return ResourceManager.GetString("TXT", resourceCulture);
+            }
+        }
     }
 }

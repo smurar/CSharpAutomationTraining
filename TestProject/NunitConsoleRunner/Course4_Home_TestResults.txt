@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="70" result="Failed" total="11" passed="10" failed="1" inconclusive="0" skipped="0" asserts="19" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2019-07-19 12:30:51Z" end-time="2019-07-19 12:32:08Z" duration="77.103611">
+  <command-line><![CDATA[C:\Users\itancau\.nuget\packages\nunit.consolerunner\3.10.0\tools\nunit3-console.exe  C:\Training\CSharpAutomationTraining\TestProject\bin\Debug\TestProject.dll --test=TestProject.Courses.Course4 -result=Course4_Home_TestResults.txt;format=nunit3 --where "Page==Home"]]></command-line>
+  <filter>
+    <test>TestProject.Courses.Course4</test>
+    <prop name="Page">Home</prop>
+  </filter>
+  <test-suite type="Assembly" id="0-1079" name="TestProject.dll" fullname="TestProject.dll" runstate="Runnable" testcasecount="70" result="Failed" site="Child" start-time="2019-07-19 12:30:53Z" end-time="2019-07-19 12:32:08Z" duration="75.676555" total="11" passed="10" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="19">
+    <environment framework-version="3.11.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17763.0" platform="Win32NT" cwd="C:\Training\CSharpAutomationTraining\TestProject\NunitConsoleRunner" machine-name="EN610820" user="itancau" user-domain="ENDAVA" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Training\CSharpAutomationTraining\TestProject\NunitConsoleRunner" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.6.1" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="4" />
+    </settings>
+    <properties>
+      <property name="_PID" value="14528" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="0-1080" name="TestProject" fullname="TestProject" runstate="Runnable" testcasecount="70" result="Failed" site="Child" start-time="2019-07-19 12:30:53Z" end-time="2019-07-19 12:32:08Z" duration="75.643749" total="11" passed="10" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="19">
+      <properties />
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="0-1081" name="Courses" fullname="TestProject.Courses" runstate="Runnable" testcasecount="70" result="Failed" site="Child" start-time="2019-07-19 12:30:53Z" end-time="2019-07-19 12:32:08Z" duration="75.642947" total="11" passed="10" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="19">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="0-1085" name="Course4" fullname="TestProject.Courses.Course4" runstate="Runnable" testcasecount="17" result="Failed" site="Child" start-time="2019-07-19 12:30:53Z" end-time="2019-07-19 12:32:08Z" duration="75.642870" total="11" passed="10" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="19">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="0-1086" name="HomePageTests" fullname="TestProject.Courses.Course4.HomePageTests" runstate="Runnable" testcasecount="11" result="Failed" site="Child" start-time="2019-07-19 12:30:53Z" end-time="2019-07-19 12:32:08Z" duration="75.642648" total="11" passed="10" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="19">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestFixture" id="0-1019" name="HomePageTests" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" testcasecount="11" result="Failed" site="Child" start-time="2019-07-19 12:30:53Z" end-time="2019-07-19 12:32:08Z" duration="75.633101" total="11" passed="10" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="19">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="0-1023" name="DefaultLogInDetailsDisplayed" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.DefaultLogInDetailsDisplayed" methodname="DefaultLogInDetailsDisplayed" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1809560991" result="Passed" start-time="2019-07-19 12:30:54Z" end-time="2019-07-19 12:31:06Z" duration="12.695396" asserts="2">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1030" name="FooterLinksAreDisplayed" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.FooterLinksAreDisplayed" methodname="FooterLinksAreDisplayed" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="405971283" result="Passed" start-time="2019-07-19 12:31:06Z" end-time="2019-07-19 12:31:12Z" duration="6.138337" asserts="3">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1020" name="HeaderItemsDisplayed" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.HeaderItemsDisplayed" methodname="HeaderItemsDisplayed" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1942223100" result="Passed" start-time="2019-07-19 12:31:12Z" end-time="2019-07-19 12:31:18Z" duration="5.879683" asserts="3">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1026" name="InvalidEmailFormatErrorMessage" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.InvalidEmailFormatErrorMessage" methodname="InvalidEmailFormatErrorMessage" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1662238565" result="Passed" start-time="2019-07-19 12:31:18Z" end-time="2019-07-19 12:31:24Z" duration="6.177235" asserts="1">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1027" name="InvalidEmailOrPasswordErrorMessage" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.InvalidEmailOrPasswordErrorMessage" methodname="InvalidEmailOrPasswordErrorMessage" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="834870915" result="Passed" start-time="2019-07-19 12:31:24Z" end-time="2019-07-19 12:31:30Z" duration="6.007011" asserts="1">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1024" name="LogInFieldsDisplayed" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.LogInFieldsDisplayed" methodname="LogInFieldsDisplayed" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1147569763" result="Passed" start-time="2019-07-19 12:31:30Z" end-time="2019-07-19 12:31:36Z" duration="5.638909" asserts="3">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1025" name="MissingLogInDetailsErrorMessage" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.MissingLogInDetailsErrorMessage" methodname="MissingLogInDetailsErrorMessage" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1688569982" result="Passed" start-time="2019-07-19 12:31:36Z" end-time="2019-07-19 12:31:42Z" duration="5.987842" asserts="2">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1022" name="PageHeadlingTitleOk" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.PageHeadlingTitleOk" methodname="PageHeadlingTitleOk" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1709807837" result="Passed" start-time="2019-07-19 12:31:42Z" end-time="2019-07-19 12:31:48Z" duration="5.848690" asserts="1">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1021" name="PageTitleOk" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.PageTitleOk" methodname="PageTitleOk" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1810652242" result="Passed" start-time="2019-07-19 12:31:48Z" end-time="2019-07-19 12:31:54Z" duration="6.103316" asserts="1">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+              <test-case id="0-1029" name="SuccesfulNavigateToWikiPage" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.SuccesfulNavigateToWikiPage" methodname="SuccesfulNavigateToWikiPage" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="216076016" result="Failed" start-time="2019-07-19 12:31:54Z" end-time="2019-07-19 12:32:01Z" duration="6.665111" asserts="1">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+                <failure>
+                  <message><![CDATA[  Wrong page title
+  String lengths are both 9. Strings differ at index 0.
+  Expected: "Wiki page", ignoring case
+  But was:  "Home page"
+  -----------^
+]]></message>
+                  <stack-trace><![CDATA[   at TestProject.Resources.POM.WikiPagePOM.CheckPageTitle() in C:\Training\CSharpAutomationTraining\TestProject\Resources\POM\WikiPagePOM.cs:line 19
+   at TestProject.Courses.Course4.HomePageTests.HomePageTests.SuccesfulNavigateToWikiPage() in C:\Training\CSharpAutomationTraining\TestProject\Courses\Course4\Tests\HomePageTests.cs:line 101
+]]></stack-trace>
+                </failure>
+                <assertions>
+                  <assertion result="Failed">
+                    <message><![CDATA[  Wrong page title
+  String lengths are both 9. Strings differ at index 0.
+  Expected: "Wiki page", ignoring case
+  But was:  "Home page"
+  -----------^
+]]></message>
+                    <stack-trace><![CDATA[   at TestProject.Resources.POM.WikiPagePOM.CheckPageTitle() in C:\Training\CSharpAutomationTraining\TestProject\Resources\POM\WikiPagePOM.cs:line 19
+   at TestProject.Courses.Course4.HomePageTests.HomePageTests.SuccesfulNavigateToWikiPage() in C:\Training\CSharpAutomationTraining\TestProject\Courses\Course4\Tests\HomePageTests.cs:line 101
+]]></stack-trace>
+                  </assertion>
+                </assertions>
+              </test-case>
+              <test-case id="0-1028" name="SuccessfulLogIn" fullname="TestProject.Courses.Course4.HomePageTests.HomePageTests.SuccessfulLogIn" methodname="SuccessfulLogIn" classname="TestProject.Courses.Course4.HomePageTests.HomePageTests" runstate="Runnable" seed="1958601470" result="Passed" start-time="2019-07-19 12:32:01Z" end-time="2019-07-19 12:32:08Z" duration="7.756927" asserts="1">
+                <properties>
+                  <property name="Category" value="Course4" />
+                  <property name="Page" value="Home" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -11,21 +11,25 @@ namespace TestProject.Resources.Reports
         private static NetworkCredential credentials;
         private static MailMessage mail;
         private static SmtpClient smtpClient;
+        private static string sendEmailReport = Helpers.GetValueFromAppConfig("SendReportEmail");
 
         public static void SendReportEmail()
-        {
-            try
+        {           
+            if (sendEmailReport.Equals("Y"))
             {
-                SetEmailSenderCredentials(EmailResx.SenderEmailAdress, EmailResx.SenderEmailPassword);
-                SetEmailTemplate(EmailResx.SenderEmailAdress, EmailResx.Title, EmailResx.Body);   
-                SetEmailReceiverAdress(EmailResx.ReceiverEmailAdress);
-                AddHtmlReportAsAttachement();
-                CreateSmtpClient();
-                SendEmail();               
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The next error occured when sending the email : " + e.Message);
+                try
+                {
+                    SetEmailSenderCredentials(EmailResx.SenderEmailAdress, EmailResx.SenderEmailPassword);
+                    SetEmailTemplate(EmailResx.SenderEmailAdress, EmailResx.Title, EmailResx.Body);
+                    SetEmailReceiverAdress(EmailResx.ReceiverEmailAdress);
+                    AddHtmlReportAsAttachement();
+                    CreateSmtpClient();
+                    SendEmail();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("The next error occured when sending the email : " + e.Message);
+                }
             }
         }
 

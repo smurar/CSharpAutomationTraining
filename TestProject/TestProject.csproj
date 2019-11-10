@@ -88,34 +88,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course1\DashboardPageTests.cs" />
-    <Compile Include="Course1\HomPageTests.cs" />
-    <Compile Include="Course2\Base\BasePage.cs" />
+    <Compile Include="Courses\Course1\DashboardPageTests.cs" />
+    <Compile Include="Courses\Course1\HomPageTests.cs" />
+    <Compile Include="Courses\Course3\Steps\FramesPageSteps.cs" />
+    <Compile Include="Courses\Course4\Tests\DashboardPageTests.cs" />
+    <Compile Include="Courses\Course4\Tests\FilesTests.cs" />
+    <Compile Include="Courses\Course4\Tests\HomePageTests.cs" />
+    <Compile Include="Resources\Class\Base\SpecflowBasePage.cs" />
+    <Compile Include="Resources\Class\Base\NUnitBasePage.cs" />
     <Compile Include="Resources\Class\Driver.cs" />
+    <Compile Include="Resources\Class\FileHandler.cs" />
     <Compile Include="Resources\POM\DashboardPagePOM.cs" />
+    <Compile Include="Resources\POM\FramesPagePOM.cs" />
     <Compile Include="Resources\POM\WikiPagePOM.cs" />
-    <Compile Include="Course2\Tests\DashboardPageTests.cs" />
+    <Compile Include="Courses\Course2\Tests\DashboardPageTests.cs" />
     <Compile Include="Resources\POM\HomePagePOM.cs" />
-    <Compile Include="Course2\Tests\HomePageTests.cs" />
-    <Compile Include="Course3\Features\DashboardPageFeature.feature.cs">
+    <Compile Include="Courses\Course2\Tests\HomePageTests.cs" />
+    <Compile Include="Courses\Course3\Features\DashboardPageFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DashboardPageFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="Course3\Features\FrameFeature.feature.cs">
+    <Compile Include="Courses\Course3\Features\FrameFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FrameFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="Course3\Features\HomePageFeature.feature.cs">
+    <Compile Include="Courses\Course3\Features\HomePageFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HomePageFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="Course3\Steps\DashboardPageSteps.cs" />
-    <Compile Include="Course3\Steps\HomePageSteps.cs" />
-    <Compile Include="Course3\Steps\WikiPageSteps.cs" />
-    <Compile Include="Course3\Base\BasePage.cs" />
+    <Compile Include="Courses\Course3\Steps\DashboardPageSteps.cs" />
+    <Compile Include="Courses\Course3\Steps\HomePageSteps.cs" />
+    <Compile Include="Courses\Course3\Steps\WikiPageSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Class\Helpers.cs" />
     <Compile Include="Resources\Class\Paths.cs" />
@@ -149,6 +155,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Resx\FramesPageResx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FramesPageResx.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Resx\WikiPageResx.Designer.cs">
       <DependentUpon>WikiPageResx.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -156,21 +167,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Course3\Features\DashboardPageFeature.feature">
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Courses\Course3\Features\DashboardPageFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DashboardPageFeature.feature.cs</LastGenOutput>
     </None>
-    <None Include="Course3\Features\FrameFeature.feature">
+    <None Include="Courses\Course3\Features\FrameFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FrameFeature.feature.cs</LastGenOutput>
     </None>
-    <None Include="Course3\Features\HomePageFeature.feature">
+    <None Include="Courses\Course3\Features\HomePageFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HomePageFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="license" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Resx\AssertMessages.resx">
@@ -193,6 +208,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HomePageResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resx\FramesPageResx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FramesPageResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resx\WikiPageResx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>WikiPageResx.Designer.cs</LastGenOutput>
@@ -201,9 +220,12 @@
   <ItemGroup>
     <Content Include="extent-config.xml" />
     <Content Include="Resources\Driver\chromedriver.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Driver\geckodriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Driver\MicrosoftWebDriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Pages\dashboardpage.html">

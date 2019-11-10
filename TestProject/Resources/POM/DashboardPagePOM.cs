@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using TestProject.Resources.Resx;
 using TestProject.Resources.Class;
 using TestProject.Resources.Reports;
-using System.Threading;
 
 namespace TestProject.Resources.POM
 {
@@ -32,7 +31,7 @@ namespace TestProject.Resources.POM
         public IWebElement UploadPictureButton { get { return driver.FindElement(By.Name("picture")); } }
         public IWebElement SaveButton { get { return driver.FindElement(By.Id("SaveDetails")); } }
         public IWebElement DetailsSavedMessage { get { return driver.FindElement(By.Id("detailsSavedMessage")); } }
-        public IWebElement LogOutButton { get { return driver.FindElement(By.Id("Logout") , 60); } } //testing scope
+        public IWebElement LogOutButton { get { return driver.FindElement(By.Id("Logout")); } } 
         #endregion
         #region Footer Elements
         public IWebElement FooterHomeLink { get { return driver.FindElement(By.XPath("//li/a[@href = 'homepage.html']")); } }
@@ -40,7 +39,6 @@ namespace TestProject.Resources.POM
         public IWebElement FooterContactLink { get { return driver.FindElement(By.LinkText("Contact (NA)")); } }
         #endregion
         #endregion
-
         #region Validation Methods
         public DashboardPagePOM CheckPageTitle()
         {
@@ -130,16 +128,7 @@ namespace TestProject.Resources.POM
         public void ClickLogOutButton()
         {
             LogOutButton.ClickElement("LogOut button");
-        }
-
-        //testing scope
-        public void WaitForSpinnerToLoad()
-        {
-            while (Spinner.Displayed)
-            {
-                Thread.Sleep(50);
-            }
-        }
+        }              
         #endregion
     }
 }

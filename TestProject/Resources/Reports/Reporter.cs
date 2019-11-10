@@ -1,5 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using TestProject.Resources.Class;
 using TestProject.Resources.Resx;
@@ -38,7 +39,7 @@ namespace TestProject.Resources.Reports
         public static void EndReporting()
         {
             extent.Flush();
-            EmailSender.SendReportEmail(); //for the moment it works only for one namespace
+            EmailSender.SendReportEmail(); //if email is sent it works only for one namespace (NUnit)
         }
 
         public static void StartTest(string testName)
@@ -49,8 +50,9 @@ namespace TestProject.Resources.Reports
         public static void EndTest()
         {
             Status logStatus;
-            var testStatus = Helpers.GetCurrentTestOutcome();
-            var stackTrace = Helpers.GetCurrentTestFinalStackTrace();
+            var testStatus = Helpers.GetCurrentTestOutcome();          
+            var stackTrace = Helpers.GetCurrentTestStacktrace();
+            var message = TestContext.CurrentContext.Result.Message;
 
             switch (testStatus)
             {
@@ -67,9 +69,10 @@ namespace TestProject.Resources.Reports
                     logStatus = Status.Pass;
                     break;
             }
-
-            test.Log(logStatus, "Test ended with :" + logStatus + stackTrace);                     
-            extent.Flush(); //for the moment it works only for one namespace           
+            
+            test.Log(logStatus, "StackTrace : " +stackTrace);                     
+            test.Log(logStatus, "Message : " + message);                     
+            extent.Flush(); //if email is sent it works only for one namespace (NUnit)         
         }     
 
         public static void LogInfo(string info)
