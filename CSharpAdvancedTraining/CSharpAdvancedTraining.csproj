@@ -128,6 +128,7 @@
     <Compile Include="Course3\Steps\HomePageTestsSteps.cs" />
     <Compile Include="Course3\WindowsAndFramesHelper.cs" />
     <Compile Include="Course5\ApiBase.cs" />
+    <Compile Include="Course5\ApiBaseTest.cs" />
     <Compile Include="Course5\ApiData.cs" />
     <Compile Include="Course5\ApiTestClass.cs" />
     <Compile Include="Course5\ProductListResults.cs" />
@@ -147,7 +148,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HomePageTests.feature.cs</LastGenOutput>
     </None>
-    <None Include="Course5\Register.json">
+    <None Include="Course5\RegisterPut.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Course5\RegisterPost.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="license" />

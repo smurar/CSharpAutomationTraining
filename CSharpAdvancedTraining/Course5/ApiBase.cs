@@ -1,10 +1,15 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
 using CSharpAdvancedTraining.Course2;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace CSharpAdvancedTraining.Course5
 {
@@ -21,7 +26,7 @@ namespace CSharpAdvancedTraining.Course5
 			{
 				var response = httpClient.GetAsync(new Uri(URL + serviceName)).Result;
 				Result = response.Content.ReadAsStringAsync().Result;
-				Reporter.LogInfo(PrettyPrintJson(Result.ToString()));
+				Console.WriteLine(PrettyPrintJson(Result.ToString()));
 				StatusCode = (int)response.StatusCode;
 			}
 
@@ -50,14 +55,6 @@ namespace CSharpAdvancedTraining.Course5
 				Result = response.Content.ReadAsStringAsync().Result;
 				StatusCode = (int)response.StatusCode;
 				Reporter.LogInfo(PrettyPrintJson(Result.ToString()));
-				if (response.IsSuccessStatusCode)
-				{
-					Reporter.LogPass("Success");
-				}
-				else
-				{
-					Reporter.LogFail("Error");
-				}
 			}
 		}
 
@@ -97,5 +94,6 @@ namespace CSharpAdvancedTraining.Course5
 		{
 			return JsonConvert.DeserializeObject<T>(Result);
 		}
+
 	}
 }
